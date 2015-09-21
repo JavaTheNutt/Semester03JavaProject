@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;Assignment_Test_Ver_1.0.0/src/ie.wit.assignment.doctor&apos;&#x0D;&#x0A;- Original project: &apos;Assignment_Test_Ver_1.0.0&apos;&#x0D;&#x0A;- Destination element: &apos;Assignment_Test_Ver_1.0.0/src/ie.wit.assignment.doctor&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ie.wit.assignment.DoctorManager.java&#x0D;&#x0A;     ie.wit.assignment.Doctor.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;ie.wit.assignment.doctor" element1="/src&lt;ie.wit.assignment{DoctorManager.java" element2="/src&lt;ie.wit.assignment{Doctor.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1442854270383" units="2" version="1.0"/>
+</session>

@@ -1,0 +1,15 @@
+package ie.wit.assignment;
+
+public class DoctorManager 
+{
+	private Doctor [] listOfDoctors;
+	private int currentDoctors;
+	
+	public DoctorManager(Doctor[] listOfDoctors) 
+	{
+		this.listOfDoctors = listOfDoctors;
+		currentDoctors = 0;
+	}
+	
+	
+}

@@ -1,0 +1,15 @@
+package ie.wit.assignment;
+
+public class DoctorManager 
+{
+	private Doctor [] listOfDoctors;
+	private int currentDoctors;
+	
+	public DoctorManager(int maxSize) 
+	{
+		listOfDoctors = new Doctor[maxSize];
+		currentDoctors = 0;
+	}
+	
+	
+}

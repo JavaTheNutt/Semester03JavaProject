@@ -1,0 +1,27 @@
+package ie.wit.assignment.doctor;
+
+public class DoctorManager 
+{
+	private Doctor [] listOfDoctors;
+	private int currentDoctors;
+	private int maxSize;
+	
+	public DoctorManager(int maxSize) 
+	{
+		this.maxSize = maxSize;
+		listOfDoctors = new Doctor[maxSize];
+		currentDoctors = 0;
+	}
+	
+	public boolean addDoctor(Doctor doctorIn)
+	{
+		if(currentDoctors < maxSize)
+		{
+			listOfDoctors[currentDoctors] = doctorIn;
+			currentDoctors++;
+			return true;
+		}
+		return false;
+	}
+	
+}
