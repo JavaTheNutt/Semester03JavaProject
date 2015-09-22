@@ -1,0 +1,37 @@
+package ie.wit.assignment.collections;
+
+import ie.wit.assignment.implementableObjects.Doctor;
+import ie.wit.assignment.implementableObjects.Manager;
+
+public final class DoctorManagerCollector 
+{
+	private static Doctor[] listOfDoctors = new Doctor[5];
+	private static Manager[] listOfManagers = new Manager[5];
+	private static int totalDoctors;
+	private static int totalManagers;
+	
+	public boolean add(Object objectIn, int choice)
+	{
+		if (choice == 1){
+			if(objectIn instanceof Doctor){
+				
+			}
+		}
+	}
+	private boolean isFull(int choice)
+	{
+		if (choice == 1){
+			if(totalDoctors == listOfDoctors.length){
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (totalManagers == listOfManagers.length){
+				return true;
+			} else{
+				return false;
+			}
+		}
+	}
+}

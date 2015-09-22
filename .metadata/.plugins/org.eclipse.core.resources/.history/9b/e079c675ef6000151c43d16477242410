@@ -1,0 +1,10 @@
+package ie.wit.assignment.implementableObjects;
+
+public class ManagerTeam 
+{
+	private String teamId;
+	private String manager01FName;
+	private String manager01LName;
+	private String manager02FName;
+	private String manager02LName;
+}
