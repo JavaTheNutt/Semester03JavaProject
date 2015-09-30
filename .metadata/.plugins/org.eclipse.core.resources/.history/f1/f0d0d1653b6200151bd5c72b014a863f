@@ -1,0 +1,39 @@
+//This is the main class
+//Requires e(fx)clipse plugin from marketplace
+package ie.wit.assignment;
+
+import ie.wit.assignment.collections.*;
+import ie.wit.assignment.implementableObjects.*;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.application.*;
+import javafx.stage.Stage;
+
+public class Main extends Application
+{
+	Stage window;
+	Scene scene;
+	Label mainLabel;
+	Label addDoctorLabel;
+	Label addManagerLabel;
+	Button addDoctorButton;
+	Button addManagerButton;
+	VBox mainLayout;
+	
+	public static void main(String [] args) 
+	{
+		launch(args);
+		ManagerCollector manCollect = new ManagerCollector();
+		manCollect.listAll();
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception 
+	{
+		
+		
+	}
+
+}

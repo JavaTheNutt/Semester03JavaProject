@@ -1,0 +1,9 @@
+package ie.wit.assignment.gui;
+
+public class CollectString {
+
+	public CollectString() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,5 @@
+package ie.wit.assignment.collectibles;
+
+public abstract class Collectables {
+
+}

@@ -1,5 +1,7 @@
 package ie.wit.assignment.implementableObjects;
 
+import ie.wit.assignment.collections.DoctorCollector;
+
 public class Doctor 
 {
 	private String doctorId;
@@ -9,10 +11,10 @@ public class Doctor
 	private String address02;
 	private String contactNo;
 	
-	public Doctor(String doctorId, String doctorFName, String doctorLName, String address01, String address02,
+	public Doctor(String doctorFName, String doctorLName, String address01, String address02,
 			String contactNo) 
 	{
-		this.doctorId = doctorId;
+		doctorId = "dr" + (DoctorCollector.getTotalDoctors() + 1);
 		this.doctorFName = doctorFName;
 		this.doctorLName = doctorLName;
 		this.address01 = address01;
@@ -80,7 +82,7 @@ public class Doctor
 	}
 	public String toString()
 	{
-		return "\nDoctor Name:\tDr. " + doctorFName + " " + doctorLName 
+		return "\n\nDoctor Name:\tDr. " + doctorFName + " " + doctorLName 
 				+ "\nDoctor Id:\t" + doctorId + "\nAddress:\t" + address01 + " " + address02 
 				+ "\nContact Number:\t" + contactNo;
 	}

@@ -1,0 +1,23 @@
+package ie.wit.assignment.collectors;
+
+import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Manager;
+
+public abstract class Collector 
+{
+	protected Collectable[] list;
+	protected int total;
+	
+	public Collector(){
+		list = new Collectable[10];
+		total = 0;
+	}
+	public Collector(int sizeIn, int type){
+		total = 0;
+		switch(type){
+		case 1:
+			list = new Manager[sizeIn];
+			break;
+		}
+	}
+}

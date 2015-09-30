@@ -1,0 +1,12 @@
+package ie.wit.assignment;
+
+import ie.wit.collections.ManagerDoctorCollector;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		ManagerDoctorCollector.testMethod();
+	}
+
+}

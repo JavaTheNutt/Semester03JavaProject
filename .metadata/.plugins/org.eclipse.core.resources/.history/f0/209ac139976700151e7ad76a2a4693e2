@@ -1,0 +1,13 @@
+package ie.wit.assignment.collections;
+
+public class ManagerCollector extends ListOfObjects 
+{
+	public ManagerCollector()
+	{
+		super();
+	}
+	public ManagerCollector(int sizeIn)
+	{
+		super(sizeIn, 1);
+	}
+}

@@ -1,0 +1,17 @@
+package ie.wit.assignment;
+
+import ie.wit.assignment.collectables.Manager;
+import ie.wit.assignment.collectors.ManagerCollector;
+
+public class Main
+{
+
+	public static void main(String[] args) 
+	{
+		Manager testMan02 = new Manager("Jason", "Bloggs","Pipe Street", "Thomastown","0567734343","example@test.ie", "mn01", "u-12");
+		Manager testMan01 = new Manager("Joe", "Bloggs", "Low Street", "Thomastown","0567734343","example@test.ie", "mn02",  "u-12");
+		ManagerCollector testCollector = new ManagerCollector(10);
+		testCollector.add(testMan01);
+	}
+
+}

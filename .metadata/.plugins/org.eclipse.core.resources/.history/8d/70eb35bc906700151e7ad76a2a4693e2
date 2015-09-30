@@ -1,0 +1,21 @@
+package ie.wit.assignment.collections;
+
+public abstract class ListOfObjects 
+{
+	protected Object[] list = new Object[10];
+	protected int totalObjects;
+	
+	protected boolean add(Object obj){
+		if(!isFull()){
+			list[totalObjects] = obj;
+			return true;
+		}
+		return false;
+	}
+	protected boolean isFull(){
+		if(totalObjects == 10){
+			return true;
+		}
+		return false;
+	}
+}

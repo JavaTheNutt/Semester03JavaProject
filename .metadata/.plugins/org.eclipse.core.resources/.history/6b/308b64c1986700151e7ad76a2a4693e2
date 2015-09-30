@@ -1,0 +1,15 @@
+package ie.wit.assignment.collectibles;
+
+public abstract class Collectables 
+{
+	protected String id;
+	protected String fName;
+	protected String lName;
+	protected String address01;
+	protected String address02;
+	
+	public Collectables()
+	{
+		
+	}
+}

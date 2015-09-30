@@ -1,0 +1,9 @@
+package ie.wit.assignment.controllers;
+
+public class CollectableController {
+
+	public CollectableController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

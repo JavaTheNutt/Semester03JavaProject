@@ -2,4 +2,35 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="ie.wit.assignment.doctor.Doctor"/>
 <fullyQualifiedTypeName name="ie.wit.assignment.doctor.DoctorManager"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collections.DoctorCollector"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.implementableObjects.Parent"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.implementableObjects.Parent02"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.exceptions.NoManagersException"/>
+<fullyQualifiedTypeName name="javafx.geometry.Pos"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.gui.MainMenu"/>
+<fullyQualifiedTypeName name="java.lang.reflect.InvocationTargetException"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.gui.AlertBox"/>
+<fullyQualifiedTypeName name="javafx.application.Application"/>
+<fullyQualifiedTypeName name="javafx.stage.Stage"/>
+<fullyQualifiedTypeName name="javafx.scene.Scene"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Button"/>
+<fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+<fullyQualifiedTypeName name="javafx.stage.Modality"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.VBox"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.controllers.StringInputController"/>
+<fullyQualifiedTypeName name="ie.wit.collections.ManagerDoctorCollector"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.implementableObjects.Manager"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.implementableObjects.Doctor"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collections.ManagerCollector"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collectables.Collectable"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collectors.Collector"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.exceptions.ListEmptyException"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.exceptions.ItemNotFoundException"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.controllers.CollectableController"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collectors.ManagerCollector"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.collectables.Manager"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.exceptions.ListFullException"/>
+<fullyQualifiedTypeName name="ie.wit.assignment.controllers.ManagerController"/>
 </qualifiedTypeNameHistroy>

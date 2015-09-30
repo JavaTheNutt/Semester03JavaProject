@@ -1,0 +1,11 @@
+package ie.wit.assignment.collectors;
+
+public class ManagerCollector 
+{
+
+	public ManagerCollector(int sizeIn) 
+	{
+		super(sizeIn, 1);
+	}
+
+}

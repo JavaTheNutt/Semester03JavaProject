@@ -1,0 +1,9 @@
+package ie.wit.assignment.controllers;
+
+public class StringInputController 
+{
+	public String collectStringFromUser(String idIn)
+	{
+		
+	}
+}

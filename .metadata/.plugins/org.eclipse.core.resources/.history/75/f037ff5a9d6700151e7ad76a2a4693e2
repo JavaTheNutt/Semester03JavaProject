@@ -1,0 +1,10 @@
+package ie.wit.assignment.collectors;
+
+public class ManagerCollector 
+{
+
+	public ManagerCollector() 
+	{
+	}
+
+}

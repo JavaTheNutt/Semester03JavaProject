@@ -1,0 +1,9 @@
+package ie.wit.assignment.controllers;
+
+public class ManagerController extends Controller {
+
+	public ManagerController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
