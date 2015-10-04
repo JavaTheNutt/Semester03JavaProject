@@ -1,9 +1,0 @@
-package ie.wit.assignment.collectors;
-
-public class ManagerCollector {
-
-	public ManagerCollector() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

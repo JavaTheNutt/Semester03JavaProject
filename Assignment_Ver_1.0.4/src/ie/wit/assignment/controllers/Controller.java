@@ -1,37 +1,35 @@
 package ie.wit.assignment.controllers;
 
+import ie.wit.assignment.Main;
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 
-public class Controller 
+public abstract class Controller 
 {
-	public static Collectable returnItem(String idIn)
+	public static void addItem(Collectable itemIn, int type)
 	{
 		try{
-			return Collector.getItem(idIn);
-		}catch(ListEmptyException e){
-			System.out.println(e.getMessage());
-			return null;
-		}catch(ItemNotFoundException e){
-			System.out.println(e.getMessage());
-			return null;
+			Collector.addItem(itemIn, type);
 		}catch(Exception e){
-			System.out.println("Unknown Error");
-			return null;
+			System.out.println("fail");
 		}
 	}
-	
-	public static String returnString()
+	public static String getAllAsString(int type)
 	{
 		try{
-			return Collector.listAll();
-		}catch(ListEmptyException e){
+			return Collector.listAll(type);
+		} catch(Exception e){
 			return e.getMessage();
-		}catch(Exception e){
-			return "Unknown Error";
 		}
 	}
-	
+	public static Collectable getById(int type, String idIn)
+	{
+		try{
+			return Collector.searchById(idIn, type);
+		}catch(Exception e){
+			return null;
+		}
+	}
 }

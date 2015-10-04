@@ -84,7 +84,7 @@ public abstract class Collectable implements Serializable
 
 	@Override 
 	public String toString() {
-		return "\nName:\t" + fName + " " + lName + "\nAddress:\t" + address01 + " " + address02;
+		return "\n\nName:\t" + fName + " " + lName + "\nAddress:\t" + address01 + " " + address02;
 	}
 	
 	
