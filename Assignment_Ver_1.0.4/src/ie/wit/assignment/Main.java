@@ -17,8 +17,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application
 {
-	private static Manager testMan02 = new Manager(2, "Jason", "Bloggs","Pipe Street", "Thomastown","0567734343","example@test.ie", "mn01", "u-12");
-	private static Manager testMan01 = new Manager(1, "Joe", "Bloggs", "Low Street", "Thomastown","0567734343","example@test.ie", "mn02",  "u-12");
+	private static Manager testMan02 = new Manager(2, "Jason", "Bloggs","Pipe Street", "Thomastown","0567734343","example@test.ie","u-12");
+	private static Manager testMan01 = new Manager(1, "Joe", "Bloggs", "Low Street", "Thomastown","0567734343","example@test.ie", "u-12");
 	private static Doctor testDoc01 = new Doctor(1, "Achim", "Shlunke", "Low Street", "Thomastown", "0567724162");
 	private static Doctor testDoc02 = new Doctor(2, "James", "Drynan", "Mill Street", "Thomastown", "0567768118");
 	/*This will temporarily hold the size of the lists being read in until it is
@@ -30,16 +30,6 @@ public class Main extends Application
 	public static void main(String[] args) 
 	{
 		try{
-			if(!IOController.checkExistance(doctors)){
-				Controller.addItem(testDoc01, 2);
-				Controller.addItem(testDoc02, 2);
-				IOController.createFile(Collector.doctorList, Collector.numberOfDoctors, doctors);
-			} else {
-				if(IOController.readList(doctors) != null){
-					Collector.numberOfDoctors = tempSize;
-					Collector.setDoctorList(IOController.readList(doctors));
-				}
-			}
 			if(!IOController.checkExistance(managers)){
 				Controller.addItem(testMan02, 1);
 				Controller.addItem(testMan01, 1);
@@ -49,6 +39,7 @@ public class Main extends Application
 				if(IOController.readList(managers) != null){
 					Collector.numberOfManagers = tempSize;
 					Collector.setManagerList(IOController.readList(managers));
+					System.out.println(Collector.numberOfManagers);
 				} else {
 					System.out.println("Fail");
 				}
@@ -56,7 +47,6 @@ public class Main extends Application
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		
 		launch(args);
 	}
 

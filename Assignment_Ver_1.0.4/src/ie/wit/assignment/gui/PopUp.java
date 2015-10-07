@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class PopUp 
+public abstract class PopUp 
 {
 	private static Stage window;
 	private static Scene scene;

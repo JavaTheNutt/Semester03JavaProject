@@ -8,12 +8,14 @@ import ie.wit.assignment.exceptions.ListEmptyException;
 
 public abstract class Controller 
 {
-	public static void addItem(Collectable itemIn, int type)
+	public static boolean addItem(Collectable itemIn, int type)
 	{
 		try{
 			Collector.addItem(itemIn, type);
+			return true;
 		}catch(Exception e){
 			System.out.println("fail");
+			return false;
 		}
 	}
 	public static String getAllAsString(int type)

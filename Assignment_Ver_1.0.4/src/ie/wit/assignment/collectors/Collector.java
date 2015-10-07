@@ -8,6 +8,8 @@ import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public abstract class Collector
 {
@@ -88,7 +90,7 @@ public abstract class Collector
 			throw new ListEmptyException();
 		}
 		for(Collectable item : tempList){
-			if(item.getfName().equals(fNameIn) && item.getlName().equals(lNameIn)){
+			if(item.getFName().equals(fNameIn) && item.getLName().equals(lNameIn)){
 				return item;
 			}
 		}
@@ -98,6 +100,11 @@ public abstract class Collector
 	{
 		ArrayList<Collectable> tempList = setType(type);
 		tempList.add(itemIn);
+		if(type == 1){
+			numberOfManagers++;
+		} else if(type == 2){
+			numberOfDoctors++;
+		}
 	}
 	
 	public static String listAll(int type)throws ListEmptyException
@@ -122,4 +129,12 @@ public abstract class Collector
 	{
 		doctorList = listIn;
 	}	
+	public static ObservableList<Manager> getManagerList()
+	{
+		ObservableList<Manager> listOfManagers = FXCollections.observableArrayList();
+		for(Collectable manager : managerList){
+			listOfManagers.add((Manager) manager);
+		}
+		return listOfManagers;
+	}
 }
