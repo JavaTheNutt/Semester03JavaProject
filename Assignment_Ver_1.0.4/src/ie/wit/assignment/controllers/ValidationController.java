@@ -1,5 +1,7 @@
 package ie.wit.assignment.controllers;
 
+import java.util.ArrayList;
+
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectors.Collector;
@@ -38,5 +40,29 @@ public class ValidationController
 			return true;
 		}
 		return false;
+	}
+	public static boolean alreadyExists(String fName, String lName, int type)
+	{
+		ArrayList<Collectable> tempList = Collector.setType(type);
+		for(Collectable item : tempList){
+			if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
+				return true;
+			}
+		}
+		return false;
+	}
+	public static boolean checkMonthValidity(String monthIn, String dayIn)
+	{
+		int month = Integer.parseInt(monthIn);
+		int day = Integer.parseInt(dayIn);
+		if(month == 9 || month == 4 || month == 6 || month == 11 || month == 2){
+			if(day > 30){
+				return false;
+			}
+			if(month == 2 && day > 28){
+				return false;
+			}
+		}
+		return true;
 	}
 }

@@ -6,8 +6,10 @@ import java.util.Collection;
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
+import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
+import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,10 +17,12 @@ public abstract class Collector
 {
 	public static ArrayList<Collectable> managerList = new ArrayList<Collectable>();
 	public static ArrayList<Collectable> doctorList = new ArrayList<Collectable>();
+	public static ArrayList<Collectable> playerList = new ArrayList<Collectable>();
 	public static int numberOfManagers;
 	public static int numberOfDoctors;
+	public static int numberOfPlayers;
 	
-	private static ArrayList<Collectable> setType(int type)
+	public static ArrayList<Collectable> setType(int type)
 	{
 		ArrayList<Collectable> tempList = null;
 		switch(type){
@@ -28,10 +32,12 @@ public abstract class Collector
 		case 2:
 			tempList = doctorList;
 			break;
+		case 3:
+			tempList = playerList;
 		}
 		return tempList;
 	}
-	private static int getAmount(int type){
+	public static int getAmount(int type){
 		int tempNum = -9;
 		switch(type){
 		case 1:
@@ -55,20 +61,7 @@ public abstract class Collector
 		}
 		return -999;
 	}
-	public static boolean removeItem(Collectable itemIn, int type)throws ListEmptyException, ItemNotFoundException
-	{
-		ArrayList<Collectable> tempList = setType(type);
-		if(tempList.isEmpty()){
-			throw new ListEmptyException();
-		}
-		int index = getIndex(itemIn, type);
-		if(index == -999){
-			throw new ItemNotFoundException();
-		}
-		tempList.remove(index);
-		return true;
-		
-	}
+	
 	public static Collectable searchById(String idIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
 		ArrayList<Collectable> tempList = setType(type);
@@ -104,6 +97,8 @@ public abstract class Collector
 			numberOfManagers++;
 		} else if(type == 2){
 			numberOfDoctors++;
+		} else if (type == 3){
+			numberOfPlayers ++;
 		}
 	}
 	
@@ -129,12 +124,62 @@ public abstract class Collector
 	{
 		doctorList = listIn;
 	}	
-	public static ObservableList<Manager> getManagerList()
-	{
-		ObservableList<Manager> listOfManagers = FXCollections.observableArrayList();
-		for(Collectable manager : managerList){
-			listOfManagers.add((Manager) manager);
-		}
-		return listOfManagers;
+	public static void setPlayerList(ArrayList<Collectable> listIn){
+		playerList = listIn;
 	}
+	public static ObservableList<Collectable> getList(int type){
+		ObservableList<Collectable> list = FXCollections.observableArrayList();
+		switch(type){
+		case 1:
+			for(Collectable manager : managerList){
+				list.add((Manager)manager);
+			}
+			return list;
+		case 2:
+			for(Collectable doctor : doctorList){
+				list.add((Doctor) doctor);
+			}
+			return list;
+		case 3:
+			for(Collectable player : playerList){
+				list.add((Player) player);
+			}
+			return list;
+		}
+		return null;
+		
+	}
+	public static String[] getDoctorNamesInArray()
+	{
+        int amountOfDoctors  = getAmount(2);
+        String[] tempArray = new String[amountOfDoctors];
+        String tempString = "";
+        int i = 0;
+        for(Collectable doc : doctorList){
+            tempString = doc.getFName() + " " + doc.getLName();
+            tempArray[i] = tempString;
+            i++;
+        }
+        return tempArray;
+	}
+	
+    public static String matchDoctorNameToId(String name){
+        try{
+            name = name.trim();
+            String[] names = name.split(" ");
+            System.out.println(names.toString());
+
+            Doctor thisdoc = (Doctor) searchByName(names[0], names[1], 2);
+            return thisdoc.getId();
+        } catch (ListEmptyException e){
+            PopUp.alertBox("List Empty", "There are no items");
+            return null;
+        } catch(ItemNotFoundException e){
+            PopUp.alertBox("Item not found", "There was no such item found");
+            return null;
+        } catch(Exception e){
+            PopUp.alertBox("Unknown Error", "An unknown error has occurred");
+            return null;
+        }
+    }
 }

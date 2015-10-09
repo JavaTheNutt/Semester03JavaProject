@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
+import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.IOController;
 import ie.wit.assignment.fileHandling.ManagerFileHandler;
+import ie.wit.assignment.gui.AddItem;
+import ie.wit.assignment.gui.DisplayItems;
 import ie.wit.assignment.gui.MainMenu;
 import ie.wit.assignment.gui.PopUp;
 import javafx.application.Application;
@@ -17,42 +20,20 @@ import javafx.stage.Stage;
 
 public class Main extends Application
 {
-	private static Manager testMan02 = new Manager(2, "Jason", "Bloggs","Pipe Street", "Thomastown","0567734343","example@test.ie","u-12");
-	private static Manager testMan01 = new Manager(1, "Joe", "Bloggs", "Low Street", "Thomastown","0567734343","example@test.ie", "u-12");
-	private static Doctor testDoc01 = new Doctor(1, "Achim", "Shlunke", "Low Street", "Thomastown", "0567724162");
-	private static Doctor testDoc02 = new Doctor(2, "James", "Drynan", "Mill Street", "Thomastown", "0567768118");
-	/*This will temporarily hold the size of the lists being read in until it is
-	 * passed to the collection class*/
-	private static int tempSize;
-	public static File managers = new File("managers.dat");
-	public static File doctors = new File("doctors.dat");
 
 	public static void main(String[] args) 
 	{
 		try{
-			if(!IOController.checkExistance(managers)){
-				Controller.addItem(testMan02, 1);
-				Controller.addItem(testMan01, 1);
-				IOController.createFile(Collector.managerList, Collector.numberOfManagers, managers);
-			} else {
-				System.out.println("Already Exists!!");
-				if(IOController.readList(managers) != null){
-					Collector.numberOfManagers = tempSize;
-					Collector.setManagerList(IOController.readList(managers));
-					System.out.println(Collector.numberOfManagers);
-				} else {
-					System.out.println("Fail");
-				}
-			}
+			InitialSetup.gatherItemsInSystem();
+			launch(args);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		launch(args);
 	}
 
 	public static void setTempSize(int tempSizeIn)
 	{
-		tempSize = tempSizeIn;
+		InitialSetup.tempSize = tempSizeIn;
 	}
 	public static void closeProgram()
 	{
@@ -64,7 +45,13 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		MainMenu.display();
+		AddItem.addPlayer();
+		/*MainMenu.display();*/
+		/*DisplayItems.displayManagers(Collector.getList(1));*/
+		/*DisplayItems.displayDoctor(Collector.getList(2));*/
+
+
+		
 	}
 	
 }

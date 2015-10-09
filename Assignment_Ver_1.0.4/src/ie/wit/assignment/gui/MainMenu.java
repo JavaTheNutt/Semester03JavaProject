@@ -1,7 +1,5 @@
 package ie.wit.assignment.gui;
 
-
-
 import ie.wit.assignment.Main;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectors.Collector;
@@ -11,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -27,6 +26,8 @@ public abstract class MainMenu
 	private static Button listDoctorsButton;
 	private static Button addManagerButton;
 	private static Button addDoctorButton;
+	private static Button addItemsButton;
+	private static Button listItemsButton;
 	
 	private static Label listManagersLabel;
 	private static Label listDoctorsLabel;
@@ -37,6 +38,7 @@ public abstract class MainMenu
 	private static StackPane topHeader;
 	private static BorderPane outerLayout;
 	private static GridPane grid;
+	private static HBox topMenu;
 	
 	public static void display()
 	{
@@ -47,48 +49,26 @@ public abstract class MainMenu
 			Main.closeProgram();
 		});
 		
-		topLabel = new Label("Thomastown UTD AFC");
+		/*topLabel = new Label("Thomastown UTD AFC");
 		topHeader = new StackPane();
 		topHeader.setAlignment(Pos.CENTER);
-		topHeader.getChildren().add(topLabel);
+		topHeader.getChildren().add(topLabel);*/
 		
-		grid = new GridPane();
-		grid.setPadding(new Insets(10, 10, 10, 10));
-		grid.setVgap(8);
-		grid.setHgap(10);
-		grid .setAlignment(Pos.CENTER);
-		listManagersLabel = new Label("List All Managers");
-		GridPane.setConstraints(listManagersLabel, 0, 0);
-		listManagersButton = new Button("List");
-		GridPane.setConstraints(listManagersButton, 1, 0);
-		listManagersButton.setOnAction(event -> {
-			DisplayItems.displayManagers(Collector.getManagerList());
+		addItemsButton = new Button("Add");
+		addItemsButton.setOnAction(e -> {
+			AddItemsMenu.display();
 		});
-		listDoctorsLabel = new Label("List All Doctors");
-		GridPane.setConstraints(listDoctorsLabel, 0, 1);
-		listDoctorsButton = new Button("List");
-		GridPane.setConstraints(listDoctorsButton, 1, 1);
-		listDoctorsButton.setOnAction(e-> {
-			
+		listItemsButton = new Button("List");
+		listItemsButton.setOnAction(e -> {
+			ListItemsGui.display();
 		});
-		addManagerLabel = new Label("Add Manager");
-		GridPane.setConstraints(addManagerLabel, 0, 2);
-		addManagerButton = new Button("Add");
-		GridPane.setConstraints(addManagerButton, 1, 2);
-		addManagerButton.setOnAction(e -> {
-			AddItem.addManager();
-		});
-		addDoctorLabel = new Label("Add Doctor");
-		GridPane.setConstraints(addDoctorLabel, 0, 3);
-		addDoctorButton = new Button("Add");
-		GridPane.setConstraints(addDoctorButton, 1, 3);
-		addDoctorButton.setOnAction(e -> {
-			AddItem.addDoctor();
-		});
-		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton, addManagerLabel, addManagerButton, addDoctorLabel,addDoctorButton);
+		
+		topMenu = new HBox(20);
+		topMenu.setAlignment(Pos.CENTER);
+		topMenu.getChildren().addAll(addItemsButton, listItemsButton);
+
 		outerLayout = new BorderPane();
-		outerLayout.setTop(topHeader);
-		outerLayout.setCenter(grid);
+		outerLayout.setTop(topMenu);
 		scene = new Scene(outerLayout, 300, 500);
 		window.setScene(scene);
 		window.show();

@@ -1,6 +1,0 @@
-package ie.wit.assignment.collectables;
-
-public abstract class Collectable 
-{
-	
-}
