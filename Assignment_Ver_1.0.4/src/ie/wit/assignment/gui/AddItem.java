@@ -234,7 +234,9 @@ public class AddItem
 				}
 			}
 		});
-		
+		closeButton.setOnAction(e -> {
+			window.close();
+		});
 		
 		GridPane.setConstraints(firstNameLabel, 0, 0);
 		GridPane.setConstraints(firstNameInput, 1, 0);
@@ -264,7 +266,7 @@ public class AddItem
 	{
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Add a manager");
+		window.setTitle("Add a player");
 		window.setOnCloseRequest(e -> {
 			e.consume();
 			if(PopUp.confirmBox("Confirm Exit", "If you close this window, data may be lost. Proceed?")){
@@ -316,6 +318,8 @@ public class AddItem
 		monthOfBirth.getItems().addAll(setNumberDays(12));
 		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008" );
         setDoctorSelection();
+		/*doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());*/
+		doctorSelection.setValue("Achim Shlunke");
 		
 		dateofBirthInput.setValue("1");
 		monthOfBirth.setValue("1");
@@ -358,7 +362,6 @@ public class AddItem
                                     tempDoc
                             );
                             Collector.addItem(tempPlayer, 3);
-
                         }
 
 					}
@@ -413,7 +416,10 @@ public class AddItem
 	private static void setDoctorSelection()
     {
         doctorSelection.getItems().removeAll();
-        doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());
+		System.out.println(doctorSelection.getItems());
+		String[] tempAry = Collector.getDoctorNamesInArray();
+		doctorSelection.getItems().addAll(tempAry);
+		System.out.println(doctorSelection.getItems());
 	}
 	private static String[] setNumberDays(int sizeIn)
     {

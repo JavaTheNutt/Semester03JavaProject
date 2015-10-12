@@ -49,8 +49,6 @@ public class Main extends Application
 		/*MainMenu.display();*/
 		/*DisplayItems.displayManagers(Collector.getList(1));*/
 		/*DisplayItems.displayDoctor(Collector.getList(2));*/
-
-
 		
 	}
 	
