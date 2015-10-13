@@ -1,30 +1,31 @@
 package ie.wit.assignment.exceptions;
 
-public class ItemNotFoundException extends Exception {
+public class ItemNotFoundException extends Exception
+{
 
-	public ItemNotFoundException() {
-		// TODO Auto-generated constructor stub
+	public ItemNotFoundException()
+    {
+		super("Item not found");
 	}
 
-	public ItemNotFoundException(String message) {
+	public ItemNotFoundException(String message)
+    {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ItemNotFoundException(Throwable cause) {
+	public ItemNotFoundException(Throwable cause)
+    {
 		super(cause);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ItemNotFoundException(String message, Throwable cause) {
+	public ItemNotFoundException(String message, Throwable cause)
+    {
 		super(message, cause);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ItemNotFoundException(String message, Throwable cause, boolean enableSuppression,
-			boolean writableStackTrace) {
+	public ItemNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
+    {
 		super(message, cause, enableSuppression, writableStackTrace);
-		// TODO Auto-generated constructor stub
 	}
 
 }

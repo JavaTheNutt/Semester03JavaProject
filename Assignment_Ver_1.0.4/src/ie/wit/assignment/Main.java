@@ -23,6 +23,7 @@ public class Main extends Application
 
 	public static void main(String[] args) 
 	{
+
 		try{
 			InitialSetup.gatherItemsInSystem();
 			launch(args);
@@ -39,16 +40,25 @@ public class Main extends Application
 	{
 		boolean answer = PopUp.confirmBox("System exit", "Are you sure you wish to exit?");
 		if(answer){
-			System.exit(0);
+			if(IOController.createFile(Collector.managerList, Collector.numberOfManagers, InitialSetup.managers) && IOController.createFile(Collector.doctorList, Collector.numberOfDoctors, InitialSetup.doctors) && IOController.createFile(Collector.playerList, Collector.numberOfPlayers, InitialSetup.players))
+            {
+                PopUp.alertBox("System Shutdown", "Files saved successfully, system will now shut down");
+                System.exit(0);
+            } else {
+               if (PopUp.confirmBox("Error", "An error has occured. Force shutdown?")){
+                   System.exit(1);
+               }
+            }
 		}
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
-		AddItem.addPlayer();
+		/*AddItem.addPlayer();*/
 		/*MainMenu.display();*/
 		/*DisplayItems.displayManagers(Collector.getList(1));*/
 		/*DisplayItems.displayDoctor(Collector.getList(2));*/
+		PopUp.singleInput("Enter data", "Enter the data");
 		
 	}
 	

@@ -415,11 +415,9 @@ public class AddItem
 	}
 	private static void setDoctorSelection()
     {
-        doctorSelection.getItems().removeAll();
-		System.out.println(doctorSelection.getItems());
-		String[] tempAry = Collector.getDoctorNamesInArray();
-		doctorSelection.getItems().addAll(tempAry);
-		System.out.println(doctorSelection.getItems());
+        doctorSelection.getItems().removeAll(doctorSelection.getItems());
+		doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());
+		doctorSelection.setValue("Achim Shlunke");
 	}
 	private static String[] setNumberDays(int sizeIn)
     {

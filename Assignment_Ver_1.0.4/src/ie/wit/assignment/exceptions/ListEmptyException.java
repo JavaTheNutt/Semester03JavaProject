@@ -1,30 +1,30 @@
 package ie.wit.assignment.exceptions;
 
-public class ListEmptyException extends Exception {
-
-	public ListEmptyException() {
-		// TODO Auto-generated constructor stub
+public class ListEmptyException extends Exception
+{
+	public ListEmptyException()
+	{
 		super("List Empty");
 	}
 
-	public ListEmptyException(String message) {
+	public ListEmptyException(String message)
+    {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ListEmptyException(Throwable cause) {
+	public ListEmptyException(Throwable cause)
+    {
 		super(cause);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ListEmptyException(String message, Throwable cause) {
+	public ListEmptyException(String message, Throwable cause)
+    {
 		super(message, cause);
-		// TODO Auto-generated constructor stub
 	}
 
-	public ListEmptyException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+	public ListEmptyException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
+    {
 		super(message, cause, enableSuppression, writableStackTrace);
-		// TODO Auto-generated constructor stub
 	}
 
 }

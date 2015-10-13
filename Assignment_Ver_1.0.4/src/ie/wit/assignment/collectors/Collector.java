@@ -2,6 +2,7 @@ package ie.wit.assignment.collectors;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Doctor;
@@ -21,7 +22,8 @@ public abstract class Collector
 	public static int numberOfManagers;
 	public static int numberOfDoctors;
 	public static int numberOfPlayers;
-	
+
+
 	public static ArrayList<Collectable> setType(int type)
 	{
 		ArrayList<Collectable> tempList = null;
@@ -36,6 +38,21 @@ public abstract class Collector
 			tempList = playerList;
 		}
 		return tempList;
+	}
+	public static boolean removeItem(Collectable item, int type) throws ItemNotFoundException, ListEmptyException
+	{
+		ArrayList<Collectable> tempList = setType(type);
+		if(tempList.isEmpty()){
+			throw new ListEmptyException();
+		}
+		Iterator<Collectable> iterator = tempList.iterator();
+		while(iterator.hasNext()){
+			if(item.equals(iterator)){
+				iterator.remove();
+				return true;
+			}
+		}
+		throw new ItemNotFoundException();
 	}
 	public static int getAmount(int type){
 		int tempNum = -9;
