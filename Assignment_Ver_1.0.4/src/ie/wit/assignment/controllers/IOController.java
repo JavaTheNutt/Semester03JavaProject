@@ -1,10 +1,9 @@
 package ie.wit.assignment.controllers;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.fileHandling.FileHandler;
 
 /*This class handles exceptions that may be thrown by the IO process*/
@@ -22,7 +21,7 @@ public class IOController
 			return false;
 		}
 	}
-	public static boolean createFile(List<Collectable> listIn, int size, File fileIn)
+	public static boolean createFile(List<Collectible> listIn, int size, File fileIn)
 	{
 		try{
 			FileHandler.writeOut(listIn, size, fileIn);
@@ -32,7 +31,7 @@ public class IOController
 			return false;
 		}
 	}
-	public static List<Collectable> readList(File fileIn){
+	public static List<Collectible> readList(File fileIn){
 		try{
 			return FileHandler.readIn(fileIn);
 		} catch(Exception e){

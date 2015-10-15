@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 import ie.wit.assignment.InitialSetup;
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 
 /*This class deals with writing to, and reading from files*/
 public class FileHandler
@@ -18,7 +18,7 @@ public class FileHandler
 	private static ObjectOutputStream oos;
 	private static ObjectInputStream ois;
 	
-	public static void writeOut(List<Collectable> list, int size, File fileIn)throws FileNotFoundException, IOException
+	public static void writeOut(List<Collectible> list, int size, File fileIn)throws FileNotFoundException, IOException
 	{
 		oos = new ObjectOutputStream(new FileOutputStream(fileIn));
 		oos.writeInt(size);
@@ -26,16 +26,16 @@ public class FileHandler
 		oos.close();
 	}
 	
-	public static List<Collectable> readIn(File fileIn) throws FileNotFoundException, IOException, ClassNotFoundException
+	public static List<Collectible> readIn(File fileIn) throws FileNotFoundException, IOException, ClassNotFoundException
 	{
 		int tempSize;
-		List<Collectable> temp = null;
+		List<Collectible> temp = null;
 		ois = new ObjectInputStream(new FileInputStream(fileIn));
 		tempSize = ois.readInt();
 		/*This variable is temporarily set, then the method that calls this method will use that
 		* value to set the size of the list before attempting to read another list*/
 		InitialSetup.setTempSize(tempSize);
-		temp = (List<Collectable>) ois.readObject();
+		temp = (List<Collectible>) ois.readObject();
 		ois.close();
 		return temp;
 	}

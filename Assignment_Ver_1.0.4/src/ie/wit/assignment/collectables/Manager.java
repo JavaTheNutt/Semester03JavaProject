@@ -1,7 +1,7 @@
 /*This inherits from collectable*/
 package ie.wit.assignment.collectables;
 
-public class Manager extends Collectable 
+public class Manager extends Collectible
 {
 	
 	private String ageDivision;

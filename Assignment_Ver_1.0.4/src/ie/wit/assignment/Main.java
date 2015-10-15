@@ -39,7 +39,8 @@ public class Main extends Application
 	public void start(Stage primaryStage) throws Exception 
 	{
 		/*AddItem.addPlayer();*/
-		MainMenu.display();
+		/*MainMenu.display();*/
+		UpdateItemMenu.display();
 		/*DisplayItems.displayManagers(Collector.getList(1));*/
 		/*DisplayItems.displayDoctor(Collector.getList(2));*/
 		/*DisplayItems.displayPlayers(Collector.getList(3));*/
@@ -48,6 +49,7 @@ public class Main extends Application
 		/*DisplayItems.displayPlayers(FindItemController.findPlayersByAgeDivision("U-16"));*/
 		/*ListItemsGui.display();*/
 		/*PopUp.selectAgeDivision();*/
+		/*RemoveItemMenu.display();*/
 	}
 	
 }

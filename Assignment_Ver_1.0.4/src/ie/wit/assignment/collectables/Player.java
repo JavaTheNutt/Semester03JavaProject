@@ -1,10 +1,9 @@
 package ie.wit.assignment.collectables;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.time.*;
 
-public class Player extends Collectable {
+public class Player extends Collectible
+{
 	
 	private String ageDivision;
 	private int ageThisYear;

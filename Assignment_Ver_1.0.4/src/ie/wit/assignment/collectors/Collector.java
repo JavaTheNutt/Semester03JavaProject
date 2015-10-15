@@ -1,11 +1,9 @@
 package ie.wit.assignment.collectors;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
@@ -16,21 +14,21 @@ import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/*This class handles collections of concrete objects. It collects Collectable objects and stores them in a List.
+/*This class handles collections of concrete objects. It collects Collectible objects and stores them in a List.
 * This class also handles operations on the lists*/
 public abstract class Collector
 {
-	public static List<Collectable> managerList = new ArrayList<Collectable>();
-	public static List<Collectable> doctorList = new ArrayList<Collectable>();
-	public static List<Collectable> playerList = new ArrayList<Collectable>();
+	public static List<Collectible> managerList = new ArrayList<Collectible>();
+	public static List<Collectible> doctorList = new ArrayList<Collectible>();
+	public static List<Collectible> playerList = new ArrayList<Collectible>();
 	public static int numberOfManagers;
 	public static int numberOfDoctors;
 	public static int numberOfPlayers;
 
 	/*This method is used to determine which list to perform an operation on*/
-	public static List<Collectable> setType(int type)
+	public static List<Collectible> setType(int type)
 	{
-		List<Collectable> tempList = null;
+		List<Collectible> tempList = null;
 		switch(type){
 		case 1:
 			tempList = managerList;
@@ -44,18 +42,16 @@ public abstract class Collector
 		return tempList;
 	}
 
-	public static boolean removeItem(Collectable item, int type) throws ItemNotFoundException, ListEmptyException
+	public static boolean removeItem(Collectible item, int type) throws ItemNotFoundException, ListEmptyException
 	{
-		List<Collectable> tempList = setType(type);
-		checkEmpty(type);
-		Iterator<Collectable> iterator = tempList.iterator();
-		while(iterator.hasNext()){
-			if(item.equals(iterator)){
-				iterator.remove();
-				return true;
-			}
+		List<Collectible>tempList = setType(type);
+		if (tempList.isEmpty()){
+			throw new ListEmptyException("The list is empty");
 		}
-		throw new ItemNotFoundException();
+		if(tempList.remove(item)){
+			return true;
+		}
+		return false;
 	}
 	/*Return the number of a specific object in a list*/
 	public static int getAmount(int type){
@@ -74,11 +70,11 @@ public abstract class Collector
 		return tempNum;
 	}
 
-	private static int getIndex(Collectable itemIn, int type)
+	private static int getIndex(Collectible itemIn, int type)
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		int i = 0;
-		for(Collectable item : tempList){
+		for(Collectible item : tempList){
 			if(item.getId().equals(itemIn.getId())){
 				return i;
 			}
@@ -87,13 +83,13 @@ public abstract class Collector
 		return -999;
 	}
 
-	public static Collectable searchById(String idIn, int type)throws ListEmptyException, ItemNotFoundException
+	public static Collectible searchById(String idIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		if(tempList.isEmpty()){
 			throw new ListEmptyException();
 		}
-		for(Collectable item : tempList){
+		for(Collectible item : tempList){
 			if(item.getId().equals(idIn)){
 				return item;
 			}
@@ -101,22 +97,22 @@ public abstract class Collector
 		throw new ItemNotFoundException();
 	}
 
-	public static Collectable searchByName(String fNameIn, String lNameIn, int type)throws ListEmptyException, ItemNotFoundException
+	public static Collectible searchByName(String fNameIn, String lNameIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		if(checkEmpty(type)){
 			throw new ListEmptyException();
 		}
-		for(Collectable item : tempList){
+		for(Collectible item : tempList){
 			if(item.getFName().equals(fNameIn) && item.getLName().equals(lNameIn)){
 				return item;
 			}
 		}
 		throw new ItemNotFoundException();
 	}
-	public static void addItem(Collectable itemIn, int type)
+	public static void addItem(Collectible itemIn, int type)
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		tempList.add(itemIn);
 		if(type == 1){
 			numberOfManagers++;
@@ -129,45 +125,45 @@ public abstract class Collector
 	/*Return all items of a list in a string*/
 	public static String listAll(int type)throws ListEmptyException
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		
 		if(!checkEmpty(type)){
 			throw new ListEmptyException("The list is empty");
 		}
 		String tempString = "";
-		for(Collectable item: tempList)
+		for(Collectible item: tempList)
 		{
 			tempString += item.toString();
 		}
 		return tempString;
 	}
-	public static void setManagerList(List <Collectable> listIn)
+	public static void setManagerList(List <Collectible> listIn)
 	{
 		managerList = listIn;
 	}
-	public static void setDoctorList(List <Collectable> listIn)
+	public static void setDoctorList(List <Collectible> listIn)
 	{
 		doctorList = listIn;
 	}	
-	public static void setPlayerList(List<Collectable> listIn){
+	public static void setPlayerList(List<Collectible> listIn){
 		playerList = listIn;
 	}
 	/*Convert from an ArrayList to an ObservableList*/
-	public static ObservableList<Collectable> getList(int type){
-		ObservableList<Collectable> list = FXCollections.observableArrayList();
+	public static ObservableList<Collectible> getList(int type){
+		ObservableList<Collectible> list = FXCollections.observableArrayList();
 		switch(type){
 		case 1:
-			for(Collectable manager : managerList){
+			for(Collectible manager : managerList){
 				list.add((Manager)manager);
 			}
 			return list;
 		case 2:
-			for(Collectable doctor : doctorList){
+			for(Collectible doctor : doctorList){
 				list.add((Doctor) doctor);
 			}
 			return list;
 		case 3:
-			for(Collectable player : playerList){
+			for(Collectible player : playerList){
 				list.add((Player) player);
 			}
 			return list;
@@ -182,7 +178,7 @@ public abstract class Collector
         String[] tempArray = new String[amountOfDoctors];
         String tempString = "";
         int i = 0;
-        for(Collectable doc : doctorList){
+        for(Collectible doc : doctorList){
             tempString = doc.getFName() + " " + doc.getLName();
             tempArray[i] = tempString;
             i++;
@@ -231,7 +227,7 @@ public abstract class Collector
 	}
 	public static boolean checkEmpty(int type)throws ListEmptyException
 	{
-		List<Collectable> tempList = setType(type);
+		List<Collectible> tempList = setType(type);
 		if (tempList.isEmpty()){
 			throw new ListEmptyException("The list is empty");
 		}

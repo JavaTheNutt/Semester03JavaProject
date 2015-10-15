@@ -1,7 +1,7 @@
 package ie.wit.assignment.collectables;
 
 
-public class Doctor extends Collectable 
+public class Doctor extends Collectible
 {
 	public Doctor(int index, String fName, String lName, String address01, String address02, String contactNo) 
 	{

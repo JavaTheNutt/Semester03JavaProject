@@ -1,13 +1,11 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.ValidationController;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

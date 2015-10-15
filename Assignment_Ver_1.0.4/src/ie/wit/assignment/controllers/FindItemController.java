@@ -1,13 +1,9 @@
 package ie.wit.assignment.controllers;
 
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.exceptions.InputNotValidException;
-import ie.wit.assignment.exceptions.ItemNotFoundException;
-import ie.wit.assignment.exceptions.ListEmptyException;
-import ie.wit.assignment.gui.DisplayItems;
 import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,12 +26,12 @@ public class FindItemController
         }
     }
 	/*Display a list of players based on an age division entered at runtime*/
-    public static ObservableList<Collectable> findPlayersByAgeDivision(String ageDivisionIn)
+    public static ObservableList<Collectible> findPlayersByAgeDivision(String ageDivisionIn)
     {
        try{
-           ObservableList<Collectable> playerList = FXCollections.observableArrayList();
-           for(Collectable collectable : Collector.playerList){
-               Player player = (Player)collectable;
+           ObservableList<Collectible> playerList = FXCollections.observableArrayList();
+           for(Collectible collectible : Collector.playerList){
+               Player player = (Player) collectible;
                if (player.getAgeDivision().equals(ageDivisionIn)){
                    playerList.add(player);
                }
@@ -47,9 +43,9 @@ public class FindItemController
     }
 
 	/*Display a list of objects based on a name entered at runtime*/
-	public static ObservableList<Collectable> findByName(int type)
+	public static ObservableList<Collectible> findByName(int type)
 	{
-		ObservableList<Collectable> list = FXCollections.observableArrayList();
+		ObservableList<Collectible> list = FXCollections.observableArrayList();
 		String fullName;
 		String [] name;
 		boolean check;
@@ -61,7 +57,7 @@ public class FindItemController
 				PopUp.alertBox("Incorrect entry", "Please enter  a full name with no spaces");
 			}
 		} while(!check);
-		for(Collectable item : Collector.setType(type)){
+		for(Collectible item : Collector.setType(type)){
 			if(item.getFName().equalsIgnoreCase(name[0]) && item.getLName().equalsIgnoreCase(name[1])){
 				list.add(item);
 			}

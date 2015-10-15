@@ -1,9 +1,8 @@
 package ie.wit.assignment.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectors.Collector;
 
@@ -24,7 +23,7 @@ public class ValidationController
 	public static boolean checkCorrectDivision(String ageDivisionIn)
 	{
 		int totalInDivision = 0;
-		for(Collectable manager : Collector.managerList)
+		for(Collectible manager : Collector.managerList)
 		{
 			Manager tempMan = (Manager) manager;
 			if(tempMan.getAgeDivision().equalsIgnoreCase(ageDivisionIn)){
@@ -45,8 +44,8 @@ public class ValidationController
 	}
 	public static boolean alreadyExists(String fName, String lName, int type)
 	{
-		List<Collectable> tempList = Collector.setType(type);
-		for(Collectable item : tempList){
+		List<Collectible> tempList = Collector.setType(type);
+		for(Collectible item : tempList){
 			if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
 				return true;
 			}

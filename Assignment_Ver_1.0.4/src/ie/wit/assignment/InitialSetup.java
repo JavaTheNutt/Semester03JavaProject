@@ -1,10 +1,9 @@
 package ie.wit.assignment;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
@@ -59,11 +58,11 @@ public abstract class InitialSetup
 	private static boolean checkAndAdd(int type)
 	{
 		File tempFile = setFile(type);
-		List<Collectable> tempList = Collector.setType(type);
-		Collectable[] tempArray = getTempFiles(type);
+		List<Collectible> tempList = Collector.setType(type);
+		Collectible[] tempArray = getTempFiles(type);
 		
 		if(!IOController.checkExistance(tempFile)){
-			for(Collectable item : tempArray){
+			for(Collectible item : tempArray){
 				Controller.addItem(item, type);
 			}
 			IOController.createFile(tempList, Collector.getAmount(type), tempFile);
@@ -109,9 +108,9 @@ public abstract class InitialSetup
 		return tempFile;
 	}
 	/*This gets the temporary data stored in the array*/
-	private static Collectable[] getTempFiles(int type)
+	private static Collectible[] getTempFiles(int type)
 	{
-		Collectable[] tempArray = null;
+		Collectible[] tempArray = null;
 		switch(type){
 		case 1: 
 			tempArray = managerHolder;

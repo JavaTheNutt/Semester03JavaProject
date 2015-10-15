@@ -1,0 +1,89 @@
+package ie.wit.assignment.gui;
+
+import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.controllers.Controller;
+import ie.wit.assignment.exceptions.InputNotValidException;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+/*This class will be the GUI for removing items*/
+public class RemoveItemMenu
+{
+	private static String tempId;
+	public static void display()
+	{
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Select type");
+
+		Label removeManagerLabel = new Label("Remove Manager");
+		Label removeDoctorLabel = new Label("Remove Doctor");
+		Label removePlayerLabel = new Label("Remove Player");
+
+
+		Button removeManagerButton = new Button("X");
+		removeManagerButton.setOnAction(e-> {
+			passData("manager", 1);
+		});
+
+		Button removeDoctorButton = new Button("X");
+		removeDoctorButton.setOnAction(e -> {
+			passData("doctor", 2);
+		});
+
+		Button removePlayerButton = new Button("X");
+		removePlayerButton.setOnAction(e -> {
+			passData("player", 3);
+		});
+
+		GridPane.setConstraints(removeManagerLabel, 0, 0);
+		GridPane.setConstraints(removeManagerButton, 1, 0);
+		GridPane.setConstraints(removeDoctorLabel, 0, 1);
+		GridPane.setConstraints(removeDoctorButton, 1, 1);
+		GridPane.setConstraints(removePlayerLabel, 0, 2);
+		GridPane.setConstraints(removePlayerButton, 1, 2);
+
+		GridPane grid = new GridPane();
+		grid.setPadding(new Insets(10, 10, 10, 10));
+		grid.setVgap(8);
+		grid.setHgap(10);
+		grid.getChildren().addAll(removeManagerLabel, removeManagerButton, removeDoctorLabel, removeDoctorButton, removePlayerLabel, removePlayerButton);
+		Scene scene = new Scene(grid);
+		window.setScene(scene);
+		window.showAndWait();
+	}
+	/*This method will prompt the user for an ID, validate it and use that to remove the item*/
+	private static void passData(String typeString, int type)
+	{
+		String subId;
+		String tempId;
+		boolean check;
+		do{
+			tempId = PopUp.singleInput("Enter id", "Please enter the Id of the " + typeString + " to be removed");
+			if(!tempId.equalsIgnoreCase("close")){
+				subId = tempId.substring(0, 2);
+				if((!subId.equalsIgnoreCase("mn")&& type ==1) || (!subId.equalsIgnoreCase("dr") && type == 2) || (subId.equalsIgnoreCase("pl") && type == 3)){
+					check = false;
+					PopUp.alertBox("Incorrect entry", "Please enter a valid Id.(One beginning with either 'pl', 'mn' or 'dr'");
+				} else {
+					check = true;
+				}
+			}else{
+				check = true;
+			}
+		}while(!check);
+		if(tempId.equalsIgnoreCase("close")){
+			if(Controller.removeItem(tempId, type)){
+				PopUp.alertBox("Success", "Item successfully removed");
+				return;
+			} else {
+				PopUp.alertBox("Failed", "The item has not been removed");
+				return;
+			}
+		}
+	}
+}

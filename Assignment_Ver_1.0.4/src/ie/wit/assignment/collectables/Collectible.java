@@ -4,7 +4,7 @@ package ie.wit.assignment.collectables;
 
 import java.io.Serializable;
 
-public abstract class Collectable implements Serializable
+public abstract class Collectible implements Serializable
 {
 	/*Id will be generated in a subclass*/
 	protected String id;
@@ -15,8 +15,8 @@ public abstract class Collectable implements Serializable
 	protected String contactNo;
 	protected String email;
 	
-	public Collectable(String fName, String lName, String address01, String address02, String contactNo,
-			String email) 
+	public Collectible(String fName, String lName, String address01, String address02, String contactNo,
+					   String email)
 	{
 		this.fName = fName;
 		this.lName = lName;

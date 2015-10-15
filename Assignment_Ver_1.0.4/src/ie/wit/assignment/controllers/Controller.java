@@ -1,9 +1,7 @@
 package ie.wit.assignment.controllers;
 
-import ie.wit.assignment.Main;
-import ie.wit.assignment.collectables.Collectable;
+import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
@@ -14,7 +12,7 @@ import java.util.List;
 * exceptions thrown in the collector class*/
 public abstract class Controller 
 {
-	public static boolean addItem(Collectable itemIn, int type)
+	public static boolean addItem(Collectible itemIn, int type)
 	{
 		try{
 			Collector.addItem(itemIn, type);
@@ -26,7 +24,7 @@ public abstract class Controller
 	}
 	public static  boolean removeItem(String idIn, int type){
         try{
-            Collectable tempItem = Controller.getById(type, idIn);
+            Collectible tempItem = Controller.getById(type, idIn);
             if(tempItem.equals(null)){
                 return false;
             }
@@ -55,7 +53,7 @@ public abstract class Controller
 			return null;
 		}
 	}
-	public static Collectable getById(int type, String idIn)
+	public static Collectible getById(int type, String idIn)
 	{
 		try{
 			return Collector.searchById(idIn, type);

@@ -102,6 +102,7 @@ public abstract class PopUp
 			}
 		});
 		close.setOnAction(e -> {
+			tempString = "close";
 			window.close();
 		});
         GridPane grid = new GridPane();
@@ -168,4 +169,64 @@ public abstract class PopUp
 		window.showAndWait();
 		return tempString;
 	}
+	public static String singleComboBox(String[] listIn, String title, String label)
+	{
+
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle(title);
+
+		Label mainLabel = new Label(label);
+		ComboBox<String> list = new ComboBox<>();
+		list.getItems().addAll(listIn);
+		list.setValue(listIn[0]);
+
+		Button submit = new Button("Submit");
+		submit.setOnAction(e -> {
+			tempString = list.getValue();
+			window.close();
+		});
+		Button close = new Button("Close");
+		close.setOnAction(e -> {
+			tempString = "close";
+			window.close();
+		});
+
+		GridPane.setConstraints(mainLabel, 0, 0);
+		GridPane.setConstraints(list, 1, 0);
+		GridPane.setConstraints(submit, 0, 1);
+		GridPane.setConstraints(close, 1, 1);
+
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(10);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(10, 10, 10, 10));
+		grid.getChildren().addAll(mainLabel, list, submit, close);
+
+		Scene scene = new Scene(grid);
+		window.setScene(scene);
+		window.showAndWait();
+		return tempString;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

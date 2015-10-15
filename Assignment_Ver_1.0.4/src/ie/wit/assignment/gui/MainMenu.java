@@ -19,57 +19,40 @@ import javafx.stage.Stage;
 /*This will be the main menu*/
 public abstract class MainMenu 
 {
-	private static Stage window;
-	private static Scene scene;
-	
-	private static Button listManagersButton;
-	private static Button listDoctorsButton;
-	private static Button addManagerButton;
-	private static Button addDoctorButton;
-	private static Button addItemsButton;
-	private static Button listItemsButton;
-	
-	private static Label listManagersLabel;
-	private static Label listDoctorsLabel;
-	private static Label addManagerLabel;
-	private static Label addDoctorLabel;
-	private static Label topLabel;
-	
-	private static StackPane topHeader;
-	private static BorderPane outerLayout;
-	private static GridPane grid;
-	private static HBox topMenu;
-	
 	public static void display()
 	{
-		window = new Stage();
+		Stage window = new Stage();
 		window.setTitle("Thomastown UTD AFC");
 		window.setOnCloseRequest(e -> {
 			e.consume();
 			Main.closeProgram();
 		});
 		
-		/*topLabel = new Label("Thomastown UTD AFC");
-		topHeader = new StackPane();
+		Label topLabel = new Label("Thomastown UTD AFC");
+		StackPane topHeader = new StackPane();
 		topHeader.setAlignment(Pos.CENTER);
-		topHeader.getChildren().add(topLabel);*/
+		topHeader.getChildren().add(topLabel);
 		
-		addItemsButton = new Button("Add");
+		Button addItemsButton = new Button("Add");
 		addItemsButton.setOnAction(e -> {
 			AddItemsMenu.display();
 		});
-		listItemsButton = new Button("List");
+		Button listItemsButton = new Button("List");
 		listItemsButton.setOnAction(e -> {
 			ListItemsGui.display();
 		});
-		
-		topMenu = new HBox(20);
-		topMenu.setAlignment(Pos.CENTER);
-		topMenu.getChildren().addAll(addItemsButton, listItemsButton);
+		Button removeItemsButton = new Button("Remove");
+		removeItemsButton.setOnAction(e -> {
+			RemoveItemMenu.display();
+		});
+		VBox menuBox = new VBox(10);
+		menuBox.getChildren().addAll(addItemsButton, listItemsButton, removeItemsButton);
+		menuBox.setAlignment(Pos.CENTER);
 
-		outerLayout = new BorderPane();
-		outerLayout.setTop(topMenu);
-		scene = new Scene(outerLayout, 300, 500);
+		BorderPane outerLayout = new BorderPane();
+		outerLayout.setTop(topHeader);
+		outerLayout.setCenter(menuBox);
+		Scene scene = new Scene(outerLayout, 200, 300);
 		window.setScene(scene);
 		window.show();
 	}
