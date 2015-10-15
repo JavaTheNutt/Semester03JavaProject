@@ -2,6 +2,7 @@ package ie.wit.assignment.gui;
 
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.FindItemController;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -31,6 +32,9 @@ public class ListItemsGui
 		Label listDoctorsLabel = new Label("List doctors");
 		Label listPlayersLabel = new Label("List players");
 		Label listPlayersByAgeDivisionLabel = new Label("Show an entire age division");
+		Label findPlayerByNameLabel = new Label("Find a player by name");
+		Label findDoctorByNameLabel = new Label("Find a doctor by name");
+		Label findManagerByNameLabel = new Label("Find a manger by name");
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {
@@ -51,6 +55,26 @@ public class ListItemsGui
 			DisplayItems.displayPlayers(FindItemController.findPlayersByAgeDivision(PopUp.selectAgeDivision()));
 		});
 
+		Button findPlayerByNameButton = new Button("X");
+		findPlayerByNameButton.setOnAction(e -> {
+			DisplayItems.displayPlayers(FindItemController.findByName(3));
+		});
+
+		Button findManagerByNameButton = new Button("X");
+		findManagerByNameButton.setOnAction(e -> {
+			DisplayItems.displayPlayers(FindItemController.findByName(1));
+		});
+
+		Button findDoctorByNameButton = new Button("X");
+		findDoctorByNameButton.setOnAction(e -> {
+			ObservableList tempList = FindItemController.findByName(2);
+			if (tempList == null) {
+				return;
+			} else {
+				DisplayItems.displayPlayers(tempList);
+			}
+		});
+
 		GridPane.setConstraints(listManagersLabel, 0, 0);
 		GridPane.setConstraints(listManagersButton, 1, 0);
 		GridPane.setConstraints(listDoctorsLabel, 0, 1);
@@ -59,12 +83,18 @@ public class ListItemsGui
 		GridPane.setConstraints(listPlayersButton, 1, 2);
 		GridPane.setConstraints(listPlayersByAgeDivisionLabel, 0, 3);
 		GridPane.setConstraints(listPlayersByAgeDivisionButton, 1, 3);
+		GridPane.setConstraints(findPlayerByNameLabel, 0, 4);
+		GridPane.setConstraints(findPlayerByNameButton, 1 , 4);
+		GridPane.setConstraints(findManagerByNameLabel, 0, 5);
+		GridPane.setConstraints(findManagerByNameButton, 1, 5);
+		GridPane.setConstraints(findDoctorByNameLabel, 0, 6);
+		GridPane.setConstraints(findDoctorByNameButton, 1, 6);
 		
 		GridPane grid = new GridPane();
 		grid.setPadding(new Insets(10, 10, 10, 10));
 		grid.setVgap(8);
 		grid.setHgap(10);
-		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton, listPlayersLabel, listPlayersButton, listPlayersByAgeDivisionLabel, listPlayersByAgeDivisionButton);
+		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton, listPlayersLabel, listPlayersButton, listPlayersByAgeDivisionLabel, listPlayersByAgeDivisionButton, findDoctorByNameButton, findDoctorByNameLabel, findManagerByNameButton, findManagerByNameLabel, findPlayerByNameButton, findPlayerByNameLabel);
 		
 		BorderPane outerPane = new BorderPane();
 		outerPane.setTop(topLayout);

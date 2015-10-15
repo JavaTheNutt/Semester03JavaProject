@@ -3,9 +3,12 @@ package ie.wit.assignment.controllers;
 import ie.wit.assignment.Main;
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
+
+import java.util.List;
 
 /*This class is mainly used as a barrier class to handle try..catch blocks and deal with
 * exceptions thrown in the collector class*/
@@ -60,4 +63,28 @@ public abstract class Controller
 			return null;
 		}
 	}
+	public static boolean checkEmpty(List listIn) throws ListEmptyException
+	{
+		if(listIn.isEmpty()){
+			throw new ListEmptyException("The list is empty");
+		}
+		return false;
+	}
+	public static boolean checkNameEntered(String[] listIn)
+	{
+		if(listIn.length < 2){
+			return false;
+		}
+		return true;
+	}
+	public static boolean catchEmptyException(List listIn)
+	{
+		try{
+			checkEmpty(listIn);
+		} catch (ListEmptyException e){
+			return true;
+		}
+		return false;
+	}
+
 }

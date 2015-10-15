@@ -47,9 +47,7 @@ public abstract class Collector
 	public static boolean removeItem(Collectable item, int type) throws ItemNotFoundException, ListEmptyException
 	{
 		List<Collectable> tempList = setType(type);
-		if(tempList.isEmpty()){
-			throw new ListEmptyException();
-		}
+		checkEmpty(type);
 		Iterator<Collectable> iterator = tempList.iterator();
 		while(iterator.hasNext()){
 			if(item.equals(iterator)){
@@ -106,7 +104,7 @@ public abstract class Collector
 	public static Collectable searchByName(String fNameIn, String lNameIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
 		List<Collectable> tempList = setType(type);
-		if(tempList.isEmpty()){
+		if(checkEmpty(type)){
 			throw new ListEmptyException();
 		}
 		for(Collectable item : tempList){
@@ -133,7 +131,7 @@ public abstract class Collector
 	{
 		List<Collectable> tempList = setType(type);
 		
-		if(tempList.isEmpty()){
+		if(!checkEmpty(type)){
 			throw new ListEmptyException("The list is empty");
 		}
 		String tempString = "";
@@ -230,5 +228,13 @@ public abstract class Collector
 			throw new InputNotValidException("That ID does not match any known ID types");
 		}
 		return tempType;
+	}
+	public static boolean checkEmpty(int type)throws ListEmptyException
+	{
+		List<Collectable> tempList = setType(type);
+		if (tempList.isEmpty()){
+			throw new ListEmptyException("The list is empty");
+		}
+		return false;
 	}
 }

@@ -6,6 +6,7 @@ import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.DisplayItems;
 import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
@@ -49,20 +50,21 @@ public class FindItemController
 	public static ObservableList<Collectable> findByName(int type)
 	{
 		ObservableList<Collectable> list = FXCollections.observableArrayList();
-		String fullName = PopUp.singleInput("Enter name", "Please enter the full name of the person you wish to find");
-		String [] name = fullName.split(" ");
-		if(name.length < 2){
-			PopUp.alertBox("Error", "Please enter a full name containing spaces");
-			return null;
-		}
-		for(Collectable item : Collector.getList(type)){
-			if(item.getFName().equals(name[0]) && item.getLName().equals(name[1])){
+		String fullName;
+		String [] name;
+		boolean check;
+		do{
+			fullName = PopUp.singleInput("Enter name", "Please enter the full name of the person you wish to find");
+			name = fullName.split(" ");
+			check = Controller.checkNameEntered(name);
+			if(!check){
+				PopUp.alertBox("Incorrect entry", "Please enter  a full name with no spaces");
+			}
+		} while(!check);
+		for(Collectable item : Collector.setType(type)){
+			if(item.getFName().equalsIgnoreCase(name[0]) && item.getLName().equalsIgnoreCase(name[1])){
 				list.add(item);
 			}
-		}
-		if(list.isEmpty()){
-			PopUp.alertBox("Nothing to display", "There is no data to display");
-			return null;
 		}
 		return list;
 	}
