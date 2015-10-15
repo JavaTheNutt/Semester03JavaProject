@@ -3,30 +3,34 @@ package ie.wit.assignment.collectors;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
+import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/*This class handles collections of concrete objects. It collects Collectable objects and stores them in a List.
+* This class also handles operations on the lists*/
 public abstract class Collector
 {
-	public static ArrayList<Collectable> managerList = new ArrayList<Collectable>();
-	public static ArrayList<Collectable> doctorList = new ArrayList<Collectable>();
-	public static ArrayList<Collectable> playerList = new ArrayList<Collectable>();
+	public static List<Collectable> managerList = new ArrayList<Collectable>();
+	public static List<Collectable> doctorList = new ArrayList<Collectable>();
+	public static List<Collectable> playerList = new ArrayList<Collectable>();
 	public static int numberOfManagers;
 	public static int numberOfDoctors;
 	public static int numberOfPlayers;
 
-
-	public static ArrayList<Collectable> setType(int type)
+	/*This method is used to determine which list to perform an operation on*/
+	public static List<Collectable> setType(int type)
 	{
-		ArrayList<Collectable> tempList = null;
+		List<Collectable> tempList = null;
 		switch(type){
 		case 1:
 			tempList = managerList;
@@ -39,9 +43,10 @@ public abstract class Collector
 		}
 		return tempList;
 	}
+
 	public static boolean removeItem(Collectable item, int type) throws ItemNotFoundException, ListEmptyException
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		if(tempList.isEmpty()){
 			throw new ListEmptyException();
 		}
@@ -54,6 +59,7 @@ public abstract class Collector
 		}
 		throw new ItemNotFoundException();
 	}
+	/*Return the number of a specific object in a list*/
 	public static int getAmount(int type){
 		int tempNum = -9;
 		switch(type){
@@ -63,12 +69,16 @@ public abstract class Collector
 		case 2:
 			tempNum = numberOfDoctors;
 			break;
+		case 3:
+			tempNum = numberOfPlayers;
+			break;
 		}
 		return tempNum;
 	}
+
 	private static int getIndex(Collectable itemIn, int type)
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		int i = 0;
 		for(Collectable item : tempList){
 			if(item.getId().equals(itemIn.getId())){
@@ -78,10 +88,10 @@ public abstract class Collector
 		}
 		return -999;
 	}
-	
+
 	public static Collectable searchById(String idIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		if(tempList.isEmpty()){
 			throw new ListEmptyException();
 		}
@@ -92,10 +102,10 @@ public abstract class Collector
 		}
 		throw new ItemNotFoundException();
 	}
-	
+
 	public static Collectable searchByName(String fNameIn, String lNameIn, int type)throws ListEmptyException, ItemNotFoundException
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		if(tempList.isEmpty()){
 			throw new ListEmptyException();
 		}
@@ -108,7 +118,7 @@ public abstract class Collector
 	}
 	public static void addItem(Collectable itemIn, int type)
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		tempList.add(itemIn);
 		if(type == 1){
 			numberOfManagers++;
@@ -118,10 +128,10 @@ public abstract class Collector
 			numberOfPlayers ++;
 		}
 	}
-	
+	/*Return all items of a list in a string*/
 	public static String listAll(int type)throws ListEmptyException
 	{
-		ArrayList<Collectable> tempList = setType(type);
+		List<Collectable> tempList = setType(type);
 		
 		if(tempList.isEmpty()){
 			throw new ListEmptyException("The list is empty");
@@ -133,17 +143,18 @@ public abstract class Collector
 		}
 		return tempString;
 	}
-	public static void setManagerList(ArrayList <Collectable> listIn)
+	public static void setManagerList(List <Collectable> listIn)
 	{
 		managerList = listIn;
 	}
-	public static void setDoctorList(ArrayList <Collectable> listIn)
+	public static void setDoctorList(List <Collectable> listIn)
 	{
 		doctorList = listIn;
 	}	
-	public static void setPlayerList(ArrayList<Collectable> listIn){
+	public static void setPlayerList(List<Collectable> listIn){
 		playerList = listIn;
 	}
+	/*Convert from an ArrayList to an ObservableList*/
 	public static ObservableList<Collectable> getList(int type){
 		ObservableList<Collectable> list = FXCollections.observableArrayList();
 		switch(type){
@@ -166,6 +177,7 @@ public abstract class Collector
 		return null;
 		
 	}
+	/*Place all of the doctor names into an array. (Used in the doctor combobox)*/
 	public static String[] getDoctorNamesInArray()
 	{
         int amountOfDoctors  = getAmount(2);
@@ -179,13 +191,11 @@ public abstract class Collector
         }
         return tempArray;
 	}
-	
+	/*Take a doctors full name, split it and try match it to an ID*/
     public static String matchDoctorNameToId(String name){
         try{
             name = name.trim();
             String[] names = name.split(" ");
-            System.out.println(names.toString());
-
             Doctor thisdoc = (Doctor) searchByName(names[0], names[1], 2);
             return thisdoc.getId();
         } catch (ListEmptyException e){
@@ -199,4 +209,26 @@ public abstract class Collector
             return null;
         }
     }
+	/*Return the type based on the id passed. Gets the first two letters of the ID and
+	* uses that to determine a type.*/
+	public static int getTypeById(String idIn) throws InputNotValidException
+	{
+		int tempType = -999;
+		String tempString = idIn.substring(0, 2);
+		switch (tempString){
+			case "mn":
+				tempType = 1;
+			break;
+			case "dr":
+				tempType =  2;
+			break;
+			case "pl":
+				tempType =  3;
+			break;
+		}
+		if(tempType == -999){
+			throw new InputNotValidException("That ID does not match any known ID types");
+		}
+		return tempType;
+	}
 }

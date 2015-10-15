@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/*this class will be the menu to choose which type of item to add*/
 public abstract class AddItemsMenu 
 {
 	public static void display()

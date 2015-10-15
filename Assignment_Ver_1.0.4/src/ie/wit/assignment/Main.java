@@ -1,20 +1,8 @@
 package ie.wit.assignment;
 
-import java.io.File;
-import java.util.ArrayList;
-
-import ie.wit.assignment.collectables.Doctor;
-import ie.wit.assignment.collectables.Manager;
-import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.IOController;
-import ie.wit.assignment.fileHandling.ManagerFileHandler;
-import ie.wit.assignment.gui.AddItem;
-import ie.wit.assignment.gui.DisplayItems;
-import ie.wit.assignment.gui.MainMenu;
-import ie.wit.assignment.gui.PopUp;
+import ie.wit.assignment.gui.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -23,7 +11,6 @@ public class Main extends Application
 
 	public static void main(String[] args) 
 	{
-
 		try{
 			InitialSetup.gatherItemsInSystem();
 			launch(args);
@@ -32,10 +19,7 @@ public class Main extends Application
 		}
 	}
 
-	public static void setTempSize(int tempSizeIn)
-	{
-		InitialSetup.tempSize = tempSizeIn;
-	}
+	/*This method saves the data and closes the program*/
 	public static void closeProgram()
 	{
 		boolean answer = PopUp.confirmBox("System exit", "Are you sure you wish to exit?");
@@ -55,11 +39,15 @@ public class Main extends Application
 	public void start(Stage primaryStage) throws Exception 
 	{
 		/*AddItem.addPlayer();*/
-		/*MainMenu.display();*/
+		MainMenu.display();
 		/*DisplayItems.displayManagers(Collector.getList(1));*/
 		/*DisplayItems.displayDoctor(Collector.getList(2));*/
-		PopUp.singleInput("Enter data", "Enter the data");
-		
+		/*DisplayItems.displayPlayers(Collector.getList(3));*/
+		/*FindItemController.findById();*/
+		/*PopUp.alertBox("Test", PopUp.singleInput("Enter data", "Enter the data"));*/
+		/*DisplayItems.displayPlayers(FindItemController.findPlayersByAgeDivision("U-16"));*/
+		/*ListItemsGui.display();*/
+		/*PopUp.selectAgeDivision();*/
 	}
 	
 }

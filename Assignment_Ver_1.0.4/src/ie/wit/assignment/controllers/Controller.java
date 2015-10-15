@@ -7,6 +7,8 @@ import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
 
+/*This class is mainly used as a barrier class to handle try..catch blocks and deal with
+* exceptions thrown in the collector class*/
 public abstract class Controller 
 {
 	public static boolean addItem(Collectable itemIn, int type)

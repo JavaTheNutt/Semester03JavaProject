@@ -20,7 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/*This class contains the GUI for adding items.*/
 public class AddItem 
 {
 	private static String notFilledTitle = "Please fill correctly", notFilledMessage = "Please fill out all fields";
@@ -125,10 +125,11 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email address");
 					} else {
-						Manager tempMan = new Manager(Collector.numberOfManagers + 1, firstNameInput.getText(), surnameInput.getText(), 
+						Manager tempMan = new Manager(Collector.numberOfManagers, firstNameInput.getText(), surnameInput.getText(),
 								address01Input.getText(), address02Input.getText(), contactNoInput.getText(), emailInput.getText(), ageDivisionInput.getValue());
 						if(Controller.addItem(tempMan, 1)){
 							System.out.println("Added");
+							/*reset fields*/
 							firstNameInput.setText("");
 							surnameInput.setText("");
 							address01Input.setText("");
@@ -212,16 +213,19 @@ public class AddItem
 				address02Input.getText(),
 				contactNoInput.getText()	
 			};
+			/*Check fields filled */
 			if(!ValidationController.fieldsFilled(items)){
 				PopUp.alertBox(notFilledTitle, "Please fill out all fields");
 			} else {
+				/*Check a doctor by this name is not already in the system*/
 				if(ValidationController.alreadyExists(firstNameInput.getText(), surnameInput.getText(), 2)){
 					PopUp.alertBox("Already Present", "That doctor is already present in the system");
 				} else {
-					Doctor tempDoc = new Doctor(Collector.numberOfDoctors + 1, items[0], items[1], items[2],
+					Doctor tempDoc = new Doctor(Collector.numberOfDoctors, items[0], items[1], items[2],
 						items[3], items[4]);
 					if(Controller.addItem(tempDoc, 2)){
 						PopUp.alertBox("Success", "Added Successfully");
+						/*reset fields*/
 						firstNameInput.setText("");
 						surnameInput.setText("");
 						address01Input.setText("");
@@ -313,17 +317,17 @@ public class AddItem
 		ComboBox<String> yearOfBirth = new ComboBox<String>();
         doctorSelection = new ComboBox<String>();
 
-		
+
 		dateofBirthInput.getItems().addAll(setNumberDays(31));
 		monthOfBirth.getItems().addAll(setNumberDays(12));
-		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008" );
+		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009");
         setDoctorSelection();
-		/*doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());*/
+
 		doctorSelection.setValue("Achim Shlunke");
 		
 		dateofBirthInput.setValue("1");
 		monthOfBirth.setValue("1");
-		yearOfBirth.setValue("2008");
+		yearOfBirth.setValue("2009");
 		
 		Button submitButton = new Button("Submit");
         Button addNewDoctorButton = new Button("Add doctor");
@@ -338,18 +342,22 @@ public class AddItem
 					contactNoInput.getText(),
 					emailInput.getText()
 			};
+			/*Check all fields filled*/
 			if(!ValidationController.fieldsFilled(items)){
 				PopUp.alertBox(notFilledTitle, notFilledMessage);
 			} else {
+				/*Check validity of dates entered*/
 				if(!ValidationController.checkMonthValidity(monthOfBirth.getValue(), dateofBirthInput.getValue())){
 					PopUp.alertBox(notFilledTitle, "Please enter a valid date");
 				} else{
+					/*Validate email*/
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
 					} else {
                        String tempDoc = Collector.matchDoctorNameToId(doctorSelection.getValue());
+						/*Ensure doctor not null*/
                         if(!tempDoc.equals("")){
-                            Player tempPlayer = new Player(Collector.numberOfPlayers + 1,
+                            Player tempPlayer = new Player(Collector.numberOfPlayers,
                                     items[0],
                                     items[1],
                                     items[2],
@@ -362,8 +370,17 @@ public class AddItem
                                     tempDoc
                             );
                             Collector.addItem(tempPlayer, 3);
-                        }
-
+							PopUp.alertBox("Success", "Player added succesfully");
+							/*reset fields*/
+							firstNameInput.setText("");
+							surnameInput.setText("");
+							address01Input.setText("");
+							address02Input.setText("");
+							contactNoInput.setText("");
+							emailInput.setText("");
+                        } else {
+							PopUp.alertBox("Doctor does not exist", "The doctor specified does not exist");
+						}
 					}
 				}
 			}
@@ -413,12 +430,14 @@ public class AddItem
 		window.setScene(scene);
 		window.showAndWait();
 	}
+	/*This method will empty the comboBox and fill it again every time a doctor is added*/
 	private static void setDoctorSelection()
     {
         doctorSelection.getItems().removeAll(doctorSelection.getItems());
 		doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());
 		doctorSelection.setValue("Achim Shlunke");
 	}
+	/*This method will fill an array with a specified number of integers to be used in a comboBox*/
 	private static String[] setNumberDays(int sizeIn)
     {
         String[] ary = new String[sizeIn];

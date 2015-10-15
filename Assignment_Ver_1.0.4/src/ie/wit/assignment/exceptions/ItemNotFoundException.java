@@ -1,5 +1,5 @@
 package ie.wit.assignment.exceptions;
-
+/*This exception is thrown when a user requests an item that does not exist*/
 public class ItemNotFoundException extends Exception
 {
 

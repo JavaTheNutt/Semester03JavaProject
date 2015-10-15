@@ -8,7 +8,7 @@ public class Manager extends Collectable
 	public Manager(int index, String fName, String lName, String address01, String address02, String contactNo, String email, String ageDivision) 
 	{
 		super(fName, lName, address01, address02, contactNo, email);
-		this.id = "mn0" + index;
+		this.id = "mn" + (index +1);
 		this.ageDivision = ageDivision;
 	}
 

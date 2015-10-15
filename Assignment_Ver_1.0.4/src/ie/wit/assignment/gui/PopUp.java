@@ -5,18 +5,21 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/*This class will handle the various small popups that are used*/
 public abstract class PopUp 
 {
 	
 	private static boolean answer;
-	
+	private static String tempString = "";
+	/*This is a generic alert box that displays a message and a single button used to close the popup*/
 	public static void alertBox(String title, String message)
 	{
 		Stage window = new Stage();
@@ -38,7 +41,7 @@ public abstract class PopUp
 		window.setScene(scene);
 		window.showAndWait();
 	}
-	
+	/*This box has a label and a choice of a yes or no button to return a boolean*/
 	public static boolean confirmBox(String title, String message)
 	{
 
@@ -72,8 +75,10 @@ public abstract class PopUp
 		
 		return answer;
 	}
+	/*This popup will have a  message and a single textfield to return a string value*/
 	public static String singleInput(String title, String label)
 	{
+		/*String tempString = "";*/
 		Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -88,6 +93,17 @@ public abstract class PopUp
         GridPane.setConstraints(submit, 0, 1);
         GridPane.setConstraints(close, 1, 1);
 
+		submit.setOnAction(e -> {
+			if(input.getText().equals("")){
+				PopUp.alertBox("Field blank", "Please enter a value in the field");
+			} else {
+				tempString = input.getText();
+				window.close();
+			}
+		});
+		close.setOnAction(e -> {
+			window.close();
+		});
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setPadding(new Insets(10,10,10,10));
@@ -99,6 +115,57 @@ public abstract class PopUp
         window.setScene(scene);
         window.showAndWait();
 
-        return null;
+        return tempString;
+	}
+	/*This popup will have a combobox to select an age division*/
+	public static String selectAgeDivision()
+	{
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Select Age Division");
+
+		Label label = new Label("Please select an age division");
+		ComboBox<String> comboBox = new ComboBox<>();
+		String [] ary = {
+				"U-7",
+				"U-8",
+				"U-9",
+				"U-10",
+				"U-11",
+				"U-12",
+				"U-13",
+				"U-14",
+				"U-15",
+				"U-16",
+				"U-17",
+				"Junior"
+		};
+		comboBox.setValue("U-7");
+		comboBox.getItems().addAll(ary);
+		Button submit = new Button("Submit");
+		submit.setOnAction(e -> {
+			tempString = comboBox.getValue();
+			window.close();
+		});
+
+		Button close = new Button("Close");
+		close.setOnAction(e -> {
+			window.close();
+		});
+
+		GridPane.setConstraints(label, 0, 0);
+		GridPane.setConstraints(comboBox, 1, 0);
+		GridPane.setConstraints(submit, 0, 1);
+		GridPane.setConstraints(close, 1, 1);
+
+		GridPane grid = new GridPane();
+		grid.setPadding(new Insets(10, 10, 10, 10));
+		grid.setVgap(8);
+		grid.setHgap(10);
+		grid.getChildren().addAll(label, comboBox, submit, close);
+		Scene scene = new Scene(grid);
+		window.setScene(scene);
+		window.showAndWait();
+		return tempString;
 	}
 }

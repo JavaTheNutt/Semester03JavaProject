@@ -1,5 +1,5 @@
 package ie.wit.assignment.exceptions;
-
+/*This exception is thrown when a user tries to perform an operation on an empty list*/
 public class ListEmptyException extends Exception
 {
 	public ListEmptyException()

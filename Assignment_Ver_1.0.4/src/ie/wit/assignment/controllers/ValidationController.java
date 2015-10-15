@@ -1,11 +1,13 @@
 package ie.wit.assignment.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ie.wit.assignment.collectables.Collectable;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectors.Collector;
 
+/*This class validates user input before object creation*/
 public class ValidationController 
 {
 	//Ensure that all something has been entered in all fields
@@ -43,7 +45,7 @@ public class ValidationController
 	}
 	public static boolean alreadyExists(String fName, String lName, int type)
 	{
-		ArrayList<Collectable> tempList = Collector.setType(type);
+		List<Collectable> tempList = Collector.setType(type);
 		for(Collectable item : tempList){
 			if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
 				return true;
@@ -51,6 +53,7 @@ public class ValidationController
 		}
 		return false;
 	}
+	/*Ensure that months entered are valid*/
 	public static boolean checkMonthValidity(String monthIn, String dayIn)
 	{
 		int month = Integer.parseInt(monthIn);
@@ -59,7 +62,7 @@ public class ValidationController
 			if(day > 30){
 				return false;
 			}
-			if(month == 2 && day > 28){
+			if(month == 2 && day > 29){
 				return false;
 			}
 		}

@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/*This class will be used to display the tables of objects*/
 public class DisplayItems 
 {
 	
@@ -22,12 +22,12 @@ public class DisplayItems
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Display Managers");
-		/*window.setOnCloseRequest(e -> {
-			e.consume();
-			Main.closeProgram();
-		});*/
 		window.setMinWidth(600);
-		
+
+		if(listIn.isEmpty()){
+			PopUp.alertBox("No data", "No data to display");
+			return;
+		}
 		TableColumn<Collectable, String> managerIdColumn = new TableColumn<>("Manager Id");
 		managerIdColumn.setMinWidth(50);
 		managerIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -62,19 +62,18 @@ public class DisplayItems
 		window.setScene(scene);
 		window.showAndWait();
 	}
-	
 	public static void displayDoctor(ObservableList<Collectable> listIn)
 	{
 		TableView<Collectable> doctorTable = new TableView<>();
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Display Managers");
-		/*window.setOnCloseRequest(e -> {
-			e.consume();
-			Main.closeProgram();
-		});*/
 		window.setMinWidth(600);
 
+		if(listIn.isEmpty()){
+			PopUp.alertBox("No data", "No data to display");
+			return;
+		}
 		TableColumn<Collectable, String> doctorIdColumn = new TableColumn<>("Manager Id");
 		doctorIdColumn.setMinWidth(50);
 		doctorIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -111,13 +110,14 @@ public class DisplayItems
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Display Players");
-		/*window.setOnCloseRequest(e -> {
-			e.consume();
-			Main.closeProgram();
-		});*/
         window.setMinWidth(600);
 
-        TableColumn<Collectable, String> playerIdColumn = new TableColumn<>("Manager Id");
+		if(listIn.isEmpty()){
+			PopUp.alertBox("No data", "No data to display");
+			return;
+		}
+
+        TableColumn<Collectable, String> playerIdColumn = new TableColumn<>("Player Id");
         playerIdColumn.setMinWidth(50);
         playerIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -141,16 +141,16 @@ public class DisplayItems
         playerContactNoColumn.setMinWidth(100);
         playerContactNoColumn.setCellValueFactory(new PropertyValueFactory<Collectable, String>("contactNo"));
 
-        TableColumn<Collectable, String> playerEmailColumn = new TableColumn<>("Contact Number");
+        TableColumn<Collectable, String> playerEmailColumn = new TableColumn<>("Contact Email");
         playerEmailColumn.setMinWidth(100);
-        playerEmailColumn.setCellValueFactory(new PropertyValueFactory<Collectable, String>("contactEmail"));
+        playerEmailColumn.setCellValueFactory(new PropertyValueFactory<Collectable, String>("email"));
 
         TableColumn<Collectable, String>playerAgeDivisionColumn = new TableColumn<>("Age Division");
         playerAgeDivisionColumn.setMinWidth(30);
         playerAgeDivisionColumn.setCellValueFactory(new PropertyValueFactory<Collectable, String>("ageDivision"));
 
         playerTable.setItems(listIn);
-        playerTable.getColumns().addAll(playerIdColumn, playerFNameColumn, playerLNameColumn, playerAddress01Column, playerAddress02Column);
+        playerTable.getColumns().addAll(playerIdColumn, playerFNameColumn, playerLNameColumn, playerAddress01Column, playerAddress02Column, playerContactNoColumn, playerEmailColumn, playerAgeDivisionColumn);
 
         VBox layout = new VBox();
         layout.getChildren().addAll(playerTable);
