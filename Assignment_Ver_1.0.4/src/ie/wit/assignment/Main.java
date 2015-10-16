@@ -2,7 +2,8 @@ package ie.wit.assignment;
 
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.IOController;
-import ie.wit.assignment.gui.*;
+import ie.wit.assignment.gui.MainMenu;
+import ie.wit.assignment.gui.PopUp;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -38,9 +39,10 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception 
 	{
+
 		/*AddItem.addPlayer();*/
-		/*MainMenu.display();*/
-		UpdateItemMenu.display();
+		MainMenu.display();
+		/*UpdateItemMenu.display();*/
 		/*DisplayItems.displayManagers(Collector.getList(1));*/
 		/*DisplayItems.displayDoctor(Collector.getList(2));*/
 		/*DisplayItems.displayPlayers(Collector.getList(3));*/

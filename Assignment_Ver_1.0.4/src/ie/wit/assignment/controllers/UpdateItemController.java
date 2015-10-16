@@ -7,7 +7,6 @@ import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.exceptions.InputNotValidException;
 
 import java.util.ArrayList;
-import java.util.List;
 /*This class will handle the logic for updating any attribute of any collectible*/
 public class UpdateItemController
 {
@@ -26,7 +25,6 @@ public class UpdateItemController
 	{
 		try {
 			int type = Collector.getTypeById(idIn);
-			List<Collectible> list = Collector.setType(type);
 			Collectible item = Controller.getById(type, idIn);
 			int attributeIndex = checkAttributeList(type, attributeTypeIn);
 			/*-999 is returned if the attributeName passed does not match an
@@ -94,33 +92,8 @@ public class UpdateItemController
 	* the corresponding object*/
 	private static int checkAttributeList(int type, String attributeIn)
 	{
-		/*Add the default attributes to the arraylist*/
-		for(String attribute : tempListOfAttributes){
+		for(String attribute : returnAttributesInArray(type)){
 			listOfAttributes.add(attribute);
-		}
-		/*Type 2(Doctor) only has default attributes*/
-		if(type == 1 || type == 3){
-			switch (type){
-				case 1:
-					/*reset temporary variables and add extras*/
-					tempListOfAttributes = new String[]{
-							"email",
-							"ageDivision"
-					};
-					break;
-				case 3:
-					tempListOfAttributes = new String[]{
-							"email",
-							"day",
-							"month",
-							"year"
-					};
-					break;
-			}
-			/*push extra attributes to the arraylist*/
-			for(String item : tempListOfAttributes){
-				listOfAttributes.add(item);
-			}
 		}
 		int i = 0;
 		/*Check that the selected attribute matches an attribute of the selected object and return an index
@@ -134,5 +107,38 @@ public class UpdateItemController
 		/*If the attribute doesn't match, return -999*/
 		return -999;
 	}
-
+	/*This method will add the correct attributes to the array to be
+	* returned to be added to the list above for validation.
+	* Will also be used to return the array to populate the combobox
+	* correctly on the menu*/
+	public static String [] returnAttributesInArray(int type)
+	{
+		String [] tempArray = {};
+		ArrayList<String> tempArrayList = new ArrayList<>();
+		for(String attribute : tempListOfAttributes){
+			tempArrayList.add(attribute);
+		}
+		switch (type){
+			case 1:
+				tempArray = new String[]{
+					"email",
+					"ageDivision"
+				};
+				break;
+			case 3:
+				tempArray = new String[]{
+						"email",
+						"day",
+						"month",
+						"year"
+				};
+				break;
+		}
+		for (int i = 0; i < tempArray.length; i++) {
+			tempArrayList.add(tempArray[i]);
+		}
+		String[] filledArray = new String[tempArrayList.size()];
+		filledArray = tempArrayList.toArray(filledArray);
+		return filledArray;
+	}
 }

@@ -1,5 +1,8 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.controllers.Controller;
+import ie.wit.assignment.controllers.UpdateItemController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,22 +27,11 @@ public class UpdateItemMenu
 		Label updatePlayerLabel = new Label("Update Player");
 
 		Button updateManagerButton = new Button("X");
-		updateManagerButton.setOnAction(e -> {
-			listOfAttributes = new String[]{
-					"First Name",
-					"Last Name",
-					"Street Address",
-					"Parish",
-					"Contact Number",
-					"Contact Email"
-			};
-			selectedAttribute = PopUp.singleComboBox(listOfAttributes, "Select attribute", "Please select the attribute to be updated");
-			if(!selectedAttribute.equalsIgnoreCase("close")){
-				PopUp.singleInput("Select manager", "Please enter the id of then manager that you wish to update");
-			}
-		});
+		updateManagerButton.setOnAction(e -> collectInput(1));
 		Button updateDoctorButton = new Button("X");
+		updateDoctorButton.setOnAction(e -> collectInput(2));
 		Button updatePlayerButton = new Button("X");
+		updatePlayerButton.setOnAction(e -> collectInput(3));
 
 		GridPane.setConstraints(updateManagerLabel, 0, 0);
 		GridPane.setConstraints(updateManagerButton, 1, 0);
@@ -60,8 +52,30 @@ public class UpdateItemMenu
 		window.showAndWait();
 
 	}
-	private static void validateManager(String valueIn)
+	private static boolean validateAttribute(int type, String attributeIn)
 	{
+		for(String attribute : UpdateItemController.returnAttributesInArray(type)){
+			if(attribute.equalsIgnoreCase(attributeIn)){
+				return true;
+			}
+		}
+		return false;
+	}
 
+	private static void collectInput(int type)
+	{
+		String tempName  = PopUp.singleComboBox(Collector.getNamesInArray(type), "Select item", "Please select the item to be updated");
+		String attribute = "";
+		String attributeValue = "";
+		if(!tempName.equalsIgnoreCase("close")){
+			String tempId = Controller.matchNameToId(tempName, type);
+			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
+			if(!attribute.equalsIgnoreCase("close")){
+				if(validateAttribute(type, attribute)){
+					attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
+					UpdateItemController.updateItem(tempId, attribute, attributeValue);
+				}
+			}
+		}
 	}
 }

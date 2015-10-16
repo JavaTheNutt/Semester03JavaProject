@@ -2,7 +2,6 @@ package ie.wit.assignment.gui;
 
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
-import ie.wit.assignment.exceptions.InputNotValidException;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,17 +26,17 @@ public class RemoveItemMenu
 
 		Button removeManagerButton = new Button("X");
 		removeManagerButton.setOnAction(e-> {
-			passData("manager", 1);
+			getItemToBeRemoved(1, "manager");
 		});
 
 		Button removeDoctorButton = new Button("X");
 		removeDoctorButton.setOnAction(e -> {
-			passData("doctor", 2);
+			getItemToBeRemoved(2, "doctor");
 		});
 
 		Button removePlayerButton = new Button("X");
 		removePlayerButton.setOnAction(e -> {
-			passData("player", 3);
+			getItemToBeRemoved(3, "player");
 		});
 
 		GridPane.setConstraints(removeManagerLabel, 0, 0);
@@ -57,7 +56,7 @@ public class RemoveItemMenu
 		window.showAndWait();
 	}
 	/*This method will prompt the user for an ID, validate it and use that to remove the item*/
-	private static void passData(String typeString, int type)
+	/*private static void passData(String typeString, int type)
 	{
 		String subId;
 		String tempId;
@@ -84,6 +83,17 @@ public class RemoveItemMenu
 				PopUp.alertBox("Failed", "The item has not been removed");
 				return;
 			}
+		}
+	}*/
+	private static void getItemToBeRemoved(int type, String typeName)
+	{
+		String[] listOfNames = Collector.getNamesInArray(type);
+		String name = PopUp.singleComboBox(listOfNames, "Remove " + typeName, "Please select the " + typeName + " to be removed");
+		String id = Controller.matchNameToId(name, type);
+		if (Controller.removeItem(id, type)){
+			PopUp.alertBox("Success", "Item Removed Successfully");
+		} else {
+			PopUp.alertBox("Failure", "Item not removed");
 		}
 	}
 }

@@ -1,8 +1,5 @@
 package ie.wit.assignment;
 
-import java.io.File;
-import java.util.List;
-
 import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
@@ -10,6 +7,9 @@ import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.IOController;
+
+import java.io.File;
+import java.util.List;
 /*This class will handle initial IO operations. If the *.dat files are deleted, this class
 * will create them again and add the initial dummy data again*/
 public abstract class InitialSetup 
@@ -22,13 +22,13 @@ public abstract class InitialSetup
 	private static Player testPlayer02 = new Player(1, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2005, "dr1");
 	private static Player testPlayer03 = new Player(2, "Jason", "Bloggs", "Dunhill", "Bennetsbridge", "33333333", "them@them.com", 16, 5, 2004, "dr1");
 	private static Player testPlayer04 = new Player(3, "Jack", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2003, "dr1");
-	private static Player testPlayer05 = new Player(4, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2002, "dr1");
-	private static Player testPlayer06 = new Player(5, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2001, "dr1");
-	private static Player testPlayer07 = new Player(6, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 1999, "dr1");
-	private static Player testPlayer08 = new Player(7, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2006, "dr1");
-	private static Player testPlayer09 = new Player(8, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2007, "dr1");
-	private static Player testPlayer10 = new Player(9, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2008, "dr1");
-	private static Player testPlayer11 = new Player(10, "John", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2009, "dr1");
+	private static Player testPlayer05 = new Player(4, "Micheal", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2002, "dr1");
+	private static Player testPlayer06 = new Player(5, "Paddy", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2001, "dr1");
+	private static Player testPlayer07 = new Player(6, "Mary", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 1999, "dr1");
+	private static Player testPlayer08 = new Player(7, "Susan", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2006, "dr1");
+	private static Player testPlayer09 = new Player(8, "Michelle", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2007, "dr1");
+	private static Player testPlayer10 = new Player(9, "Steve", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2008, "dr1");
+	private static Player testPlayer11 = new Player(10, "Liam", "Bloggs", "Tullaroan", "Dungarven", "222222222", "you@you.com", 16, 5, 2009, "dr1");
 	private static Player[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
 	private static Manager[] managerHolder = {testMan01, testMan02};
 	private static Doctor[] doctorHolder = {testDoc01, testDoc02};

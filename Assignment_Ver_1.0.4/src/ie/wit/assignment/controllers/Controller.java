@@ -53,6 +53,24 @@ public abstract class Controller
 			return null;
 		}
 	}
+	public static String matchNameToId(String name, int type)
+	{
+		try{
+			name = name.trim();
+			String [] names = name.split(" ");
+			Collectible tempItem = Collector.searchByName(names[0], names[1], type);
+			return tempItem.getId();
+		} catch(ItemNotFoundException e){
+			PopUp.alertBox("Item not found", "The selected item was not found");
+			return null;
+		} catch (ListEmptyException e){
+			PopUp.alertBox("List empty", "The list is empty");
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
+		}
+	}
 	public static Collectible getById(int type, String idIn)
 	{
 		try{

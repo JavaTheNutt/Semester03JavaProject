@@ -1,8 +1,5 @@
 package ie.wit.assignment.collectors;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
@@ -13,6 +10,9 @@ import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*This class handles collections of concrete objects. It collects Collectible objects and stores them in a List.
 * This class also handles operations on the lists*/
@@ -185,6 +185,20 @@ public abstract class Collector
         }
         return tempArray;
 	}
+
+	public static String[] getNamesInArray(int type){
+		List<Collectible> tempList = setType(type);
+		int amount = getAmount(type);
+		String[] tempArray = new String[amount];
+		String tempString = "";
+		int i = 0;
+		for (Collectible item : tempList){
+			tempString = item.getFName() + " " + item.getLName();
+			tempArray[i] =  tempString;
+			i++;
+		}
+		return tempArray;
+	}
 	/*Take a doctors full name, split it and try match it to an ID*/
     public static String matchDoctorNameToId(String name){
         try{
@@ -203,6 +217,7 @@ public abstract class Collector
             return null;
         }
     }
+
 	/*Return the type based on the id passed. Gets the first two letters of the ID and
 	* uses that to determine a type.*/
 	public static int getTypeById(String idIn) throws InputNotValidException

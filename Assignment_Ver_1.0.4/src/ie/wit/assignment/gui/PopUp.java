@@ -9,7 +9,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -175,6 +174,9 @@ public abstract class PopUp
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
+		window.setOnCloseRequest(e -> {
+			tempString = "close";
+		});
 
 		Label mainLabel = new Label(label);
 		ComboBox<String> list = new ComboBox<>();

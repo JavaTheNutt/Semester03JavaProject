@@ -1,10 +1,10 @@
 package ie.wit.assignment.controllers;
 
-import java.util.List;
-
 import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectors.Collector;
+
+import java.util.List;
 
 /*This class validates user input before object creation*/
 public class ValidationController 
