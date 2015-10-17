@@ -4,3 +4,6 @@
 /**/*.dat/
 /**/*.eml/
 /**/*.iml/
+/.metadata/
+/RemoteSystemsTempFiles/
+/.recommenders/
