@@ -1,4 +1,4 @@
-/*This is the class that all collectable objects in this program
+/*This is the class that all collectible objects in this program
  * inherit from.*/
 package ie.wit.assignment.collectables;
 

@@ -352,7 +352,7 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
 					} else {
-                       String tempDoc = Collector.matchDoctorNameToId(doctorSelection.getValue());
+                       String tempDoc = Controller.matchNameToId(doctorSelection.getValue(), 2);
 						/*Ensure doctor not null*/
                         if(!tempDoc.equals("")){
                             Player tempPlayer = new Player(Collector.numberOfPlayers,
@@ -432,7 +432,7 @@ public class AddItem
 	private static void setDoctorSelection()
     {
         doctorSelection.getItems().removeAll(doctorSelection.getItems());
-		doctorSelection.getItems().addAll(Collector.getDoctorNamesInArray());
+		doctorSelection.getItems().addAll(Collector.getNamesInArray(2));
 		doctorSelection.setValue("Achim Shlunke");
 	}
 	/*This method will fill an array with a specified number of integers to be used in a comboBox*/

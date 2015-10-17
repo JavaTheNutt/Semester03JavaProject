@@ -3,6 +3,7 @@ package ie.wit.assignment.gui;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.UpdateItemController;
+import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -73,7 +74,13 @@ public class UpdateItemMenu
 			if(!attribute.equalsIgnoreCase("close")){
 				if(validateAttribute(type, attribute)){
 					attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
-					UpdateItemController.updateItem(tempId, attribute, attributeValue);
+					if(attribute.equalsIgnoreCase("email")){
+						if(ValidationController.checkEmail(attributeValue)){
+							UpdateItemController.updateItem(tempId, attribute, attributeValue);
+						}
+					} else{
+						UpdateItemController.updateItem(tempId, attribute, attributeValue);
+					}
 				}
 			}
 		}

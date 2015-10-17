@@ -41,7 +41,7 @@ public abstract class Collector
 		}
 		return tempList;
 	}
-
+	/*Remove an item or throws an exception if failed(Redundant since remove is selected from combobox now)*/
 	public static boolean removeItem(Collectible item, int type) throws ItemNotFoundException, ListEmptyException
 	{
 		List<Collectible>tempList = setType(type);
@@ -75,7 +75,7 @@ public abstract class Collector
 		List<Collectible> tempList = setType(type);
 		int i = 0;
 		for(Collectible item : tempList){
-			if(item.getId().equals(itemIn.getId())){
+			if(item.equals(itemIn)){
 				return i;
 			}
 			i++;
@@ -171,21 +171,7 @@ public abstract class Collector
 		return null;
 		
 	}
-	/*Place all of the doctor names into an array. (Used in the doctor combobox)*/
-	public static String[] getDoctorNamesInArray()
-	{
-        int amountOfDoctors  = getAmount(2);
-        String[] tempArray = new String[amountOfDoctors];
-        String tempString = "";
-        int i = 0;
-        for(Collectible doc : doctorList){
-            tempString = doc.getFName() + " " + doc.getLName();
-            tempArray[i] = tempString;
-            i++;
-        }
-        return tempArray;
-	}
-
+	/*Place all of the names in a list into an array(Used for comboboxes)*/
 	public static String[] getNamesInArray(int type){
 		List<Collectible> tempList = setType(type);
 		int amount = getAmount(type);
@@ -199,25 +185,6 @@ public abstract class Collector
 		}
 		return tempArray;
 	}
-	/*Take a doctors full name, split it and try match it to an ID*/
-    public static String matchDoctorNameToId(String name){
-        try{
-            name = name.trim();
-            String[] names = name.split(" ");
-            Doctor thisdoc = (Doctor) searchByName(names[0], names[1], 2);
-            return thisdoc.getId();
-        } catch (ListEmptyException e){
-            PopUp.alertBox("List Empty", "There are no items");
-            return null;
-        } catch(ItemNotFoundException e){
-            PopUp.alertBox("Item not found", "There was no such item found");
-            return null;
-        } catch(Exception e){
-            PopUp.alertBox("Unknown Error", "An unknown error has occurred");
-            return null;
-        }
-    }
-
 	/*Return the type based on the id passed. Gets the first two letters of the ID and
 	* uses that to determine a type.*/
 	public static int getTypeById(String idIn) throws InputNotValidException
