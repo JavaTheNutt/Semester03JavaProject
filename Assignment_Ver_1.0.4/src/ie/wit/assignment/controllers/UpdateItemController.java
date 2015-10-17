@@ -5,6 +5,7 @@ import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
 import ie.wit.assignment.exceptions.InputNotValidException;
+import ie.wit.assignment.gui.PopUp;
 
 import java.util.ArrayList;
 /*This class will handle the logic for updating any attribute of any collectible*/
@@ -82,10 +83,14 @@ public class UpdateItemController
 					}
 				}
 
+			} else {
+				PopUp.alertBox("Error", "An error has occurred");
 			}
 		}
 		catch (InputNotValidException e) {
-			e.printStackTrace();
+			PopUp.alertBox("Input invalid", "The input entered is invalid");
+		} catch(Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
 		}
 	}
 	/*This method will check that the attribute name entered matches an attribute of

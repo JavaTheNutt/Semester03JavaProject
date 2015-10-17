@@ -56,18 +56,31 @@ public class ListItemsGui
 
 		Button findPlayerByNameButton = new Button("X");
 		findPlayerByNameButton.setOnAction(e -> {
-			DisplayItems.displayPlayers(FindItemController.findByName(3));
+			ObservableList tempList = FindItemController.findByName(3);
+			if(tempList == null){
+				PopUp.alertBox("No Data", "There is no data to display");
+				return;
+			} else {
+				DisplayItems.displayPlayers(tempList);
+			}
 		});
 
 		Button findManagerByNameButton = new Button("X");
 		findManagerByNameButton.setOnAction(e -> {
-			DisplayItems.displayPlayers(FindItemController.findByName(1));
+			ObservableList tempList = FindItemController.findByName(1);
+			if(tempList == null){
+				PopUp.alertBox("No Data", "There is no data to display");
+				return;
+			} else {
+				DisplayItems.displayPlayers(tempList);
+			}
 		});
 
 		Button findDoctorByNameButton = new Button("X");
 		findDoctorByNameButton.setOnAction(e -> {
 			ObservableList tempList = FindItemController.findByName(2);
 			if (tempList == null) {
+				PopUp.alertBox("No Data", "There is no data to display");
 				return;
 			} else {
 				DisplayItems.displayPlayers(tempList);

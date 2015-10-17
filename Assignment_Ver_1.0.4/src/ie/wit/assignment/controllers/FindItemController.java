@@ -52,9 +52,13 @@ public class FindItemController
 		do{
 			fullName = PopUp.singleInput("Enter name", "Please enter the full name of the person you wish to find");
 			name = fullName.split(" ");
-			check = Controller.checkNameEntered(name);
-			if(!check){
-				PopUp.alertBox("Incorrect entry", "Please enter  a full name with no spaces");
+			if(!fullName.equalsIgnoreCase("close")){
+				check = Controller.checkNameEntered(name);
+				if(!check){
+					PopUp.alertBox("Incorrect entry", "Please enter  a full name with no spaces");
+				}
+			} else {
+				return null;
 			}
 		} while(!check);
 		for(Collectible item : Collector.setType(type)){
