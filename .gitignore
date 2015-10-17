@@ -1,9 +1,10 @@
-/**/bin/
-/**/.metadata/
-/**/.idea/
-/**/*.dat/
-/**/*.eml/
-/**/*.iml/
+/Assignment_Ver_1.0.4/bin/
 /.metadata/
+/Assignment_Ver_1.0.4/.idea/
+/Assignment_Ver_1.0.4/*.dat/
+/Assignment_Ver_1.0.4/*.eml/
+/Assignment_Ver_1.0.4/*.iml/
+/Assignment_Ver_1.0.4/.settings/
+/Assignment_Ver_1.0.4/*.userlibraries/
 /RemoteSystemsTempFiles/
 /.recommenders/
