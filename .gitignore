@@ -1,4 +1,6 @@
 /**/bin/
-/.metadata/
-/.idea/
-/*.dat/
+/**/.metadata/
+/**/.idea/
+/**/*.dat/
+/**/*.eml/
+/**/*.iml/
