@@ -79,10 +79,8 @@ public class UpdateItemController
 								}
 								break;
 						}
-
 					}
 				}
-
 			} else {
 				PopUp.alertBox("Error", "An error has occurred");
 			}

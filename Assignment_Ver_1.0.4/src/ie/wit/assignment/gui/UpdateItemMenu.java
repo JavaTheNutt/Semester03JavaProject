@@ -79,8 +79,18 @@ public class UpdateItemMenu
 							UpdateItemController.updateItem(tempId, attribute, attributeValue);
 						}
 					} else{
-						UpdateItemController.updateItem(tempId, attribute, attributeValue);
+						if(type == 1 && attribute.equalsIgnoreCase("ageDivision")){
+							if(ValidationController.checkCorrectDivision(attributeValue)){
+								UpdateItemController.updateItem(tempId, attribute, attributeValue);
+							} else {
+								PopUp.alertBox("Error", "There are already two managers for that division");
+							}
+						} else {
+							UpdateItemController.updateItem(tempId, attribute, attributeValue);
+						}
 					}
+				} else {
+					PopUp.alertBox("Error", "That is not a vald attribute for that object");
 				}
 			}
 		}
