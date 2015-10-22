@@ -90,7 +90,7 @@ public class UpdateItemMenu
 						}
 					}
 				} else {
-					PopUp.alertBox("Error", "That is not a vald attribute for that object");
+					PopUp.alertBox("Error", "That is not a valid attribute for that object");
 				}
 			}
 		}

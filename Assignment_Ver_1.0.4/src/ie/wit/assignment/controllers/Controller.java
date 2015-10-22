@@ -2,6 +2,7 @@ package ie.wit.assignment.controllers;
 
 import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
@@ -17,7 +18,7 @@ public abstract class Controller
 		try{
 			Collector.addItem(itemIn, type);
 			return true;
-		}catch(Exception e){
+		} catch(Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 			return false;
 		}
@@ -58,15 +59,21 @@ public abstract class Controller
 		try{
 			name = name.trim();
 			String [] names = name.split(" ");
-			Collectible tempItem = Collector.searchByName(names[0], names[1], type);
-			return tempItem.getId();
+			if(checkNameEntered(names)){
+				Collectible tempItem = Collector.searchByName(names[0], names[1], type);
+				return tempItem.getId();
+			}
+			throw new InputNotValidException("The name entered has no spaces");
 		} catch(ItemNotFoundException e){
 			PopUp.alertBox("Item not found", "The selected item was not found");
 			return null;
 		} catch (ListEmptyException e){
 			PopUp.alertBox("List empty", "The list is empty");
 			return null;
-		} catch (Exception e){
+		} catch (InputNotValidException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		}catch (Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 			return null;
 		}
@@ -86,9 +93,15 @@ public abstract class Controller
 		}
 		return false;
 	}
-	public static boolean checkNameEntered(String[] listIn)
+	public static boolean checkNameEntered(String nameIn){
+		if((!nameIn.contains(" "))|| nameIn.length() < 3){
+			return false;
+		}
+		return true;
+	}
+	public static boolean checkNameEntered(String[] nameIn)
 	{
-		if(listIn.length < 2){
+		if(nameIn.length < 2 || nameIn.length >= 3){
 			return false;
 		}
 		return true;

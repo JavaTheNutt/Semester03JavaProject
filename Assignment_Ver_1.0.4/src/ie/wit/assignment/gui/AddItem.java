@@ -310,20 +310,20 @@ public class AddItem
 		TextField address02Input = new TextField();
 		TextField contactNoInput = new TextField();
 		TextField emailInput = new TextField();
-		ComboBox<String> dateofBirthInput = new ComboBox<String>();
-		ComboBox<String> monthOfBirth = new ComboBox<String>();
-		ComboBox<String> yearOfBirth = new ComboBox<String>();
-        doctorSelection = new ComboBox<String>();
+		ComboBox<String> dateOfBirthInput = new ComboBox<>();
+		ComboBox<String> monthOfBirth = new ComboBox<>();
+		ComboBox<String> yearOfBirth = new ComboBox<>();
+        doctorSelection = new ComboBox<>();
 
 
-		dateofBirthInput.getItems().addAll(setNumberDays(31));
+		dateOfBirthInput.getItems().addAll(setNumberDays(31));
 		monthOfBirth.getItems().addAll(setNumberDays(12));
 		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009");
         setDoctorSelection();
 
 		doctorSelection.setValue("Achim Shlunke");
 		
-		dateofBirthInput.setValue("1");
+		dateOfBirthInput.setValue("1");
 		monthOfBirth.setValue("1");
 		yearOfBirth.setValue("2009");
 		
@@ -345,7 +345,7 @@ public class AddItem
 				PopUp.alertBox(notFilledTitle, notFilledMessage);
 			} else {
 				/*Check validity of dates entered*/
-				if(!ValidationController.checkMonthValidity(monthOfBirth.getValue(), dateofBirthInput.getValue())){
+				if(!ValidationController.checkMonthValidity(monthOfBirth.getValue(), dateOfBirthInput.getValue())){
 					PopUp.alertBox(notFilledTitle, "Please enter a valid date");
 				} else{
 					/*Validate email*/
@@ -362,13 +362,13 @@ public class AddItem
                                     items[3],
                                     items[4],
                                     items[5],
-                                    Integer.parseInt(dateofBirthInput.getValue()),
+                                    Integer.parseInt(dateOfBirthInput.getValue()),
                                     Integer.parseInt(monthOfBirth.getValue()),
                                     Integer.parseInt(yearOfBirth.getValue()),
                                     tempDoc
                             );
                             Collector.addItem(tempPlayer, 3);
-							PopUp.alertBox("Success", "Player added succesfully");
+							PopUp.alertBox("Success", "Player added successfully");
 							/*reset fields*/
 							firstNameInput.setText("");
 							surnameInput.setText("");
@@ -405,7 +405,7 @@ public class AddItem
 		GridPane.setConstraints(emailLabel, 0, 5);
 		GridPane.setConstraints(emailInput, 1, 5);
 		GridPane.setConstraints(dayLabel, 0, 6);
-		GridPane.setConstraints(dateofBirthInput, 1, 6);
+		GridPane.setConstraints(dateOfBirthInput, 1, 6);
 		GridPane.setConstraints(monthLabel, 0, 7);
 		GridPane.setConstraints(monthOfBirth,1, 7);
 		GridPane.setConstraints(yearLabel, 0, 8);
@@ -417,7 +417,7 @@ public class AddItem
 		GridPane.setConstraints(closeButton, 2, 10);
 		
 		mainLayout.getChildren().addAll(firstNameLabel, firstNameInput, surnameLabel, surnameInput, address01Label, address01Input, address02Label, address02Input,
-				contactNoLabel, contactNoInput, emailLabel, emailInput, dayLabel, dateofBirthInput, monthLabel, monthOfBirth
+				contactNoLabel, contactNoInput, emailLabel, emailInput, dayLabel, dateOfBirthInput, monthLabel, monthOfBirth
 				, yearLabel, yearOfBirth, doctorLabel, doctorSelection, submitButton,addNewDoctorButton,  closeButton);
 		
 		BorderPane outerLayout = new BorderPane();
