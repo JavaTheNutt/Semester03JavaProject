@@ -1,6 +1,7 @@
 package ie.wit.assignment;
 
 import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.collectors.NewCollector;
 import ie.wit.assignment.controllers.IOController;
 import ie.wit.assignment.gui.MainMenu;
 import ie.wit.assignment.gui.PopUp;
@@ -10,6 +11,9 @@ import javafx.stage.Stage;
 public class Main extends Application
 {
 
+	public static NewCollector managerList = new NewCollector();
+	public static NewCollector doctorList = new NewCollector();
+	public static NewCollector playerList = new NewCollector();
 	public static void main(String[] args)
 	{
 		try {

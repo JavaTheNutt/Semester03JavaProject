@@ -5,6 +5,7 @@ import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
 import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.collectors.NewCollector;
 import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.IOController;
 
@@ -165,6 +166,7 @@ public abstract class InitialSetup
 	public static File doctors = new File("doctors.dat");
 	public static File players = new File("players.dat");
 
+
 	/*This encloses the method below in a try...catch block and calls it once for each list */
 	public static boolean gatherItemsInSystem()
 	{
@@ -258,3 +260,5 @@ public abstract class InitialSetup
 		tempSize = tempSizeIn;
 	}
 }
+
+
