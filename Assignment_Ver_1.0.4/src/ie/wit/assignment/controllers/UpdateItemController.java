@@ -3,8 +3,8 @@ package ie.wit.assignment.controllers;
 import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.exceptions.InputNotValidException;
+import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.collectors.NewCollector;
 import ie.wit.assignment.gui.PopUp;
 
 import java.util.ArrayList;
@@ -25,8 +25,9 @@ public class UpdateItemController
 	public static void updateItem(String idIn, String attributeTypeIn, String attributeIn)
 	{
 		try {
-			int type = Collector.getTypeById(idIn);
-			Collectible item = Controller.getById(type, idIn);
+			int type = FindItemsController.getTypeById(idIn);
+			NewCollector tempList = Lists.setType(type);
+			Collectible item = tempList.getItem(idIn);
 			int attributeIndex = checkAttributeList(type, attributeTypeIn);
 			/*-999 is returned if the attributeName passed does not match an
 			* attribute of the correct object*/
@@ -85,9 +86,7 @@ public class UpdateItemController
 				PopUp.alertBox("Error", "An error has occurred");
 			}
 		}
-		catch (InputNotValidException e) {
-			PopUp.alertBox("Input invalid", "The input entered is invalid");
-		} catch(Exception e){
+		catch(Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 		}
 	}

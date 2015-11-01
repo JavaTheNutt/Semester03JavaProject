@@ -1,14 +1,17 @@
 package ie.wit.assignment.collectors;
 
 import ie.wit.assignment.collectables.Collectible;
-import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
+import ie.wit.assignment.gui.PopUp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewCollector
+public class NewCollector implements Serializable
 {
 	public static List<Collectible> list;
 
@@ -16,28 +19,50 @@ public class NewCollector
 	{
 		list = new ArrayList<>();
 	}
-	public boolean removeItem(Collectible item) throws ListEmptyException, ItemNotFoundException
+	public boolean addItem(Collectible itemIn)
 	{
-		checkExists(item);
-		if(list.remove(item)){
-			return true;
-		} 
-		return false;
+		return list.add(itemIn);
 	}
-	public boolean removeItem(String idIn) throws ListEmptyException, ItemNotFoundException
+	public boolean removeItem(Collectible item)
 	{
-		if (removeItem(getItem(idIn))){
-			return true;
+		try{
+			checkExists(item);
+			return list.remove(item);
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return false;
+		} catch (ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return false;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return false;
 		}
-		return false;
+
 	}
-	public int getIndex(Collectible itemIn)throws ListEmptyException, ItemNotFoundException
+	public boolean removeItem(String idIn)
 	{
-		checkExists(itemIn);
-		return list.indexOf(itemIn);
+		return removeItem(getItem(idIn));
+	}
+	public int getIndex(Collectible itemIn)
+	{
+		try{
+			checkExists(itemIn);
+			return list.indexOf(itemIn);
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return -999;
+		} catch (ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return -999;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return -999;
+		}
+
 	}
 
-	private static boolean checkEmpty() throws  ListEmptyException
+	private boolean checkEmpty() throws  ListEmptyException
 	{
 		if (list.isEmpty()){
 			throw new ListEmptyException("The list is empty");
@@ -52,30 +77,116 @@ public class NewCollector
 		}
 		return true;
 	}
-	public Collectible getItem(String idIn)throws ListEmptyException, ItemNotFoundException
+	public Collectible getItem(String idIn)
 	{
-		checkEmpty();
-		for (Collectible item : list){
-			if (item.getId().equalsIgnoreCase(idIn)){
-				return item;
+		try{
+			checkEmpty();
+			for (Collectible item : list){
+				if (item.getId().equalsIgnoreCase(idIn)){
+					return item;
+				}
 			}
+			throw new ItemNotFoundException("The item was not found");
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An Unknown error has occurred ");
+			return null;
 		}
-		throw new ItemNotFoundException("The item was not found");
+
 	}
 
-	public Collectible getItem(String fName, String lName) throws ListEmptyException, ItemNotFoundException
+	public Collectible getItem(String fName, String lName)
 	{
-		checkEmpty();
-		for (Collectible item : list){
-			if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
-				return item;
+		try{
+			checkEmpty();
+			for (Collectible item : list){
+				if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
+					return item;
+				}
 			}
+			throw new ItemNotFoundException("Item not found");
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An Unknown error has occurred ");
+			return null;
 		}
-		throw new ItemNotFoundException("Item not found");
 	}
-	public Collectible getItem(String[] names)throws ListEmptyException, ItemNotFoundException
+	public Collectible getItem(String[] names)
 	{
 		return getItem(names[0], names[1]);
 	}
-	
+	public String[] getNamesInArray()
+	{
+		try{
+			checkEmpty();
+			String[] array = new String[list.size()];
+			int i = 0;
+			for(Collectible item : list){
+				array[i] = item.getFName() + " " + item.getLName();
+				i++;
+			}
+			return array;
+		} catch (ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
+		}
+
+	}
+	public String[] getNamesInArray(List<Collectible> listIn)
+	{
+		String[] array = new String[listIn.size()];
+		int i = 0;
+		for (Collectible item : listIn) {
+			array[i] = item.getFName() + " " + item.getLName();
+			i++;
+		}
+		return array;
+	}
+	public ObservableList<Collectible> getAsObservableList()
+	{
+		try{
+			checkEmpty();
+			ObservableList<Collectible> tempList = FXCollections.observableArrayList();
+			for (Collectible item : list){
+				tempList.add(item);
+			}
+			return tempList;
+		} catch (ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
+		}
+	}
+	public ObservableList<Collectible> getAsObservableList(ArrayList<Collectible> listIn){
+		ObservableList<Collectible> tempList= FXCollections.observableArrayList();
+		for(Collectible item : listIn){
+			tempList.add(item);
+		}
+		return tempList;
+	}
+	public String matchNameToId(String idIn)
+	{
+		String tempName = null;
+		for (Collectible item : list){
+			if(item.getId().equals(idIn)){
+				tempName = item.getFName() + " " + item.getLName();
+			}
+		}
+		return tempName;
+	}
 }

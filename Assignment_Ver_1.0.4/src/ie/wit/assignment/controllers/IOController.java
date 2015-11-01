@@ -1,6 +1,7 @@
 package ie.wit.assignment.controllers;
 
 import ie.wit.assignment.collectables.Collectible;
+import ie.wit.assignment.collectors.NewCollector;
 import ie.wit.assignment.fileHandling.FileHandler;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class IOController
 			return false;
 		}
 	}
-	public static boolean createFile(List<Collectible> listIn, int size, File fileIn)
+	public static boolean createFile(NewCollector listIn, int size, File fileIn)
 	{
 		try{
 			FileHandler.writeOut(listIn, size, fileIn);
@@ -31,7 +32,7 @@ public class IOController
 			return false;
 		}
 	}
-	public static List<Collectible> readList(File fileIn){
+	public static NewCollector readList(File fileIn){
 		try{
 			return FileHandler.readIn(fileIn);
 		} catch(Exception e){

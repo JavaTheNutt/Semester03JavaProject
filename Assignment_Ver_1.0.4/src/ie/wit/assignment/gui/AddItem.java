@@ -3,8 +3,8 @@ package ie.wit.assignment.gui;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.Controller;
+import ie.wit.assignment.collectors.ItemCounter;
+import ie.wit.assignment.collectors.Lists;
 import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -123,9 +123,9 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email address");
 					} else {
-						Manager tempMan = new Manager(Collector.numberOfManagers, firstNameInput.getText(), surnameInput.getText(),
+						Manager tempMan = new Manager(ItemCounter.numberOfManagers, firstNameInput.getText(), surnameInput.getText(),
 								address01Input.getText(), address02Input.getText(), contactNoInput.getText(), emailInput.getText(), ageDivisionInput.getValue());
-						if(Controller.addItem(tempMan, 1)){
+						if(Lists.managerList.addItem(tempMan)){
 							System.out.println("Added");
 							/*reset fields*/
 							firstNameInput.setText("");
@@ -219,9 +219,9 @@ public class AddItem
 				if(ValidationController.alreadyExists(firstNameInput.getText(), surnameInput.getText(), 2)){
 					PopUp.alertBox("Already Present", "That doctor is already present in the system");
 				} else {
-					Doctor tempDoc = new Doctor(Collector.numberOfDoctors, items[0], items[1], items[2],
+					Doctor tempDoc = new Doctor(ItemCounter.numberOfDoctors, items[0], items[1], items[2],
 						items[3], items[4]);
-					if(Controller.addItem(tempDoc, 2)){
+					if(Lists.doctorList.addItem(tempDoc)/*Main.doctorList.addItem(tempDoc)*/){
 						PopUp.alertBox("Success", "Added Successfully");
 						/*reset fields*/
 						firstNameInput.setText("");
@@ -352,10 +352,10 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
 					} else {
-                       String tempDoc = Controller.matchNameToId(doctorSelection.getValue(), 2);
+                       String tempDoc = Lists.doctorList.matchNameToId(doctorSelection.getValue());
 						/*Ensure doctor not null*/
-                        if(!tempDoc.equals("")){
-                            Player tempPlayer = new Player(Collector.numberOfPlayers,
+                        if(!tempDoc.equals(null)){
+                            Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
                                     items[0],
                                     items[1],
                                     items[2],
@@ -367,7 +367,8 @@ public class AddItem
                                     Integer.parseInt(yearOfBirth.getValue()),
                                     tempDoc
                             );
-                            Collector.addItem(tempPlayer, 3);
+
+	                        Lists.playerList.addItem(tempPlayer);
 							PopUp.alertBox("Success", "Player added successfully");
 							/*reset fields*/
 							firstNameInput.setText("");
@@ -432,7 +433,7 @@ public class AddItem
 	private static void setDoctorSelection()
     {
         doctorSelection.getItems().removeAll(doctorSelection.getItems());
-		doctorSelection.getItems().addAll(Collector.getNamesInArray(2));
+		doctorSelection.getItems().addAll(Lists.doctorList.getNamesInArray());
 		doctorSelection.setValue("Achim Shlunke");
 	}
 	/*This method will fill an array with a specified number of integers to be used in a comboBox*/

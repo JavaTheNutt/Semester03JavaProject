@@ -1,7 +1,6 @@
 package ie.wit.assignment.gui;
 
 import ie.wit.assignment.collectables.Collectible;
-import ie.wit.assignment.controllers.Controller;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -110,12 +109,6 @@ public class DisplayItems
         window.setTitle("Display Players");
         window.setMinWidth(600);
 
-		/*if(listIn.isEmpty()){
-			PopUp.alertBox("No data", "No data to display");
-		}*/
-
-
-		Controller.catchEmptyException(listIn);
 
         TableColumn<Collectible, String> playerIdColumn = new TableColumn<>("Player Id");
         playerIdColumn.setMinWidth(50);

@@ -1,7 +1,7 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.Controller;
+import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.collectors.NewCollector;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 /*This class will be the GUI for removing items*/
 public class RemoveItemMenu
 {
@@ -87,10 +88,11 @@ public class RemoveItemMenu
 	}*/
 	private static void getItemToBeRemoved(int type, String typeName)
 	{
-		String[] listOfNames = Collector.getNamesInArray(type);
+		String[] listOfNames = Lists.setType(type).getNamesInArray();
 		String name = PopUp.singleComboBox(listOfNames, "Remove " + typeName, "Please select the " + typeName + " to be removed");
-		String id = Controller.matchNameToId(name, type);
-		if (Controller.removeItem(id, type)){
+		NewCollector tempList = Lists.setType(type);
+		String id = tempList.matchNameToId(name);
+		if (tempList.removeItem(id)){
 			PopUp.alertBox("Success", "Item Removed Successfully");
 		} else {
 			PopUp.alertBox("Failure", "Item not removed");

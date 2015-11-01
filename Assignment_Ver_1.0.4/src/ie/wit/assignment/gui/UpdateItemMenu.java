@@ -1,7 +1,7 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.Controller;
+import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.collectors.NewCollector;
 import ie.wit.assignment.controllers.UpdateItemController;
 import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 /*This class will display the menu for updating the items*/
 public class UpdateItemMenu
 {
@@ -65,11 +66,14 @@ public class UpdateItemMenu
 
 	private static void collectInput(int type)
 	{
-		String tempName  = PopUp.singleComboBox(Collector.getNamesInArray(type), "Select item", "Please select the item to be updated");
+		String tempName  = PopUp.singleComboBox(Lists.setType(type).getNamesInArray(),
+				"Select item",
+				"Please select the item to be updated");
 		String attribute = "";
 		String attributeValue = "";
 		if(!tempName.equalsIgnoreCase("close")){
-			String tempId = Controller.matchNameToId(tempName, type);
+			NewCollector tempList = Lists.setType(type);
+			String tempId = tempList.matchNameToId(tempName);
 			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
 			if(!attribute.equalsIgnoreCase("close")){
 				if(validateAttribute(type, attribute)){

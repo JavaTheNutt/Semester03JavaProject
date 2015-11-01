@@ -4,13 +4,12 @@ import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.collectables.Doctor;
 import ie.wit.assignment.collectables.Manager;
 import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.Collector;
+import ie.wit.assignment.collectors.ItemCounter;
+import ie.wit.assignment.collectors.Lists;
 import ie.wit.assignment.collectors.NewCollector;
-import ie.wit.assignment.controllers.Controller;
 import ie.wit.assignment.controllers.IOController;
 
 import java.io.File;
-import java.util.List;
 
 /*This class will handle initial IO operations. If the *.dat files are deleted, this class
 * will create them again and add the initial dummy data again*/
@@ -155,9 +154,9 @@ public abstract class InitialSetup
 			5,
 			2009,
 			"dr1");
-	private static Player[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
-	private static Manager[] managerHolder = {testMan01, testMan02};
-	private static Doctor[] doctorHolder = {testDoc01, testDoc02};
+	private static Collectible[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
+	private static Collectible[] managerHolder = {testMan01, testMan02};
+	private static Collectible[] doctorHolder = {testDoc01, testDoc02};
 
 	/*This will temporarily hold the size of the lists being read in until it is
 	 * passed to the collection class*/
@@ -167,10 +166,12 @@ public abstract class InitialSetup
 	public static File players = new File("players.dat");
 
 
+
 	/*This encloses the method below in a try...catch block and calls it once for each list */
 	public static boolean gatherItemsInSystem()
 	{
 		try {
+			Lists.createLists();
 			if (checkAndAdd(1) && checkAndAdd(2) && checkAndAdd(3)) {
 				return true;
 			}
@@ -186,29 +187,29 @@ public abstract class InitialSetup
 	private static boolean checkAndAdd(int type)
 	{
 		File tempFile = setFile(type);
-		List<Collectible> tempList = Collector.setType(type);
+		NewCollector tempList = Lists.setType(type);
+		/*List<Collectible> tempList = Collector.setType(type);*/ //deprecated
 		Collectible[] tempArray = getTempFiles(type);
 
 		if (!IOController.checkExistance(tempFile)) {
 			for (Collectible item : tempArray) {
-				Controller.addItem(item, type);
+				tempList.addItem(item);
+				/*Controller.addItem(item, type);*/ //deprecated
 			}
-			IOController.createFile(tempList, Collector.getAmount(type), tempFile);
+			IOController.createFile(tempList, ItemCounter.getItem(type), tempFile);
 			return true;
 		} else {
 			if (IOController.readList(tempFile) != null) {
+				ItemCounter.setItem(type, tempSize + 1);
 				switch (type) {
 					case 1:
-						Collector.numberOfManagers = tempSize + 1;
-						Collector.setManagerList(IOController.readList(tempFile));
+						Lists.managerList = IOController.readList(tempFile);
 						break;
 					case 2:
-						Collector.numberOfDoctors = tempSize + 1;
-						Collector.setDoctorList(IOController.readList(tempFile));
+						Lists.doctorList = IOController.readList(tempFile);
 						break;
 					case 3:
-						Collector.numberOfPlayers = tempSize + 1;
-						Collector.setPlayerList(IOController.readList(tempFile));
+						Lists.playerList = IOController.readList(tempFile);
 						break;
 				}
 				return true;
@@ -216,7 +217,6 @@ public abstract class InitialSetup
 				return false;
 			}
 		}
-
 	}
 
 	/*This sets the file to be written to*/
@@ -240,25 +240,24 @@ public abstract class InitialSetup
 	/*This gets the temporary data stored in the array*/
 	private static Collectible[] getTempFiles(int type)
 	{
-		Collectible[] tempArray = null;
 		switch (type) {
 			case 1:
-				tempArray = managerHolder;
-				break;
+				return managerHolder;
 			case 2:
-				tempArray = doctorHolder;
-				break;
+				return doctorHolder;
 			case 3:
-				tempArray = playerHolder;
-				break;
+				return playerHolder;
+			default:
+				return null;
 		}
-		return tempArray;
 	}
 
 	public static void setTempSize(int tempSizeIn)
 	{
 		tempSize = tempSizeIn;
 	}
+
+
 }
 
 

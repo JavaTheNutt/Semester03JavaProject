@@ -1,8 +1,8 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectors.Collector;
-import ie.wit.assignment.controllers.FindItemController;
-import javafx.collections.ObservableList;
+import ie.wit.assignment.collectables.Collectible;
+import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.controllers.FindItemsController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -37,53 +37,50 @@ public class ListItemsGui
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {
-			DisplayItems.displayManagers(Collector.getList(1));
+			DisplayItems.displayManagers(Lists.managerList.getAsObservableList());
 		});
 		
 		Button listDoctorsButton = new Button("X");
 		listDoctorsButton.setOnAction(e -> {
-			DisplayItems.displayDoctor(Collector.getList(2));
+			DisplayItems.displayDoctor(Lists.doctorList.getAsObservableList());
 		});
 		Button listPlayersButton = new Button("X");
 		listPlayersButton.setOnAction(e -> {
-			DisplayItems.displayPlayers(Collector.getList(3));
+			DisplayItems.displayPlayers(Lists.playerList.getAsObservableList());
 		});
 
 		Button listPlayersByAgeDivisionButton = new Button("X");
 		listPlayersByAgeDivisionButton.setOnAction(e -> {
-			DisplayItems.displayPlayers(FindItemController.findPlayersByAgeDivision(PopUp.selectAgeDivision()));
+			DisplayItems.displayPlayers(FindItemsController.findPlayersByAgeDivision(PopUp.selectAgeDivision()));
 		});
 
 		Button findPlayerByNameButton = new Button("X");
 		findPlayerByNameButton.setOnAction(e -> {
-			ObservableList tempList = FindItemController.findByName(3);
-			if(tempList == null){
+			Collectible player = FindItemsController.findItemsByName(3);
+			if(player == null){
 				PopUp.alertBox("No Data", "There is no data to display");
-				return;
 			} else {
-				DisplayItems.displayPlayers(tempList);
+				PopUp.alertBox("Player", player.toString());
 			}
 		});
 
 		Button findManagerByNameButton = new Button("X");
 		findManagerByNameButton.setOnAction(e -> {
-			ObservableList tempList = FindItemController.findByName(1);
-			if(tempList == null){
+			Collectible manager = FindItemsController.findItemsByName(1);
+			if(manager == null){
 				PopUp.alertBox("No Data", "There is no data to display");
-				return;
 			} else {
-				DisplayItems.displayPlayers(tempList);
+				PopUp.alertBox("Manager", manager.toString());
 			}
 		});
 
 		Button findDoctorByNameButton = new Button("X");
 		findDoctorByNameButton.setOnAction(e -> {
-			ObservableList tempList = FindItemController.findByName(2);
-			if (tempList == null) {
+			Collectible doctor = FindItemsController.findItemsByName(2);
+			if (doctor == null) {
 				PopUp.alertBox("No Data", "There is no data to display");
-				return;
 			} else {
-				DisplayItems.displayPlayers(tempList);
+				PopUp.alertBox("Doctor", doctor.toString());
 			}
 		});
 
