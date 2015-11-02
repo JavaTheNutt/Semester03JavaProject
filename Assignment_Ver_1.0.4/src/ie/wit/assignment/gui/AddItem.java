@@ -1,10 +1,10 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectables.Doctor;
-import ie.wit.assignment.collectables.Manager;
-import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.ItemCounter;
-import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.implObjects.Doctor;
+import ie.wit.assignment.implObjects.Manager;
+import ie.wit.assignment.implObjects.Player;
+import ie.wit.assignment.implObjects.ItemCounter;
+import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

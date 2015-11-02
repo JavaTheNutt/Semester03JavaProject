@@ -1,12 +1,12 @@
 package ie.wit.assignment;
 
-import ie.wit.assignment.collectables.Collectible;
-import ie.wit.assignment.collectables.Doctor;
-import ie.wit.assignment.collectables.Manager;
-import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.ItemCounter;
-import ie.wit.assignment.collectors.Lists;
-import ie.wit.assignment.collectors.NewCollector;
+import ie.wit.assignment.implObjects.Collectible;
+import ie.wit.assignment.implObjects.Doctor;
+import ie.wit.assignment.implObjects.Manager;
+import ie.wit.assignment.implObjects.Player;
+import ie.wit.assignment.implObjects.Collector;
+import ie.wit.assignment.implObjects.ItemCounter;
+import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.IOController;
 
 import java.io.File;
@@ -187,7 +187,7 @@ public abstract class InitialSetup
 	private static boolean checkAndAdd(int type)
 	{
 		File tempFile = setFile(type);
-		NewCollector tempList = Lists.setType(type);
+		Collector tempList = Lists.setType(type);
 		/*List<Collectible> tempList = Collector.setType(type);*/ //deprecated
 		Collectible[] tempArray = getTempFiles(type);
 

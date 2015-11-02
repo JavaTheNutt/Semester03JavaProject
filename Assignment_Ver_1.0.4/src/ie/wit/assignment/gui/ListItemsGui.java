@@ -1,7 +1,7 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectables.Collectible;
-import ie.wit.assignment.collectors.Lists;
+import ie.wit.assignment.implObjects.Collectible;
+import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.FindItemsController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -33,7 +33,7 @@ public class ListItemsGui
 		Label listPlayersByAgeDivisionLabel = new Label("Show an entire age division");
 		Label findPlayerByNameLabel = new Label("Find a player by name");
 		Label findDoctorByNameLabel = new Label("Find a doctor by name");
-		Label findManagerByNameLabel = new Label("Find a manger by name");
+		Label findManagerByNameLabel = new Label("Find a manager by name");
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {

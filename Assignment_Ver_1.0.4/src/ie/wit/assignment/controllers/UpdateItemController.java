@@ -1,10 +1,10 @@
 package ie.wit.assignment.controllers;
 
-import ie.wit.assignment.collectables.Collectible;
-import ie.wit.assignment.collectables.Manager;
-import ie.wit.assignment.collectables.Player;
-import ie.wit.assignment.collectors.Lists;
-import ie.wit.assignment.collectors.NewCollector;
+import ie.wit.assignment.implObjects.Collectible;
+import ie.wit.assignment.implObjects.Manager;
+import ie.wit.assignment.implObjects.Player;
+import ie.wit.assignment.implObjects.Collector;
+import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.gui.PopUp;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class UpdateItemController
 	{
 		try {
 			int type = FindItemsController.getTypeById(idIn);
-			NewCollector tempList = Lists.setType(type);
+			Collector tempList = Lists.setType(type);
 			Collectible item = tempList.getItem(idIn);
 			int attributeIndex = checkAttributeList(type, attributeTypeIn);
 			/*-999 is returned if the attributeName passed does not match an
@@ -55,7 +55,12 @@ public class UpdateItemController
 					/*Both type 1(Manager) and 3(Player) have the email attribute*/
 					if(type == 1 || type == 3){
 						if(attributeIndex == 5){
-							item.setEmail(attributeIn);
+							if(type == 1){
+								((Manager) item).setEmail(attributeIn);
+							} else{
+								((Player) item).setEmail(attributeIn);
+							}
+
 						}
 						switch (type){
 							case 1:

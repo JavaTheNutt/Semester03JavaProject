@@ -1,6 +1,6 @@
 /*This is the class that all collectible objects in this program
  * inherit from.*/
-package ie.wit.assignment.collectables;
+package ie.wit.assignment.implObjects;
 
 import java.io.Serializable;
 
@@ -13,17 +13,15 @@ public abstract class Collectible implements Serializable
 	protected String address01;
 	protected String address02;
 	protected String contactNo;
-	protected String email;
+
 	
-	public Collectible(String fName, String lName, String address01, String address02, String contactNo,
-					   String email)
+	public Collectible(String fName, String lName, String address01, String address02, String contactNo)
 	{
 		this.fName = fName;
 		this.lName = lName;
 		this.address01 = address01;
 		this.address02 = address02;
 		this.contactNo = contactNo;
-		this.email = email;
 	}
 
 	public String getId() {
@@ -72,14 +70,6 @@ public abstract class Collectible implements Serializable
 
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	@Override 

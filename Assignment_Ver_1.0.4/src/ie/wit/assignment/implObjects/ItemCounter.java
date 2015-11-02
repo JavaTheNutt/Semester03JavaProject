@@ -1,4 +1,4 @@
-package ie.wit.assignment.collectors;
+package ie.wit.assignment.implObjects;
 
 public abstract class ItemCounter
 {

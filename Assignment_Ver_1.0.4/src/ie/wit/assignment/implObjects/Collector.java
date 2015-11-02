@@ -1,6 +1,5 @@
-package ie.wit.assignment.collectors;
+package ie.wit.assignment.implObjects;
 
-import ie.wit.assignment.collectables.Collectible;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
@@ -11,12 +10,34 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewCollector implements Serializable
+public class Collector implements Serializable
 {
-	public static List<Collectible> list;
+	private List<Collectible> list;
+	private int type;
 
-	public NewCollector()
+	public List<Collectible> getList()
 	{
+		return list;
+	}
+
+	public void setList(List<Collectible> list)
+	{
+		this.list = list;
+	}
+
+	public int getType()
+	{
+		return type;
+	}
+
+	public void setType(int type)
+	{
+		this.type = type;
+	}
+
+	public Collector(int type)
+	{
+		this.type = type;
 		list = new ArrayList<>();
 	}
 	public boolean addItem(Collectible itemIn)

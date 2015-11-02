@@ -1,6 +1,6 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectables.Collectible;
+import ie.wit.assignment.implObjects.Collectible;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;

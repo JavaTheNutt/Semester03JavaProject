@@ -1,7 +1,7 @@
 package ie.wit.assignment.gui;
 
-import ie.wit.assignment.collectors.Lists;
-import ie.wit.assignment.collectors.NewCollector;
+import ie.wit.assignment.implObjects.Collector;
+import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.UpdateItemController;
 import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
@@ -72,7 +72,7 @@ public class UpdateItemMenu
 		String attribute = "";
 		String attributeValue = "";
 		if(!tempName.equalsIgnoreCase("close")){
-			NewCollector tempList = Lists.setType(type);
+			Collector tempList = Lists.setType(type);
 			String tempId = tempList.matchNameToId(tempName);
 			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
 			if(!attribute.equalsIgnoreCase("close")){
