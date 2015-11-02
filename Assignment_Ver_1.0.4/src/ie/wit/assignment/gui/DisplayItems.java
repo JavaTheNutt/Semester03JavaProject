@@ -107,8 +107,12 @@ public class DisplayItems
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Display Players");
-        window.setMinWidth(600);
+	    window.setResizable(false);
 
+		if(listIn.isEmpty()){
+			PopUp.alertBox("No data", "No data to display");
+			return;
+		}
 
         TableColumn<Collectible, String> playerIdColumn = new TableColumn<>("Player Id");
         playerIdColumn.setMinWidth(50);

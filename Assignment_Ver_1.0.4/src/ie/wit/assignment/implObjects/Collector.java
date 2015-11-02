@@ -1,5 +1,6 @@
 package ie.wit.assignment.implObjects;
 
+import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
@@ -9,6 +10,7 @@ import javafx.collections.ObservableList;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Exchanger;
 
 public class Collector implements Serializable
 {
@@ -200,14 +202,70 @@ public class Collector implements Serializable
 		}
 		return tempList;
 	}
-	public String matchNameToId(String idIn)
+	public String getNameFromId(String idIn)
 	{
-		String tempName = null;
-		for (Collectible item : list){
-			if(item.getId().equals(idIn)){
-				tempName = item.getFName() + " " + item.getLName();
+		try{
+			checkEmpty();
+			for (Collectible item : list){
+				if(item.getId().equals(idIn)){
+					return item.getFName() + " " + item.getLName();
+				}
 			}
+			throw new ItemNotFoundException("The item was not found");
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch(ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
 		}
-		return tempName;
+
+	}
+	public String getIdFromName(String nameIn)
+	{
+		try{
+			checkEmpty();
+			if(!nameIn.contains(" ")){
+				throw new InputNotValidException("Please enter a name with spaces");
+			}
+			String[] names = nameIn.split(" ");
+			if(names.length > 2){
+				throw new InputNotValidException("Please ensure that there is only a first name and surname");
+			}
+			return getIdFromName(names[0], names[1]);
+		}catch (InputNotValidException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		}  catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
+		}
+	}
+	public String getIdFromName(String fNameIn, String lNameIn)
+	{
+		try{
+			checkEmpty();
+			for(Collectible item : list){
+				if(item.getFName().equalsIgnoreCase(fNameIn) && item.getLName().equalsIgnoreCase(lNameIn)){
+					return item.getId();
+				}
+			}
+			throw new ItemNotFoundException("The item was not found");
+		}catch(ListEmptyException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch(ItemNotFoundException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		} catch(Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			return null;
+		}
 	}
 }

@@ -47,4 +47,15 @@ public abstract class FindItemsController
 				return -999;
 		}
 	}
+	public static ObservableList<Collectible> getPlayersWithDoctor(String doctorIdIn)
+	{
+		ObservableList<Collectible> list = FXCollections.observableArrayList();
+		for(Collectible item : Lists.playerList.getList()){
+			Player tempItem = (Player)item;
+			if(tempItem.getDoctorId().equalsIgnoreCase(doctorIdIn)){
+				list.add(item);
+			}
+		}
+		return list;
+	}
 }

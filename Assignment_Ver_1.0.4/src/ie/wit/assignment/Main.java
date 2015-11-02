@@ -1,5 +1,6 @@
 package ie.wit.assignment;
 
+import ie.wit.assignment.gui.ListItemsGui;
 import ie.wit.assignment.implObjects.ItemCounter;
 import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.IOController;
@@ -60,7 +61,8 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
-		MainMenu.display();
+		/*MainMenu.display();*/
+		ListItemsGui.display();
 	}
 
 }

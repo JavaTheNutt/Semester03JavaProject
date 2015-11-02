@@ -73,7 +73,7 @@ public class UpdateItemMenu
 		String attributeValue = "";
 		if(!tempName.equalsIgnoreCase("close")){
 			Collector tempList = Lists.setType(type);
-			String tempId = tempList.matchNameToId(tempName);
+			String tempId = tempList.getNameFromId(tempName);
 			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
 			if(!attribute.equalsIgnoreCase("close")){
 				if(validateAttribute(type, attribute)){

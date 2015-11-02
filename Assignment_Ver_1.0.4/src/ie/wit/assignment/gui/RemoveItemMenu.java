@@ -91,7 +91,7 @@ public class RemoveItemMenu
 		String[] listOfNames = Lists.setType(type).getNamesInArray();
 		String name = PopUp.singleComboBox(listOfNames, "Remove " + typeName, "Please select the " + typeName + " to be removed");
 		Collector tempList = Lists.setType(type);
-		String id = tempList.matchNameToId(name);
+		String id = tempList.getNameFromId(name);
 		if (tempList.removeItem(id)){
 			PopUp.alertBox("Success", "Item Removed Successfully");
 		} else {

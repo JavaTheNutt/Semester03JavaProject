@@ -34,6 +34,7 @@ public class ListItemsGui
 		Label findPlayerByNameLabel = new Label("Find a player by name");
 		Label findDoctorByNameLabel = new Label("Find a doctor by name");
 		Label findManagerByNameLabel = new Label("Find a manager by name");
+		Label showAllPlayersWithDoctorLabel = new Label("Find all players with a specific doctor");
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {
@@ -84,6 +85,13 @@ public class ListItemsGui
 			}
 		});
 
+		Button showAllPlayersWithDoctorButton = new Button("X");
+		showAllPlayersWithDoctorButton.setOnAction(e -> {
+			String doctorName = PopUp.singleComboBox(Lists.doctorList.getNamesInArray(), "Select Doctor", "Please select a doctor");
+			String doctorId = Lists.doctorList.getIdFromName(doctorName);
+			DisplayItems.displayPlayers(FindItemsController.getPlayersWithDoctor(doctorId));
+
+		});
 		GridPane.setConstraints(listManagersLabel, 0, 0);
 		GridPane.setConstraints(listManagersButton, 1, 0);
 		GridPane.setConstraints(listDoctorsLabel, 0, 1);
@@ -98,12 +106,17 @@ public class ListItemsGui
 		GridPane.setConstraints(findManagerByNameButton, 1, 5);
 		GridPane.setConstraints(findDoctorByNameLabel, 0, 6);
 		GridPane.setConstraints(findDoctorByNameButton, 1, 6);
+		GridPane.setConstraints(showAllPlayersWithDoctorLabel, 0, 7);
+		GridPane.setConstraints(showAllPlayersWithDoctorButton, 1, 7);
 		
 		GridPane grid = new GridPane();
 		grid.setPadding(new Insets(10, 10, 10, 10));
 		grid.setVgap(8);
 		grid.setHgap(10);
-		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton, listPlayersLabel, listPlayersButton, listPlayersByAgeDivisionLabel, listPlayersByAgeDivisionButton, findDoctorByNameButton, findDoctorByNameLabel, findManagerByNameButton, findManagerByNameLabel, findPlayerByNameButton, findPlayerByNameLabel);
+		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton,
+				listPlayersLabel, listPlayersButton, listPlayersByAgeDivisionLabel, listPlayersByAgeDivisionButton,
+				findDoctorByNameButton, findDoctorByNameLabel, findManagerByNameButton, findManagerByNameLabel,
+				findPlayerByNameButton, findPlayerByNameLabel, showAllPlayersWithDoctorLabel, showAllPlayersWithDoctorButton);
 		
 		BorderPane outerPane = new BorderPane();
 		outerPane.setTop(topLayout);

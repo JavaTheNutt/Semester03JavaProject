@@ -352,7 +352,7 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
 					} else {
-                       String tempDoc = Lists.doctorList.matchNameToId(doctorSelection.getValue());
+                       String tempDoc = Lists.doctorList.getNameFromId(doctorSelection.getValue());
 						/*Ensure doctor not null*/
                         if(!tempDoc.equals(null)){
                             Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
