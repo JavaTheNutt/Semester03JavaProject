@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Exchanger;
 
@@ -40,7 +41,7 @@ public class Collector implements Serializable
 	public Collector(int type)
 	{
 		this.type = type;
-		list = new ArrayList<>();
+		list = new LinkedList<>();
 	}
 	public boolean addItem(Collectible itemIn)
 	{

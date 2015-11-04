@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a6c4bd1-ef29-4829-a262-1d244526605f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doctors.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/managers.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/players.dat" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="semester03javaproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,133 +28,83 @@
     <favorites_list name="semester03javaproject" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Doctor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Manager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="e#500#501#0" expanded="false" />
-                <element signature="e#525#526#0" expanded="false" />
-                <element signature="e#577#578#0" expanded="false" />
-                <element signature="e#614#615#0" expanded="false" />
-                <element signature="e#643#644#0" expanded="false" />
-                <element signature="e#662#663#0" expanded="false" />
-                <element signature="e#766#767#0" expanded="false" />
-                <element signature="e#832#833#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="76" selection-start-line="65" selection-start-column="76" selection-end-line="65" selection-end-column="76" />
-              <folding>
-                <element signature="e#2160#2161#0" expanded="true" />
-                <element signature="e#2184#2185#0" expanded="true" />
-                <element signature="e#2234#2235#0" expanded="true" />
-                <element signature="e#2269#2270#0" expanded="true" />
-                <element signature="e#2302#2303#0" expanded="true" />
-                <element signature="e#2324#2325#0" expanded="true" />
-                <element signature="e#2370#2371#0" expanded="true" />
-                <element signature="e#2401#2402#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DisplayItems.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5755208">
-              <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdateItemController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Collector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="235" column="110" selection-start-line="235" selection-start-column="110" selection-end-line="235" selection-end-column="110" />
-              <folding>
-                <element signature="e#594#595#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FindItemsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListItemsGui.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InitialSetup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Collectible.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.7364621">
+                  <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#1349#1350#0" expanded="true" />
+                    <element signature="e#1382#1383#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Collectible.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#1349#1350#0" expanded="true" />
+                    <element signature="e#1382#1383#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Parent.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="installmentPayment.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#602#603#0" expanded="true" />
+                    <element signature="e#625#626#0" expanded="true" />
+                    <element signature="e#670#671#0" expanded="true" />
+                    <element signature="e#703#704#0" expanded="true" />
+                    <element signature="e#744#745#0" expanded="true" />
+                    <element signature="e#775#776#0" expanded="true" />
+                    <element signature="e#838#839#0" expanded="true" />
+                    <element signature="e#887#888#0" expanded="true" />
+                    <element signature="e#935#936#0" expanded="true" />
+                    <element signature="e#964#965#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Doctor.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5090253">
+                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -198,16 +140,20 @@
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectibles/Lists.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/UpfrontPayment.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java" />
       </list>
     </option>
   </component>
@@ -270,6 +216,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -432,8 +380,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -867,6 +813,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="moduleName" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -931,11 +890,15 @@
       <workItem from="1446489224268" duration="237000" />
       <workItem from="1446489827321" duration="22000" />
       <workItem from="1446489884657" duration="5457000" />
+      <workItem from="1446499050625" duration="48000" />
+      <workItem from="1446499135115" duration="1106000" />
+      <workItem from="1446545597022" duration="2121000" />
+      <workItem from="1446638806034" duration="2268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51268000" />
+    <option name="totallyTimeSpent" value="56811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -943,12 +906,11 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33006537" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -959,6 +921,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39770868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33006537" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1203,74 +1166,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="e#500#501#0" expanded="false" />
-            <element signature="e#525#526#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#614#615#0" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-            <element signature="e#662#663#0" expanded="false" />
-            <element signature="e#766#767#0" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2184#2185#0" expanded="true" />
-            <element signature="e#2234#2235#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1278,9 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1288,7 +1184,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,7 +1195,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1306,7 +1204,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="201" column="85" selection-start-line="201" selection-start-column="85" selection-end-line="201" selection-end-column="85" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5820#5821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1314,10 +1216,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1332,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,7 +1245,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="201" column="85" selection-start-line="201" selection-start-column="85" selection-end-line="201" selection-end-column="85" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5820#5821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1355,10 +1257,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-          <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1373,7 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,7 +1286,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="265" column="10" selection-start-line="265" selection-start-column="10" selection-end-line="265" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5820#5821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1396,10 +1298,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-          <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1414,7 +1313,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="172" column="28" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5820#5821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1460,18 +1363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/ItemCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/PopUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1529,61 +1424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#1526#0" expanded="false" />
-            <element signature="e#682#683#0" expanded="false" />
-            <element signature="e#698#699#0" expanded="false" />
-            <element signature="e#731#732#0" expanded="false" />
-            <element signature="e#750#751#0" expanded="false" />
-            <element signature="e#779#780#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#837#838#0" expanded="false" />
-            <element signature="e#862#863#0" expanded="false" />
-            <element signature="e#891#892#0" expanded="false" />
-            <element signature="e#910#911#0" expanded="false" />
-            <element signature="e#949#950#0" expanded="false" />
-            <element signature="e#974#975#0" expanded="false" />
-            <element signature="e#1007#1008#0" expanded="false" />
-            <element signature="e#1030#1031#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1110#1111#0" expanded="false" />
-            <element signature="e#1143#1144#0" expanded="false" />
-            <element signature="e#1166#1167#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1246#1247#0" expanded="false" />
-            <element signature="e#1279#1280#0" expanded="false" />
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1349#1350#0" expanded="false" />
-            <element signature="e#1382#1383#0" expanded="false" />
-            <element signature="e#1423#1424#0" expanded="false" />
-            <element signature="e#1519#1520#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1592,14 +1432,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
-            <element signature="e#500#501#0" expanded="false" />
-            <element signature="e#525#526#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#614#615#0" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-            <element signature="e#662#663#0" expanded="false" />
-            <element signature="e#766#767#0" expanded="false" />
-            <element signature="e#832#833#0" expanded="false" />
+            <element signature="e#727#728#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1608,20 +1441,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="235" column="110" selection-start-line="235" selection-start-column="110" selection-end-line="235" selection-end-column="110" />
-          <folding>
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1637,23 +1457,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="76" selection-start-line="65" selection-start-column="76" selection-end-line="65" selection-end-column="76" />
           <folding>
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2184#2185#0" expanded="true" />
-            <element signature="e#2234#2235#0" expanded="true" />
-            <element signature="e#2269#2270#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1662,7 +1467,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5820#5821#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1671,16 +1480,130 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="85" selection-start-line="0" selection-start-column="85" selection-end-line="0" selection-end-column="85" />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5755208">
+        <state vertical-scroll-proportion="0.0">
           <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/ItemCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/ie.wit.assignment.implObjects">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>ie.wit.assignment.implObjects</OriginalElement>
+          <nodes>
+            <node x="" y="">ie.wit.assignment.implObjects.Doctor</node>
+            <node x="" y="">ie.wit.assignment.implObjects.Collector</node>
+            <node x="" y="">ie.wit.assignment.implObjects.Player</node>
+            <node x="" y="">ie.wit.assignment.implObjects.Manager</node>
+            <node x="" y="">ie.wit.assignment.implObjects.Lists</node>
+            <node x="" y="">ie.wit.assignment.implObjects.ItemCounter</node>
+            <node x="" y="">ie.wit.assignment.implObjects.Collectible</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="125.5" y="127.5" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5090253">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7364621">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
