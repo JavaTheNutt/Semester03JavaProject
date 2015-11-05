@@ -45,7 +45,11 @@ public class Collector implements Serializable
 	}
 	public boolean addItem(Collectible itemIn)
 	{
-		return list.add(itemIn);
+		if (list.add(itemIn)){
+			ItemCounter.add(type);
+			return true;
+		}
+		return false;
 	}
 	public boolean removeItem(Collectible item)
 	{

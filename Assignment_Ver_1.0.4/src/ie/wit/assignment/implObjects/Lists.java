@@ -2,15 +2,10 @@ package ie.wit.assignment.implObjects;
 
 public abstract class Lists
 {
-	public static Collector managerList;
-	public static Collector doctorList;
-	public static Collector playerList;
-
-	public static void createLists(){
-		managerList = new Collector(1);
-		doctorList = new Collector(2);
-		playerList = new Collector(3);
-	}
+	public static Collector managerList = new Collector(1);
+	public static Collector doctorList = new Collector(2);
+	public static Collector playerList = new Collector(3);
+	public static Collector parentList = new Collector(4);
 
 	public static Collector setType(int type)
 	{
@@ -21,6 +16,8 @@ public abstract class Lists
 				return doctorList;
 			case 3:
 				return playerList;
+			case 4:
+				return parentList;
 		}
 		return null;
 	}

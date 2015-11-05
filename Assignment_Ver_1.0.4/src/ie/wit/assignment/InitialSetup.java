@@ -1,12 +1,6 @@
 package ie.wit.assignment;
 
-import ie.wit.assignment.implObjects.Collectible;
-import ie.wit.assignment.implObjects.Doctor;
-import ie.wit.assignment.implObjects.Manager;
-import ie.wit.assignment.implObjects.Player;
-import ie.wit.assignment.implObjects.Collector;
-import ie.wit.assignment.implObjects.ItemCounter;
-import ie.wit.assignment.implObjects.Lists;
+import ie.wit.assignment.implObjects.*;
 import ie.wit.assignment.controllers.IOController;
 
 import java.io.File;
@@ -33,6 +27,17 @@ public abstract class InitialSetup
 			"U-12");
 	private static Doctor testDoc01 = new Doctor(0, "Achim", "Shlunke", "Low Street", "Thomastown", "0567724162");
 	private static Doctor testDoc02 = new Doctor(1, "James", "Drynan", "Mill Street", "Thomastown", "0567768118");
+	private static Parent testParent01 = new Parent(
+			0,
+			"Jane",
+			"Bloggs",
+			"Jerpoint Abbey",
+			"Thoamstown",
+			"222222222",
+			"kjdid@jsdsi.sdsd",
+			1,
+			"Cheque"
+	);
 	private static Player testPlayer01 = new Player(0,
 			"James",
 			"Bloggs",
@@ -157,6 +162,7 @@ public abstract class InitialSetup
 	private static Collectible[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
 	private static Collectible[] managerHolder = {testMan01, testMan02};
 	private static Collectible[] doctorHolder = {testDoc01, testDoc02};
+	private static Collectible[] parentHolder ={testParent01};
 
 	/*This will temporarily hold the size of the lists being read in until it is
 	 * passed to the collection class*/
@@ -164,6 +170,7 @@ public abstract class InitialSetup
 	public static File managers = new File("managers.dat");
 	public static File doctors = new File("doctors.dat");
 	public static File players = new File("players.dat");
+	public static File parents = new File("parents.dat");
 
 
 
@@ -171,8 +178,7 @@ public abstract class InitialSetup
 	public static boolean gatherItemsInSystem()
 	{
 		try {
-			Lists.createLists();
-			if (checkAndAdd(1) && checkAndAdd(2) && checkAndAdd(3)) {
+			if (checkAndAdd(1) && checkAndAdd(2) && checkAndAdd(3) && checkAndAdd(4)) {
 				return true;
 			}
 			return false;
@@ -188,13 +194,11 @@ public abstract class InitialSetup
 	{
 		File tempFile = setFile(type);
 		Collector tempList = Lists.setType(type);
-		/*List<Collectible> tempList = Collector.setType(type);*/ //deprecated
 		Collectible[] tempArray = getTempFiles(type);
 
 		if (!IOController.checkExistance(tempFile)) {
 			for (Collectible item : tempArray) {
 				tempList.addItem(item);
-				/*Controller.addItem(item, type);*/ //deprecated
 			}
 			IOController.createFile(tempList, ItemCounter.getItem(type), tempFile);
 			return true;
@@ -210,6 +214,9 @@ public abstract class InitialSetup
 						break;
 					case 3:
 						Lists.playerList = IOController.readList(tempFile);
+						break;
+					case 4:
+						Lists.parentList = IOController.readList(tempFile);
 						break;
 				}
 				return true;
@@ -233,6 +240,8 @@ public abstract class InitialSetup
 			case 3:
 				tempFile = players;
 				break;
+			case 4:
+				tempFile = parents;
 		}
 		return tempFile;
 	}
@@ -247,6 +256,8 @@ public abstract class InitialSetup
 				return doctorHolder;
 			case 3:
 				return playerHolder;
+			case 4:
+				return parentHolder;
 			default:
 				return null;
 		}

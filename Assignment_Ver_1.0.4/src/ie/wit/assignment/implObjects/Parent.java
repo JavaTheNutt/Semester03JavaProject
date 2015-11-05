@@ -1,21 +1,21 @@
 package ie.wit.assignment.implObjects;
-
-public abstract class Parent extends Collectible
+/*This class will be instantiated if the fees are to be paid in a single lump sum, else will be InstallmentPayment*/
+public class Parent extends Collectible
 {
 	protected String pairId;
 	protected String email;
-	protected byte numberOfChildren;
+	protected int numberOfChildren;
 	protected float fee;
 	protected boolean fullyPaid;
 	protected String paymentMethod;
 
-	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, byte numberOfChildren,  boolean fullyPaid, String paymentMethod){
+	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int numberOfChildren, String paymentMethod){
 		super(fName, lName, address01, address02, contactNo);
 		this.email = email;
 		this.numberOfChildren = numberOfChildren;
 		this.fee = calculateFee();
-		this.fullyPaid = fullyPaid;
-		this.id = "pr" + index;
+		this.fullyPaid = false;
+		this.id = "pr" + (index + 1);
 		this.paymentMethod = paymentMethod;
 	}
 
@@ -39,12 +39,12 @@ public abstract class Parent extends Collectible
 		this.email = email;
 	}
 
-	public byte getNumberOfChildren()
+	public int getNumberOfChildren()
 	{
 		return numberOfChildren;
 	}
 
-	public void setNumberOfChildren(byte numberOfChildren)
+	public void setNumberOfChildren(int numberOfChildren)
 	{
 		this.numberOfChildren = numberOfChildren;
 	}
@@ -54,9 +54,9 @@ public abstract class Parent extends Collectible
 		return fee;
 	}
 
-	public void setFee(float fee)
+	public void setFee()
 	{
-		this.fee = fee;
+		fee = calculateFee();
 	}
 
 	public boolean isFullyPaid()
@@ -67,6 +67,20 @@ public abstract class Parent extends Collectible
 	public void setFullyPaid(boolean fullyPaid)
 	{
 		this.fullyPaid = fullyPaid;
+	}
+
+	public String getPaymentMethod()
+	{
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod)
+	{
+		this.paymentMethod = paymentMethod;
+	}
+
+	public void paymentMade(){
+		fullyPaid = true;
 	}
 
 	private float calculateFee()

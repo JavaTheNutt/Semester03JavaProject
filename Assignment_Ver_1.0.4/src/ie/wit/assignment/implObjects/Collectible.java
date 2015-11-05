@@ -76,6 +76,5 @@ public abstract class Collectible implements Serializable
 	public String toString() {
 		return "\n\nName:\t" + fName + " " + lName + "\nAddress:\t" + address01 + " " + address02;
 	}
-	
-	
+
 }
