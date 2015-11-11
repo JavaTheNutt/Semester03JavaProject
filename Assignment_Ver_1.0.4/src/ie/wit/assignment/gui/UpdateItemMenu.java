@@ -1,5 +1,7 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.Collector;
 import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.UpdateItemController;
@@ -66,37 +68,45 @@ public class UpdateItemMenu
 
 	private static void collectInput(int type)
 	{
-		String tempName  = PopUp.singleComboBox(Lists.setType(type).getNamesInArray(),
-				"Select item",
-				"Please select the item to be updated");
-		String attribute = "";
-		String attributeValue = "";
-		if(!tempName.equalsIgnoreCase("close")){
-			Collector tempList = Lists.setType(type);
-			String tempId = tempList.getNameFromId(tempName);
-			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
-			if(!attribute.equalsIgnoreCase("close")){
-				if(validateAttribute(type, attribute)){
-					attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
-					if(attribute.equalsIgnoreCase("email")){
-						if(ValidationController.checkEmail(attributeValue)){
-							UpdateItemController.updateItem(tempId, attribute, attributeValue);
-						}
-					} else{
-						if(type == 1 && attribute.equalsIgnoreCase("ageDivision")){
-							if(ValidationController.checkCorrectDivision(attributeValue)){
+		try {
+			String tempName  = PopUp.singleComboBox(Lists.setType(type).getNamesInArray(),
+					"Select item",
+					"Please select the item to be updated");
+			String attribute = "";
+			String attributeValue = "";
+			if(!tempName.equalsIgnoreCase("close")){
+				Collector tempList = Lists.setType(type);
+				String tempId = tempList.getNameFromId(tempName);
+				attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
+				if(!attribute.equalsIgnoreCase("close")){
+					if(validateAttribute(type, attribute)){
+						attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
+						if(attribute.equalsIgnoreCase("email")){
+							if(ValidationController.checkEmail(attributeValue)){
 								UpdateItemController.updateItem(tempId, attribute, attributeValue);
-							} else {
-								PopUp.alertBox("Error", "There are already two managers for that division");
 							}
-						} else {
-							UpdateItemController.updateItem(tempId, attribute, attributeValue);
+						} else{
+							if(type == 1 && attribute.equalsIgnoreCase("ageDivision")){
+								if(ValidationController.checkCorrectDivision(attributeValue)){
+									UpdateItemController.updateItem(tempId, attribute, attributeValue);
+								} else {
+									PopUp.alertBox("Error", "There are already two managers for that division");
+								}
+							} else {
+								UpdateItemController.updateItem(tempId, attribute, attributeValue);
+							}
 						}
+					} else {
+						PopUp.alertBox("Error", "That is not a valid attribute for that object");
 					}
-				} else {
-					PopUp.alertBox("Error", "That is not a valid attribute for that object");
 				}
 			}
+		} catch (ListEmptyException | ItemNotFoundException e) {
+			PopUp.alertBox("Error", e.getMessage());
+			e.printStackTrace();
+		}  catch(Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			e.printStackTrace();
 		}
 	}
 }

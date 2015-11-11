@@ -4,7 +4,7 @@ package ie.wit.assignment.implObjects;
 
 import java.io.Serializable;
 
-public abstract class Collectible implements Serializable
+public class Collectible implements Serializable, Comparable<String>
 {
 	/*Id will be generated in a subclass*/
 	protected String id;
@@ -13,23 +13,27 @@ public abstract class Collectible implements Serializable
 	protected String address01;
 	protected String address02;
 	protected String contactNo;
+	protected int type;
 
 	
-	public Collectible(String fName, String lName, String address01, String address02, String contactNo)
+	public Collectible(String fName, String lName, String address01, String address02, String contactNo, int type)
 	{
 		this.fName = fName;
 		this.lName = lName;
 		this.address01 = address01;
 		this.address02 = address02;
 		this.contactNo = contactNo;
+		this.type = type;
 	}
 
-	public String getId() {
+	public  String getId(){
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	@Override
+	public int compareTo(String o)
+	{
+		return 0;
 	}
 
 	public String getFName() {
@@ -77,4 +81,9 @@ public abstract class Collectible implements Serializable
 		return "\n\nName:\t" + fName + " " + lName + "\nAddress:\t" + address01 + " " + address02;
 	}
 
+
+	public int getType()
+	{
+		return type;
+	}
 }

@@ -5,9 +5,6 @@ import ie.wit.assignment.implObjects.InstallmentPayment;
 
 import java.util.Comparator;
 
-/**
- * Created by Joe on 04/11/2015.
- */
 public class AmountToPayComparator implements Comparator<Collectible>
 {
 	@Override
@@ -17,7 +14,14 @@ public class AmountToPayComparator implements Comparator<Collectible>
 		InstallmentPayment parent02 = ((InstallmentPayment)o2);
 		float parent01Amount = parent01.getAmountLeftToPay();
 		float parent02Amount = parent02.getAmountLeftToPay();
+		float diff = (parent01Amount - parent02Amount);
 
-		return (int)(parent01Amount - parent02Amount);
+		if(diff > 0){
+			return 1;
+		} else if(diff < 0){
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 }

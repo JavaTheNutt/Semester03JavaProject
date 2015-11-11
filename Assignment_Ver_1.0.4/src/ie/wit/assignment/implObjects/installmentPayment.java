@@ -8,7 +8,7 @@ public class InstallmentPayment extends Parent
 
 	public InstallmentPayment(int index, String fName, String lName, String address01, String address02, String contactNo, String email, byte numberOfChildren, int frequency, String paymentMethod)
 	{
-		super(index, fName, lName, address01, address02, contactNo, email, numberOfChildren, paymentMethod);
+		super(index, fName, lName, address01, address02, contactNo, email, numberOfChildren, paymentMethod, 5);
 		this.frequency = frequency;
 		installmentAmount = calculateInstallmentAmount();
 		amountLeftToPay = fee;

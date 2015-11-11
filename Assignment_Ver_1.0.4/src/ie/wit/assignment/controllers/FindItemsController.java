@@ -1,5 +1,7 @@
 package ie.wit.assignment.controllers;
 
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.Player;
 import ie.wit.assignment.implObjects.Collector;
@@ -28,11 +30,24 @@ public abstract class FindItemsController
 	}
 	public static Collectible findItemsByName(int type){
 		ObservableList<Collectible> tempList = FXCollections.observableArrayList();
-		Collector list = Lists.setType(type);
-		String [] allNames = list.getNamesInArray();
-		String name = PopUp.singleComboBox(allNames, "Select Name", "Please select the name of the person");
-		String[] names = name.split(" ");
-		return list.getItem(names);
+		try {
+			Collector list = Lists.setType(type);
+			String [] allNames = list.getNamesInArray();
+			String name = PopUp.singleComboBox(allNames, "Select Name", "Please select the name of the person");
+			String[] names = name.split(" ");
+			return list.getItem(names);
+		} catch (ListEmptyException e) {
+			PopUp.alertBox("Error", e.getMessage());
+			e.printStackTrace();
+			return null;
+		} catch (ItemNotFoundException e) {
+			PopUp.alertBox("Error", e.getMessage());
+			e.printStackTrace();
+			return null;
+		} catch (Exception e){
+			PopUp.alertBox("Error", e.getMessage());
+			return null;
+		}
 	}
 	public static int getTypeById(String id){
 		String identifier = id.substring(0, 2);

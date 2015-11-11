@@ -1,5 +1,8 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.exceptions.InputNotValidException;
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.FindItemsController;
@@ -38,16 +41,40 @@ public class ListItemsGui
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {
-			DisplayItems.displayManagers(Lists.managerList.getAsObservableList());
+			try {
+				DisplayItems.displayManagers(Lists.managerList.getAsObservableList());
+			} catch (ListEmptyException e1) {
+				PopUp.alertBox("Error", e1.getMessage());
+				e1.printStackTrace();
+			} catch (Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred");
+				e1.printStackTrace();
+			}
 		});
 		
 		Button listDoctorsButton = new Button("X");
 		listDoctorsButton.setOnAction(e -> {
-			DisplayItems.displayDoctor(Lists.doctorList.getAsObservableList());
+			try {
+				DisplayItems.displayDoctor(Lists.doctorList.getAsObservableList());
+			} catch (ListEmptyException e1) {
+				PopUp.alertBox("Error", e1.getMessage());
+				e1.printStackTrace();
+			} catch(Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred ");
+				e1.printStackTrace();
+			}
 		});
 		Button listPlayersButton = new Button("X");
 		listPlayersButton.setOnAction(e -> {
-			DisplayItems.displayPlayers(Lists.playerList.getAsObservableList());
+			try {
+				DisplayItems.displayPlayers(Lists.playerList.getAsObservableList());
+			} catch (ListEmptyException e1) {
+				PopUp.alertBox("Error", e1.getMessage());
+				e1.printStackTrace();
+			} catch (Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred");
+				e1.printStackTrace();
+			}
 		});
 
 		Button listPlayersByAgeDivisionButton = new Button("X");
@@ -87,9 +114,17 @@ public class ListItemsGui
 
 		Button showAllPlayersWithDoctorButton = new Button("X");
 		showAllPlayersWithDoctorButton.setOnAction(e -> {
-			String doctorName = PopUp.singleComboBox(Lists.doctorList.getNamesInArray(), "Select Doctor", "Please select a doctor");
-			String doctorId = Lists.doctorList.getIdFromName(doctorName);
-			DisplayItems.displayPlayers(FindItemsController.getPlayersWithDoctor(doctorId));
+			try {
+				String doctorName = PopUp.singleComboBox(Lists.doctorList.getNamesInArray(), "Select Doctor", "Please select a doctor");
+				String doctorId = Lists.doctorList.getIdFromName(doctorName);
+				DisplayItems.displayPlayers(FindItemsController.getPlayersWithDoctor(doctorId));
+			} catch (ListEmptyException |InputNotValidException | ItemNotFoundException e1) {
+				PopUp.alertBox("Error", e1.getMessage());
+				e1.printStackTrace();
+			} catch (Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred");
+				e1.printStackTrace();
+			}
 
 		});
 		GridPane.setConstraints(listManagersLabel, 0, 0);

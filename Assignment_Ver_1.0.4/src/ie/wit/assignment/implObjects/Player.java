@@ -16,7 +16,7 @@ public class Player extends Collectible
 
 	public Player(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int day, int month, int year, String doctorId)
 	{
-		super(fName, lName, address01, address02, contactNo);
+		super(fName, lName, address01, address02, contactNo, 3);
 		id = "pl" + (index + 1);
 		int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 		ageThisYear = currentYear - year;
@@ -81,7 +81,13 @@ public class Player extends Collectible
 		return day;
 	}
 
-	public void setDay(int day) 
+	@Override
+	public String getId()
+	{
+		return id;
+	}
+
+	public void setDay(int day)
 	{
 		this.day = day;
 	}

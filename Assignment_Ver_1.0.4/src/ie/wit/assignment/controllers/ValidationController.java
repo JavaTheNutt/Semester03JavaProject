@@ -37,7 +37,7 @@ public class ValidationController
 	}
 	public static boolean checkEmail(String emailIn)
 	{
-		if((emailIn.indexOf('@') > 0) && emailIn.indexOf('.') > 0){
+		if((emailIn.contains("@")) && emailIn.contains(".")){
 			return true;
 		}
 		return false;

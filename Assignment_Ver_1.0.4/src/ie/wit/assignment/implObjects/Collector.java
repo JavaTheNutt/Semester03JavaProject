@@ -4,13 +4,14 @@ import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.gui.PopUp;
+import ie.wit.assignment.ie.wit.assignment.comparators.FirstNameComparator;
+import ie.wit.assignment.ie.wit.assignment.comparators.IdComparator;
+import ie.wit.assignment.ie.wit.assignment.comparators.SurnameComparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Exchanger;
 
 public class Collector implements Serializable
@@ -43,6 +44,7 @@ public class Collector implements Serializable
 		this.type = type;
 		list = new LinkedList<>();
 	}
+
 	public boolean addItem(Collectible itemIn)
 	{
 		if (list.add(itemIn)){
@@ -51,43 +53,19 @@ public class Collector implements Serializable
 		}
 		return false;
 	}
-	public boolean removeItem(Collectible item)
+	public boolean removeItem(Collectible item)throws ListEmptyException, ItemNotFoundException
 	{
-		try{
 			checkExists(item);
 			return list.remove(item);
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return false;
-		} catch (ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return false;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return false;
-		}
-
 	}
-	public boolean removeItem(String idIn)
+	public boolean removeItem(String idIn) throws ListEmptyException, ItemNotFoundException
 	{
 		return removeItem(getItem(idIn));
 	}
-	public int getIndex(Collectible itemIn)
+	public int getIndex(Collectible itemIn) throws ListEmptyException, ItemNotFoundException
 	{
-		try{
-			checkExists(itemIn);
-			return list.indexOf(itemIn);
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return -999;
-		} catch (ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return -999;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return -999;
-		}
-
+		checkExists(itemIn);
+		return list.indexOf(itemIn);
 	}
 
 	private boolean checkEmpty() throws  ListEmptyException
@@ -105,75 +83,48 @@ public class Collector implements Serializable
 		}
 		return true;
 	}
-	public Collectible getItem(String idIn)
+	public Collectible getItem(String idIn) throws ListEmptyException, ItemNotFoundException
 	{
-		try{
-			checkEmpty();
-			for (Collectible item : list){
-				if (item.getId().equalsIgnoreCase(idIn)){
-					return item;
-				}
-			}
-			throw new ItemNotFoundException("The item was not found");
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An Unknown error has occurred ");
-			return null;
+		checkEmpty();
+		list.sort(new IdComparator());
+		int index = Collections.binarySearch(list, idIn);
+		if(index > 0){
+			return list.get(index);
 		}
+		throw new ItemNotFoundException("The item was not found");
 
 	}
 
-	public Collectible getItem(String fName, String lName)
+	public Collectible getItem(String fName, String lName)  throws ListEmptyException, ItemNotFoundException
 	{
-		try{
 			checkEmpty();
-			for (Collectible item : list){
-				if(item.getFName().equalsIgnoreCase(fName) && item.getLName().equalsIgnoreCase(lName)){
-					return item;
+			int surnameIndex = searchSurname(lName);
+			if(surnameIndex > 0){
+				int firstNameIndex = searchFirstName(fName);
+				if( firstNameIndex == surnameIndex){
+					return list.get(firstNameIndex);
 				}
 			}
 			throw new ItemNotFoundException("Item not found");
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An Unknown error has occurred ");
-			return null;
-		}
 	}
-	public Collectible getItem(String[] names)
+	private int searchSurname(String surname){
+		list.sort(new SurnameComparator());
+		return Collections.binarySearch(list, surname);
+	}
+	private int searchFirstName(String fName){
+		list.sort(new FirstNameComparator());
+		return Collections.binarySearch(list, fName);
+	}
+	public Collectible getItem(String[] names)  throws ListEmptyException, ItemNotFoundException
 	{
 		return getItem(names[0], names[1]);
 	}
-	public String[] getNamesInArray()
+	public String[] getNamesInArray()  throws ListEmptyException
 	{
-		try{
 			checkEmpty();
-			String[] array = new String[list.size()];
-			int i = 0;
-			for(Collectible item : list){
-				array[i] = item.getFName() + " " + item.getLName();
-				i++;
-			}
-			return array;
-		} catch (ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return null;
-		}
-
+			return getNamesInArray(list);
 	}
-	public String[] getNamesInArray(List<Collectible> listIn)
+	public String[] getNamesInArray(List<Collectible> listIn) throws ListEmptyException
 	{
 		String[] array = new String[listIn.size()];
 		int i = 0;
@@ -183,94 +134,53 @@ public class Collector implements Serializable
 		}
 		return array;
 	}
-	public ObservableList<Collectible> getAsObservableList()
+	public ObservableList<Collectible> getAsObservableList() throws ListEmptyException
 	{
-		try{
-			checkEmpty();
-			ObservableList<Collectible> tempList = FXCollections.observableArrayList();
-			for (Collectible item : list){
-				tempList.add(item);
-			}
-			return tempList;
-		} catch (ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return null;
-		}
+		checkEmpty();
+		return getAsObservableList(list);
 	}
-	public ObservableList<Collectible> getAsObservableList(ArrayList<Collectible> listIn){
+	public ObservableList<Collectible> getAsObservableList(List<Collectible> listIn){
 		ObservableList<Collectible> tempList= FXCollections.observableArrayList();
 		for(Collectible item : listIn){
 			tempList.add(item);
 		}
 		return tempList;
 	}
-	public String getNameFromId(String idIn)
+	public String getNameFromId(String idIn)throws ListEmptyException, ItemNotFoundException
 	{
-		try{
-			checkEmpty();
-			for (Collectible item : list){
-				if(item.getId().equals(idIn)){
-					return item.getFName() + " " + item.getLName();
-				}
-			}
-			throw new ItemNotFoundException("The item was not found");
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch(ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return null;
+		checkEmpty();
+		list.sort(new IdComparator());
+		int itemIndex = Collections.binarySearch(list, idIn);
+		if(itemIndex > 0){
+			Collectible item = list.get(itemIndex);
+			return item.getFName() + " " + item.getLName();
 		}
-
+		throw new ItemNotFoundException("The item was not found");
 	}
-	public String getIdFromName(String nameIn)
+	public String getIdFromName(String nameIn)throws ListEmptyException, ItemNotFoundException, InputNotValidException
 	{
-		try{
-			checkEmpty();
-			if(!nameIn.contains(" ")){
-				throw new InputNotValidException("Please enter a name with spaces");
-			}
-			String[] names = nameIn.split(" ");
-			if(names.length > 2){
-				throw new InputNotValidException("Please ensure that there is only a first name and surname");
-			}
-			return getIdFromName(names[0], names[1]);
-		}catch (InputNotValidException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		}  catch (Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return null;
+		checkEmpty();
+		if(!nameIn.contains(" ")){
+			throw new InputNotValidException("Please enter a name with spaces");
 		}
+		String[] names = nameIn.split(" ");
+		if(names.length > 2){
+			throw new InputNotValidException("Please ensure that there is only a first name and surname");
+		}
+		return getIdFromName(names[0], names[1]);
 	}
-	public String getIdFromName(String fNameIn, String lNameIn)
+	public String getIdFromName(String fNameIn, String lNameIn) throws ListEmptyException, ItemNotFoundException
 	{
-		try{
-			checkEmpty();
-			for(Collectible item : list){
-				if(item.getFName().equalsIgnoreCase(fNameIn) && item.getLName().equalsIgnoreCase(lNameIn)){
-					return item.getId();
-				}
+		checkEmpty();
+		list.sort(new FirstNameComparator());
+		int fNameIndex = Collections.binarySearch(list, fNameIn);
+		if(fNameIndex > 0){
+			list.sort(new SurnameComparator());
+			int sNameIndex = Collections.binarySearch(list, lNameIn);
+			if(sNameIndex > 0){
+				return list.get(sNameIndex).getId();
 			}
-			throw new ItemNotFoundException("The item was not found");
-		}catch(ListEmptyException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch(ItemNotFoundException e){
-			PopUp.alertBox("Error", e.getMessage());
-			return null;
-		} catch(Exception e){
-			PopUp.alertBox("Error", "An unknown error has occurred");
-			return null;
 		}
+		throw new ItemNotFoundException("The item was not found");
 	}
 }

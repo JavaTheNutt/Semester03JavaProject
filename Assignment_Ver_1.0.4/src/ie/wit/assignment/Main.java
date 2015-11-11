@@ -61,8 +61,8 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
-		/*MainMenu.display();*/
-		ListItemsGui.display();
+		MainMenu.display();
+		/*ListItemsGui.display();*/
 	}
 
 }

@@ -1,5 +1,7 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.Doctor;
 import ie.wit.assignment.implObjects.Manager;
 import ie.wit.assignment.implObjects.Player;
@@ -319,7 +321,15 @@ public class AddItem
 		dateOfBirthInput.getItems().addAll(setNumberDays(31));
 		monthOfBirth.getItems().addAll(setNumberDays(12));
 		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009");
-        setDoctorSelection();
+		try {
+			setDoctorSelection();
+		} catch (ListEmptyException e) {
+			PopUp.alertBox("Error", e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			e.printStackTrace();
+		}
 
 		doctorSelection.setValue("Achim Shlunke");
 		
@@ -341,47 +351,55 @@ public class AddItem
 					emailInput.getText()
 			};
 			/*Check all fields filled*/
-			if(!ValidationController.fieldsFilled(items)){
-				PopUp.alertBox(notFilledTitle, notFilledMessage);
-			} else {
-				/*Check validity of dates entered*/
-				if(!ValidationController.checkMonthValidity(monthOfBirth.getValue(), dateOfBirthInput.getValue())){
-					PopUp.alertBox(notFilledTitle, "Please enter a valid date");
-				} else{
-					/*Validate email*/
-					if(!ValidationController.checkEmail(emailInput.getText())){
-						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
-					} else {
-                       String tempDoc = Lists.doctorList.getNameFromId(doctorSelection.getValue());
-						/*Ensure doctor not null*/
-                        if(!tempDoc.equals(null)){
-                            Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
-                                    items[0],
-                                    items[1],
-                                    items[2],
-                                    items[3],
-                                    items[4],
-                                    items[5],
-                                    Integer.parseInt(dateOfBirthInput.getValue()),
-                                    Integer.parseInt(monthOfBirth.getValue()),
-                                    Integer.parseInt(yearOfBirth.getValue()),
-                                    tempDoc
-                            );
+			try {
+				if(!ValidationController.fieldsFilled(items)){
+					PopUp.alertBox(notFilledTitle, notFilledMessage);
+				} else {
+					/*Check validity of dates entered*/
+					if(!ValidationController.checkMonthValidity(monthOfBirth.getValue(), dateOfBirthInput.getValue())){
+						PopUp.alertBox(notFilledTitle, "Please enter a valid date");
+					} else{
+						/*Validate email*/
+						if(!ValidationController.checkEmail(emailInput.getText())){
+							PopUp.alertBox(notFilledTitle, "Please enter a valid email");
+						} else {
+	                       String tempDoc = Lists.doctorList.getNameFromId(doctorSelection.getValue());
+							/*Ensure doctor not null*/
+	                        if(!tempDoc.equals(null)){
+	                            Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
+	                                    items[0],
+	                                    items[1],
+	                                    items[2],
+	                                    items[3],
+	                                    items[4],
+	                                    items[5],
+	                                    Integer.parseInt(dateOfBirthInput.getValue()),
+	                                    Integer.parseInt(monthOfBirth.getValue()),
+	                                    Integer.parseInt(yearOfBirth.getValue()),
+	                                    tempDoc
+	                            );
 
-	                        Lists.playerList.addItem(tempPlayer);
-							PopUp.alertBox("Success", "Player added successfully");
-							/*reset fields*/
-							firstNameInput.setText("");
-							surnameInput.setText("");
-							address01Input.setText("");
-							address02Input.setText("");
-							contactNoInput.setText("");
-							emailInput.setText("");
-                        } else {
-							PopUp.alertBox("Doctor does not exist", "The doctor specified does not exist");
+		                        Lists.playerList.addItem(tempPlayer);
+								PopUp.alertBox("Success", "Player added successfully");
+								/*reset fields*/
+								firstNameInput.setText("");
+								surnameInput.setText("");
+								address01Input.setText("");
+								address02Input.setText("");
+								contactNoInput.setText("");
+								emailInput.setText("");
+	                        } else {
+								PopUp.alertBox("Doctor does not exist", "The doctor specified does not exist");
+							}
 						}
 					}
 				}
+			} catch (ListEmptyException | ItemNotFoundException e1) {
+				PopUp.alertBox("Error", e1.getMessage());
+				e1.printStackTrace();
+			} catch(Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred");
+				e1.printStackTrace();
 			}
 		});
         closeButton.setOnAction(e -> {
@@ -390,8 +408,16 @@ public class AddItem
             }
         });
         addNewDoctorButton.setOnAction(e -> {
-            AddItem.addDoctor();
-            setDoctorSelection();
+	        try {
+		        AddItem.addDoctor();
+		        setDoctorSelection();
+	        } catch (ListEmptyException e1) {
+		        PopUp.alertBox("Error", e1.getMessage());
+		        e1.printStackTrace();
+	        } catch (Exception e1){
+		        PopUp.alertBox("Error", "An unknown error has occurred");
+		        e1.printStackTrace();
+	        }
         });
 		GridPane.setConstraints(firstNameLabel, 0, 0);
 		GridPane.setConstraints(firstNameInput, 1, 0);
@@ -430,7 +456,7 @@ public class AddItem
 		window.showAndWait();
 	}
 	/*This method will empty the comboBox and fill it again every time a doctor is added*/
-	private static void setDoctorSelection()
+	private static void setDoctorSelection() throws ListEmptyException
     {
         doctorSelection.getItems().removeAll(doctorSelection.getItems());
 		doctorSelection.getItems().addAll(Lists.doctorList.getNamesInArray());

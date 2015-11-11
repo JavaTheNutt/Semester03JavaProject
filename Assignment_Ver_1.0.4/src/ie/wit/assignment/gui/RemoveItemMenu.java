@@ -1,5 +1,7 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.implObjects.Collector;
 import javafx.geometry.Insets;
@@ -88,14 +90,22 @@ public class RemoveItemMenu
 	}*/
 	private static void getItemToBeRemoved(int type, String typeName)
 	{
-		String[] listOfNames = Lists.setType(type).getNamesInArray();
-		String name = PopUp.singleComboBox(listOfNames, "Remove " + typeName, "Please select the " + typeName + " to be removed");
-		Collector tempList = Lists.setType(type);
-		String id = tempList.getNameFromId(name);
-		if (tempList.removeItem(id)){
-			PopUp.alertBox("Success", "Item Removed Successfully");
-		} else {
-			PopUp.alertBox("Failure", "Item not removed");
+		try {
+			String[] listOfNames = Lists.setType(type).getNamesInArray();
+			String name = PopUp.singleComboBox(listOfNames, "Remove " + typeName, "Please select the " + typeName + " to be removed");
+			Collector tempList = Lists.setType(type);
+			String id = tempList.getNameFromId(name);
+			if (tempList.removeItem(id)){
+				PopUp.alertBox("Success", "Item Removed Successfully");
+			} else {
+				PopUp.alertBox("Failure", "Item not removed");
+			}
+		} catch (ListEmptyException | ItemNotFoundException e) {
+			PopUp.alertBox("Error", e.getMessage());
+			e.printStackTrace();
+		} catch(Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			e.printStackTrace();
 		}
 	}
 }

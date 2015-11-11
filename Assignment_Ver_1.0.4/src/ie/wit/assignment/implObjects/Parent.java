@@ -9,8 +9,8 @@ public class Parent extends Collectible
 	protected boolean fullyPaid;
 	protected String paymentMethod;
 
-	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int numberOfChildren, String paymentMethod){
-		super(fName, lName, address01, address02, contactNo);
+	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int numberOfChildren, String paymentMethod, int type){
+		super(fName, lName, address01, address02, contactNo, type);
 		this.email = email;
 		this.numberOfChildren = numberOfChildren;
 		this.fee = calculateFee();
@@ -57,6 +57,12 @@ public class Parent extends Collectible
 	public void setFee()
 	{
 		fee = calculateFee();
+	}
+
+	@Override
+	public String getId()
+	{
+		return id;
 	}
 
 	public boolean isFullyPaid()

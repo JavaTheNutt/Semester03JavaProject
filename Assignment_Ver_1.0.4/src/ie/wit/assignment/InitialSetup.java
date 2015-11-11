@@ -36,7 +36,8 @@ public abstract class InitialSetup
 			"222222222",
 			"kjdid@jsdsi.sdsd",
 			1,
-			"Cheque"
+			"Cheque",
+			4
 	);
 	private static Player testPlayer01 = new Player(0,
 			"James",
