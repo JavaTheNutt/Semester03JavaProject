@@ -103,7 +103,7 @@ public class UpdateItemMenu
 			}
 		} catch (ListEmptyException | ItemNotFoundException e) {
 			PopUp.alertBox("Error", e.getMessage());
-			e.printStackTrace();
+			/*e.printStackTrace();*/
 		}  catch(Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 			e.printStackTrace();

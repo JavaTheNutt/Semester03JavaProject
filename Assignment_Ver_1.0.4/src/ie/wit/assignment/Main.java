@@ -1,13 +1,16 @@
 package ie.wit.assignment;
 
-import ie.wit.assignment.gui.ListItemsGui;
+import ie.wit.assignment.gui.*;
+import ie.wit.assignment.ie.wit.assignment.comparators.IdComparator;
+import ie.wit.assignment.ie.wit.assignment.comparators.SurnameComparator;
+import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.ItemCounter;
 import ie.wit.assignment.implObjects.Lists;
 import ie.wit.assignment.controllers.IOController;
-import ie.wit.assignment.gui.MainMenu;
-import ie.wit.assignment.gui.PopUp;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 public class Main extends Application
 {
@@ -20,22 +23,21 @@ public class Main extends Application
 		try {
 			InitialSetup.gatherItemsInSystem();
 			launch(args);
+			/*System.out.println(Lists.playerList.getItem("James", "Bloggs").toString());*/
+
+			/*List<Collectible> list = Lists.playerList.getList();
+			list.sort(new SurnameComparator());
+			for(Collectible item : list){
+				System.out.println(item.toString());
+			}
+			list.sort(new IdComparator());
+			for (Collectible item : list){
+				System.out.println(item.toString());
+			}*/
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	/*public static Collector getList(int type)
-	{
-		switch (type){
-			case 1:
-				return managerList;
-			case 2:
-				return doctorList;
-			case 3:
-				return playerList;
-		}
-		return null;
-	}*/
 
 	/*This method saves the data and closes the program*/
 	public static void closeProgram()
@@ -61,8 +63,14 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
-		MainMenu.display();
+		/*MainMenu.display();*/
 		/*ListItemsGui.display();*/
+		try{
+			/*AddItem.addParent();*/
+			Login.display();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 }

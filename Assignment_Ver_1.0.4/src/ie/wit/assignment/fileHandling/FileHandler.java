@@ -1,9 +1,11 @@
 package ie.wit.assignment.fileHandling;
 
 import ie.wit.assignment.InitialSetup;
+import ie.wit.assignment.accounts.Account;
 import ie.wit.assignment.implObjects.Collector;
 
 import java.io.*;
+import java.util.List;
 
 /*This class deals with writing to, and reading from files*/
 public class FileHandler
@@ -15,7 +17,18 @@ public class FileHandler
 		oos.writeObject(list);
 		oos.close();
 	}
-	
+	public static void writeOut(Account[] list, File fileIn) throws IOException
+	{
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileIn));
+		oos.writeObject(list);
+		oos.close();
+	}
+	public static List<Account> readAccountIn(File fileIn) throws IOException, ClassNotFoundException
+	{
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileIn));
+		return (List<Account>) ois.readObject();
+	}
+
 	public static Collector readIn(File fileIn) throws IOException, ClassNotFoundException
 	{
 		int tempSize;

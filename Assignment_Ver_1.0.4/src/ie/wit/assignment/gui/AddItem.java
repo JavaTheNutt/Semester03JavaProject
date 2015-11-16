@@ -2,11 +2,7 @@ package ie.wit.assignment.gui;
 
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
-import ie.wit.assignment.implObjects.Doctor;
-import ie.wit.assignment.implObjects.Manager;
-import ie.wit.assignment.implObjects.Player;
-import ie.wit.assignment.implObjects.ItemCounter;
-import ie.wit.assignment.implObjects.Lists;
+import ie.wit.assignment.implObjects.*;
 import ie.wit.assignment.controllers.ValidationController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -305,6 +301,7 @@ public class AddItem
 
 
 
+
 		
 		TextField firstNameInput = new TextField();
 		TextField surnameInput = new TextField();
@@ -339,6 +336,7 @@ public class AddItem
 		
 		Button submitButton = new Button("Submit");
         Button addNewDoctorButton = new Button("Add doctor");
+		Button addParentButton = new Button("Add Parent");
 		Button closeButton = new Button("Close");
 		
 		submitButton.setOnAction(e -> {
@@ -366,7 +364,7 @@ public class AddItem
 	                       String tempDoc = Lists.doctorList.getNameFromId(doctorSelection.getValue());
 							/*Ensure doctor not null*/
 	                        if(!tempDoc.equals(null)){
-	                            Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
+	                            /*Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
 	                                    items[0],
 	                                    items[1],
 	                                    items[2],
@@ -377,9 +375,9 @@ public class AddItem
 	                                    Integer.parseInt(monthOfBirth.getValue()),
 	                                    Integer.parseInt(yearOfBirth.getValue()),
 	                                    tempDoc
-	                            );
+	                            );*/
 
-		                        Lists.playerList.addItem(tempPlayer);
+		                        /*Lists.playerList.addItem(tempPlayer);*/
 								PopUp.alertBox("Success", "Player added successfully");
 								/*reset fields*/
 								firstNameInput.setText("");
@@ -419,6 +417,12 @@ public class AddItem
 		        e1.printStackTrace();
 	        }
         });
+		addParentButton.setOnAction(e -> {
+			/*try{
+
+			}*/
+			addParent();
+		});
 		GridPane.setConstraints(firstNameLabel, 0, 0);
 		GridPane.setConstraints(firstNameInput, 1, 0);
 		GridPane.setConstraints(surnameLabel, 0, 1);
@@ -442,14 +446,17 @@ public class AddItem
 		GridPane.setConstraints(submitButton, 0, 10);
         GridPane.setConstraints(addNewDoctorButton, 1, 10);
 		GridPane.setConstraints(closeButton, 2, 10);
+		GridPane.setConstraints(addParentButton, 3, 10);
 		
 		mainLayout.getChildren().addAll(firstNameLabel, firstNameInput, surnameLabel, surnameInput, address01Label, address01Input, address02Label, address02Input,
 				contactNoLabel, contactNoInput, emailLabel, emailInput, dayLabel, dateOfBirthInput, monthLabel, monthOfBirth
-				, yearLabel, yearOfBirth, doctorLabel, doctorSelection, submitButton,addNewDoctorButton,  closeButton);
+				, yearLabel, yearOfBirth, doctorLabel, doctorSelection, submitButton,addNewDoctorButton,  closeButton, addParentButton);
 		
 		BorderPane outerLayout = new BorderPane();
 		outerLayout.setTop(topHead);
 		outerLayout.setCenter(mainLayout);
+
+
 		
 		Scene scene = new Scene(outerLayout, 400, 600);
 		window.setScene(scene);
@@ -471,4 +478,173 @@ public class AddItem
         }
         return ary;
     }
+	public static void addParent()
+	{
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setOnCloseRequest(e -> {
+			e.consume();
+			if(PopUp.confirmBox("Confirm Exit", "If you close this window, data may be lost. Proceed?")){
+				window.close();
+			}
+		});
+
+		Label topLabel = new Label("Add a parent");
+
+		StackPane topLayout = new StackPane();
+		topLayout.setAlignment(Pos.CENTER);
+		topLayout.setPadding(new Insets(50, 5, 5, 5));
+		topLayout.getChildren().addAll(topLabel);
+
+		GridPane mainLayout = new GridPane();
+		mainLayout.setPadding(new Insets(10, 10, 10, 10));
+		mainLayout.setVgap(8);
+		mainLayout.setHgap(10);
+		mainLayout.setAlignment(Pos.CENTER);
+
+		Label firstNameLabel = new Label("Enter first name:");
+		Label surnameLabel = new Label("Enter surname:");
+		Label address01Label = new Label("Enter street name:");
+		Label address02Label = new Label("Enter parish name:");
+		Label contactNoLabel = new Label("Enter contact number:");
+		Label emailLabel = new Label("Enter email:");
+		Label paymentTypeLabel = new Label("Select payment type:");
+		Label numberOfChildrenLabel = new Label("Select number of children:");
+
+		TextField firstNameInput = new TextField();
+		TextField surnameInput = new TextField();
+		TextField address01Input = new TextField();
+		TextField address02Input = new TextField();
+		TextField contactNoInput = new TextField();
+		TextField emailInput = new TextField();
+
+		ComboBox<String> paymentTypeInput = new ComboBox<>();
+		ComboBox<String> numberOfChildrenInput = new ComboBox<>();
+
+		paymentTypeInput.getItems().addAll("Cash", "Cheque", "Standing Order");
+		numberOfChildrenInput.getItems().addAll("1", "2", "3", "4", "5", "5+");
+
+		paymentTypeInput.setValue("Cash");
+		numberOfChildrenInput.setValue("1");
+
+		Button submitButton = new Button("Submit");
+		Button closeButton = new Button("Close");
+
+		submitButton.setOnAction(e -> {
+			String [] attrs = {
+				firstNameInput.getText(),
+					surnameInput.getText(),
+					address01Input.getText(),
+					address02Input.getText(),
+					contactNoInput.getText(),
+					emailInput.getText(),
+					paymentTypeInput.getValue(),
+					numberOfChildrenInput.getValue()
+			};
+			try{
+				if(!ValidationController.fieldsFilled(attrs)){
+					PopUp.alertBox(notFilledTitle, notFilledMessage);
+				} else {
+					if(!ValidationController.checkEmail(emailInput.getText())){
+						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
+					} else {
+						int numKids = convertChildrenToInt(numberOfChildrenInput.getValue());
+						if(numKids == -999){
+							PopUp.alertBox(notFilledTitle, "Please select a valid number of children");
+						} else{
+							Parent tempParent = new Parent(ItemCounter.numberOfParents,
+									attrs[0],
+									attrs[1],
+									attrs[2],
+									attrs[3],
+									attrs[4],
+									attrs[5],
+									attrs[7],
+									4,
+									1
+							);
+							if(Lists.parentList.addItem(tempParent)){
+								PopUp.alertBox("Success", "Parent added successfully");
+								firstNameInput.setText(null);
+								surnameInput.setText(null);
+								address01Input.setText(null);
+								address02Input.setText(null);
+								contactNoInput.setText(null);
+								emailInput.setText(null);
+								paymentTypeInput.setValue("Cash");
+								numberOfChildrenInput.setValue("1");
+							} else{
+								PopUp.alertBox("Failed", "The parent was not added");
+							}
+						}
+					}
+				}
+			} catch (Exception e1){
+				PopUp.alertBox("Error", "An unknown error has occurred");
+				e1.printStackTrace();
+			}
+		});
+
+		closeButton.setOnAction(e -> {
+			if(PopUp.confirmBox("Confirm exit", "If you proceed, data may be lost. Continue?")){
+				window.close();
+			}
+		});
+
+		GridPane.setConstraints(firstNameLabel, 0, 0);
+		GridPane.setConstraints(firstNameInput, 1, 0);
+		GridPane.setConstraints(surnameLabel, 0, 1);
+		GridPane.setConstraints(surnameInput, 1, 1);
+		GridPane.setConstraints(address01Label, 0, 2);
+		GridPane.setConstraints(address01Input, 1, 2);
+		GridPane.setConstraints(address02Label, 0, 3);
+		GridPane.setConstraints(address02Input, 1, 3);
+		GridPane.setConstraints(contactNoLabel, 0, 4);
+		GridPane.setConstraints(contactNoInput, 1, 4);
+		GridPane.setConstraints(emailLabel, 0, 5);
+		GridPane.setConstraints(emailInput, 1, 5);
+		GridPane.setConstraints(paymentTypeLabel, 0, 6);
+		GridPane.setConstraints(paymentTypeInput, 1, 6);
+		GridPane.setConstraints(numberOfChildrenLabel, 0, 7);
+		GridPane.setConstraints(numberOfChildrenInput, 1, 7);
+		GridPane.setConstraints(submitButton, 0, 8);
+		GridPane.setConstraints(closeButton, 1, 8);
+
+		mainLayout.getChildren().addAll(
+				firstNameLabel,
+				firstNameInput,
+				surnameLabel,
+				surnameInput,
+				address01Label,
+				address01Input,
+				address02Label,
+				address02Input,
+				contactNoLabel,
+				contactNoInput,
+				emailLabel,
+				emailInput,
+				paymentTypeLabel,
+				paymentTypeInput,
+				numberOfChildrenLabel,
+				numberOfChildrenInput,
+				submitButton, closeButton
+		);
+		BorderPane outerLayout = new BorderPane();
+		outerLayout.setTop(topLayout);
+		outerLayout.setCenter(mainLayout);
+
+		Scene scene = new Scene(outerLayout);
+		window.setScene(scene);
+		window.showAndWait();
+	}
+	private static int convertChildrenToInt(String num){
+		if(num.length() == 2){
+			return Integer.parseInt(num.substring(0, 1));
+		}
+		try{
+			return Integer.parseInt(num);
+		} catch (NumberFormatException e){
+			return -999;
+		}
+	}
 }

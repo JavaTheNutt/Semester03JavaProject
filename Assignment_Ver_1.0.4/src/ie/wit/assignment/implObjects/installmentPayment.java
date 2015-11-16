@@ -6,9 +6,9 @@ public class InstallmentPayment extends Parent
 	private float installmentAmount;
 	private float amountLeftToPay;
 
-	public InstallmentPayment(int index, String fName, String lName, String address01, String address02, String contactNo, String email, byte numberOfChildren, int frequency, String paymentMethod)
+	public InstallmentPayment(int index, String fName, String lName, String address01, String address02, String contactNo, String email,  int frequency, String paymentMethod, int placeInGroup)
 	{
-		super(index, fName, lName, address01, address02, contactNo, email, numberOfChildren, paymentMethod, 5);
+		super(index, fName, lName, address01, address02, contactNo, email,  paymentMethod, 5, placeInGroup);
 		this.frequency = frequency;
 		installmentAmount = calculateInstallmentAmount();
 		amountLeftToPay = fee;

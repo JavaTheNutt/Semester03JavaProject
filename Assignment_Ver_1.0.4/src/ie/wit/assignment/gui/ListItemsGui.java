@@ -117,7 +117,7 @@ public class ListItemsGui
 			try {
 				String doctorName = PopUp.singleComboBox(Lists.doctorList.getNamesInArray(), "Select Doctor", "Please select a doctor");
 				String doctorId = Lists.doctorList.getIdFromName(doctorName);
-				DisplayItems.displayPlayers(FindItemsController.getPlayersWithDoctor(doctorId));
+				DisplayItems.displayPlayers(FindItemsController.getAssociatedItems(doctorId));
 			} catch (ListEmptyException |InputNotValidException | ItemNotFoundException e1) {
 				PopUp.alertBox("Error", e1.getMessage());
 				e1.printStackTrace();

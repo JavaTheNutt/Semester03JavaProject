@@ -1,9 +1,16 @@
 package ie.wit.assignment;
 
+import ie.wit.assignment.accounts.Account;
+import ie.wit.assignment.accounts.AccountCollector;
+import ie.wit.assignment.controllers.ValidationController;
+import ie.wit.assignment.fileHandling.FileHandler;
 import ie.wit.assignment.implObjects.*;
 import ie.wit.assignment.controllers.IOController;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /*This class will handle initial IO operations. If the *.dat files are deleted, this class
 * will create them again and add the initial dummy data again*/
@@ -32,16 +39,28 @@ public abstract class InitialSetup
 			"Jane",
 			"Bloggs",
 			"Jerpoint Abbey",
-			"Thoamstown",
+			"Thomastown",
 			"222222222",
 			"kjdid@jsdsi.sdsd",
-			1,
 			"Cheque",
-			4
+			4,
+			2
+	);
+	private static Parent testParent02 = new Parent(
+			0,
+			"Jamie",
+			"Bloggs",
+			"Jerpoint Abbey",
+			"Thomastown",
+			"222222222",
+			"kjdid@jsdsi.sdsd",
+			"Cheque",
+			4,
+			1
 	);
 	private static Player testPlayer01 = new Player(0,
 			"James",
-			"Bloggs",
+			"Murphy",
 			"Jerpoint Abbey",
 			"Thomastown,",
 			"11111111",
@@ -49,10 +68,11 @@ public abstract class InitialSetup
 			12,
 			11,
 			2000,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer02 = new Player(1,
 			"John",
-			"Bloggs",
+			"Walsh",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -60,10 +80,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2005,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer03 = new Player(2,
 			"Jason",
-			"Bloggs",
+			"Ulrich",
 			"Dunhill",
 			"Bennetsbridge",
 			"33333333",
@@ -71,10 +92,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2004,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer04 = new Player(3,
 			"Jack",
-			"Bloggs",
+			"Taylor",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -82,10 +104,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2003,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer05 = new Player(4,
 			"Micheal",
-			"Bloggs",
+			"Osbourne",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -93,10 +116,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2002,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer06 = new Player(5,
 			"Paddy",
-			"Bloggs",
+			"Darrell",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -104,10 +128,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2001,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer07 = new Player(6,
 			"Mary",
-			"Bloggs",
+			"Hetfield",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -115,10 +140,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			1999,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer08 = new Player(7,
 			"Susan",
-			"Bloggs",
+			"Morrission",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -126,10 +152,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2006,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer09 = new Player(8,
 			"Michelle",
-			"Bloggs",
+			"Manzerak",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -137,10 +164,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2007,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer10 = new Player(9,
 			"Steve",
-			"Bloggs",
+			"Plant",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -148,10 +176,11 @@ public abstract class InitialSetup
 			16,
 			5,
 			2008,
-			"dr1");
+			"dr1",
+			"pr1");
 	private static Player testPlayer11 = new Player(10,
 			"Liam",
-			"Bloggs",
+			"Page",
 			"Tullaroan",
 			"Dungarven",
 			"222222222",
@@ -159,11 +188,15 @@ public abstract class InitialSetup
 			16,
 			5,
 			2009,
-			"dr1");
+			"dr1",
+			"pr1");
+	private static Account testAccount01 = new Account("admin", "root", true);
+	private static Account testAccount02 = new Account("testGuy11", "pass", false);
 	private static Collectible[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
 	private static Collectible[] managerHolder = {testMan01, testMan02};
 	private static Collectible[] doctorHolder = {testDoc01, testDoc02};
 	private static Collectible[] parentHolder ={testParent01};
+	private static Account[] accountHolder = {testAccount01, testAccount02};
 
 	/*This will temporarily hold the size of the lists being read in until it is
 	 * passed to the collection class*/
@@ -172,6 +205,7 @@ public abstract class InitialSetup
 	public static File doctors = new File("doctors.dat");
 	public static File players = new File("players.dat");
 	public static File parents = new File("parents.dat");
+	public static File accounts = new File("accounts.dat");
 
 
 
@@ -180,7 +214,9 @@ public abstract class InitialSetup
 	{
 		try {
 			if (checkAndAdd(1) && checkAndAdd(2) && checkAndAdd(3) && checkAndAdd(4)) {
-				return true;
+				if (createAccounts()) {
+					return true;
+				}
 			}
 			return false;
 		} catch (Exception e) {
@@ -206,7 +242,7 @@ public abstract class InitialSetup
 		} else {
 			if (IOController.readList(tempFile) != null) {
 				ItemCounter.setItem(type, tempSize + 1);
-				switch (type) {
+				/*switch (type) {
 					case 1:
 						Lists.managerList = IOController.readList(tempFile);
 						break;
@@ -219,7 +255,8 @@ public abstract class InitialSetup
 					case 4:
 						Lists.parentList = IOController.readList(tempFile);
 						break;
-				}
+				}*/
+				tempList = IOController.readList(tempFile);
 				return true;
 			} else {
 				return false;
@@ -269,6 +306,23 @@ public abstract class InitialSetup
 		tempSize = tempSizeIn;
 	}
 
+	public static boolean createAccounts(){
+		try{
+			if(IOController.checkExistance(accounts)){
+				ArrayList<Account> list;
+				list = (ArrayList<Account>) FileHandler.readAccountIn(accounts);
+				AccountCollector.setList(list);
+				return true;
+			} else {
+				FileHandler.writeOut(accountHolder, accounts);
+				return true;
+			}
+		}catch(ClassNotFoundException | IOException e){
+			e.printStackTrace();
+			return false;
+		}
+
+	}
 
 }
 

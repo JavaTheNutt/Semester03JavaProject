@@ -9,14 +9,15 @@ public class Parent extends Collectible
 	protected boolean fullyPaid;
 	protected String paymentMethod;
 
-	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int numberOfChildren, String paymentMethod, int type){
+	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, String paymentMethod, int type, int placeInGroup){
 		super(fName, lName, address01, address02, contactNo, type);
 		this.email = email;
-		this.numberOfChildren = numberOfChildren;
 		this.fee = calculateFee();
 		this.fullyPaid = false;
-		this.id = "pr" + (index + 1);
+		this.pairId = "pr" + (index + 1);
 		this.paymentMethod = paymentMethod;
+		numberOfChildren = 1;
+		this.id = pairId + "." + placeInGroup;
 	}
 
 	public String getPairId()
@@ -44,9 +45,8 @@ public class Parent extends Collectible
 		return numberOfChildren;
 	}
 
-	public void setNumberOfChildren(int numberOfChildren)
-	{
-		this.numberOfChildren = numberOfChildren;
+	public void addChild(){
+		numberOfChildren++;
 	}
 
 	public float getFee()

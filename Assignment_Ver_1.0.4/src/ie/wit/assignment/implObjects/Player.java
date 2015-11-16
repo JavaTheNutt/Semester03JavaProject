@@ -9,12 +9,13 @@ public class Player extends Collectible
 	private String email;
 	private String doctorName;
 	private String doctorId;
+	private String parentId;
 	private int ageThisYear;
 	private int day;
 	private int month;
 	private int year;
 
-	public Player(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int day, int month, int year, String doctorId)
+	public Player(int index, String fName, String lName, String address01, String address02, String contactNo, String email, int day, int month, int year, String doctorId, String parentId)
 	{
 		super(fName, lName, address01, address02, contactNo, 3);
 		id = "pl" + (index + 1);
@@ -24,6 +25,7 @@ public class Player extends Collectible
 		this.month = month;
 		this.year = year;
 		this.email = email;
+		this.parentId = parentId;
 
 		switch(ageThisYear){
 		case 6:
@@ -149,6 +151,16 @@ public class Player extends Collectible
 	public void setDoctorId(String doctorId)
 	{
 		this.doctorId = doctorId;
+	}
+
+	public String getParentId()
+	{
+		return parentId;
+	}
+
+	public void setParentId(String parentId)
+	{
+		this.parentId = parentId;
 	}
 
 	@Override

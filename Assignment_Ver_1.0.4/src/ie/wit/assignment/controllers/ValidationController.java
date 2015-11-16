@@ -1,5 +1,11 @@
 package ie.wit.assignment.controllers;
 
+import ie.wit.assignment.accounts.Account;
+import ie.wit.assignment.accounts.AccountCollector;
+import ie.wit.assignment.exceptions.ItemNotFoundException;
+import ie.wit.assignment.exceptions.ListEmptyException;
+import ie.wit.assignment.exceptions.PasswordInvalidException;
+import ie.wit.assignment.gui.PopUp;
 import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.Manager;
 import ie.wit.assignment.implObjects.Lists;
@@ -67,4 +73,21 @@ public class ValidationController
 		}
 		return true;
 	}
+	public static boolean loginValid(String username, String password, boolean admin){
+		try{
+			Account tempAccount = AccountCollector.getUser(username);
+			if(password.equals(tempAccount.getPassword()) && admin == tempAccount.isAdmin()){
+				return true;
+			}
+			throw new PasswordInvalidException("Password is invalid");
+		} catch (ListEmptyException | ItemNotFoundException | PasswordInvalidException e){
+			PopUp.alertBox("Error", e.getMessage());
+			return false;
+		} catch(Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }

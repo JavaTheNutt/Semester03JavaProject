@@ -58,36 +58,7 @@ public class RemoveItemMenu
 		window.setScene(scene);
 		window.showAndWait();
 	}
-	/*This method will prompt the user for an ID, validate it and use that to remove the item*/
-	/*private static void passData(String typeString, int type)
-	{
-		String subId;
-		String tempId;
-		boolean check;
-		do{
-			tempId = PopUp.singleInput("Enter id", "Please enter the Id of the " + typeString + " to be removed");
-			if(!tempId.equalsIgnoreCase("close")){
-				subId = tempId.substring(0, 2);
-				if((!subId.equalsIgnoreCase("mn")&& type ==1) || (!subId.equalsIgnoreCase("dr") && type == 2) || (subId.equalsIgnoreCase("pl") && type == 3)){
-					check = false;
-					PopUp.alertBox("Incorrect entry", "Please enter a valid Id.(One beginning with either 'pl', 'mn' or 'dr'");
-				} else {
-					check = true;
-				}
-			}else{
-				check = true;
-			}
-		}while(!check);
-		if(tempId.equalsIgnoreCase("close")){
-			if(Controller.removeItem(tempId, type)){
-				PopUp.alertBox("Success", "Item successfully removed");
-				return;
-			} else {
-				PopUp.alertBox("Failed", "The item has not been removed");
-				return;
-			}
-		}
-	}*/
+
 	private static void getItemToBeRemoved(int type, String typeName)
 	{
 		try {
@@ -102,7 +73,7 @@ public class RemoveItemMenu
 			}
 		} catch (ListEmptyException | ItemNotFoundException e) {
 			PopUp.alertBox("Error", e.getMessage());
-			e.printStackTrace();
+			/*e.printStackTrace();*/
 		} catch(Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 			e.printStackTrace();

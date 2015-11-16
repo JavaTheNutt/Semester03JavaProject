@@ -13,7 +13,6 @@ public class FirstNameComparator implements Comparator<Collectible>
 	public int compare(Collectible o1, Collectible o2)
 	{
 		int res = o1.getFName().compareTo(o2.getFName());
-		/*o1.*/
 		return res;
 	}
 }
