@@ -74,33 +74,40 @@ public class UpdateItemMenu
 					"Please select the item to be updated");
 			String attribute = "";
 			String attributeValue = "";
-			if(!tempName.equalsIgnoreCase("close")){
-				Collector tempList = Lists.setType(type);
-				String tempId = tempList.getNameFromId(tempName);
-				attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
-				if(!attribute.equalsIgnoreCase("close")){
-					if(validateAttribute(type, attribute)){
-						attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
-						if(attribute.equalsIgnoreCase("email")){
-							if(ValidationController.checkEmail(attributeValue)){
-								UpdateItemController.updateItem(tempId, attribute, attributeValue);
-							}
-						} else{
-							if(type == 1 && attribute.equalsIgnoreCase("ageDivision")){
-								if(ValidationController.checkCorrectDivision(attributeValue)){
-									UpdateItemController.updateItem(tempId, attribute, attributeValue);
-								} else {
-									PopUp.alertBox("Error", "There are already two managers for that division");
-								}
-							} else {
-								UpdateItemController.updateItem(tempId, attribute, attributeValue);
-							}
+			if(tempName.equalsIgnoreCase("close")){
+				return;
+			}
+			Collector tempList = Lists.setType(type);
+			String tempId = tempList.getIdFromName(tempName);
+			attribute = PopUp.singleComboBox(UpdateItemController.returnAttributesInArray(type), "Select attributes", "Select the attribute to be updated");
+			if(attribute.equalsIgnoreCase("close")){
+				return;
+			}
+			if(validateAttribute(type, attribute)){
+				attributeValue = PopUp.singleInput("Enter Value", "Enter the value of the attribute");
+				if(attributeValue.equalsIgnoreCase("close")){
+					return;
+				}
+				if(attribute.equalsIgnoreCase("email")){
+					if(ValidationController.checkEmail(attributeValue)){
+						UpdateItemController.updateItem(tempId, attribute, attributeValue);
+					}
+				} else{
+					if(type == 1 && attribute.equalsIgnoreCase("ageDivision")){
+						if(ValidationController.checkCorrectDivision(attributeValue)){
+							UpdateItemController.updateItem(tempId, attribute, attributeValue);
+						} else {
+							PopUp.alertBox("Error", "There are already two managers for that division");
 						}
 					} else {
-						PopUp.alertBox("Error", "That is not a valid attribute for that object");
+						UpdateItemController.updateItem(tempId, attribute, attributeValue);
 					}
 				}
+			} else {
+				PopUp.alertBox("Error", "That is not a valid attribute for that object");
 			}
+
+
 		} catch (ListEmptyException | ItemNotFoundException e) {
 			PopUp.alertBox("Error", e.getMessage());
 			/*e.printStackTrace();*/

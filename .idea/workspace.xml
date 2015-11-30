@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a6c4bd1-ef29-4829-a262-1d244526605f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/Account.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/PasswordInvalidException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/UsernameComparator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/GroupMismatchException.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/accounts.dat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/doctors.dat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/managers.dat" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/parents.dat" afterPath="" />
@@ -14,18 +11,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/FirstNameComparator.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/FirstNameComparator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java" afterPath="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/installmentPayment.java" />
     </list>
     <ignored path="semester03javaproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,31 +47,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FileHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="14" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="36" />
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Collector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
+      <file leaf-file-name="ListItemsGui.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Collector.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3984375">
+              <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FindItemsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="116" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding>
+                <element signature="method#findPlayersByAgeDivision#0;class#FindItemsController#0" expanded="false" />
+                <element signature="method#getTypeById#0;class#FindItemsController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#1217#1218#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayItems.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -82,41 +116,17 @@
         <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="321" column="0" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
+              <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountCollector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java">
+      <file leaf-file-name="ValidationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1262#1263#0" expanded="true" />
-                <element signature="e#1282#1283#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lists.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -144,7 +154,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectors/ItemCounter.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/NewController.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectors/NewCollector.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectibles/Collectible.java" />
@@ -152,7 +161,6 @@
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectors/Lists.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/collectibles/Lists.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/UpfrontPayment.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java" />
@@ -161,27 +169,31 @@
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/AmountToPayComparator.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Doctor.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/SurnameComparator.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/IdComparator.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/FirstNameComparator.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/InstallmentPayment.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/Account.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/UsernameComparator.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/PasswordInvalidException.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/GroupMismatchException.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddPlayer.form" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java" />
-        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/Account.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java" />
+        <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java" />
         <option value="$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java" />
       </list>
     </option>
@@ -245,9 +257,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -360,6 +391,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="semester03javaproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment_Ver_1.0.4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assignment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fileHandling" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -432,6 +485,34 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="semester03javaproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment_Ver_1.0.4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="semester03javaproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment_Ver_1.0.4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ie.wit.assignment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,13 +520,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Joe/Programming/Java/semester03javaproject/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -971,28 +1054,57 @@
       <workItem from="1447684608230" duration="455000" />
       <workItem from="1447690298361" duration="40000" />
       <workItem from="1447690550186" duration="15429000" />
+      <workItem from="1447715489114" duration="2974000" />
+      <workItem from="1447765646220" duration="15747000" />
+      <workItem from="1447796547031" duration="5394000" />
+      <workItem from="1447851793033" duration="1169000" />
+      <workItem from="1447859676553" duration="2656000" />
+      <workItem from="1447863550733" duration="1191000" />
+      <workItem from="1447919082772" duration="9075000" />
+      <workItem from="1447939050852" duration="1718000" />
+      <workItem from="1447950820715" duration="58000" />
+      <workItem from="1447950993262" duration="153000" />
+      <workItem from="1447951180390" duration="9136000" />
+      <workItem from="1448010661438" duration="3547000" />
+      <workItem from="1448014830449" duration="778000" />
+      <workItem from="1448018257968" duration="1123000" />
+      <workItem from="1448028648055" duration="8308000" />
+      <workItem from="1448104531941" duration="3418000" />
+      <workItem from="1448263539856" duration="7031000" />
+      <workItem from="1448521755777" duration="675000" />
+      <workItem from="1448875550525" duration="7699000" />
+      <workItem from="1448892894184" duration="1915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131577000" />
+    <option name="totallyTimeSpent" value="215342000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22390318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22390318" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1001,37 +1113,11 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22390318" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39770868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1049,333 +1135,543 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>243</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>239</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>236</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>237</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>233</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>231</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>232</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>268</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>271</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>273</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>277</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>279</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>289</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>292</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>295</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>300</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>304</line>
+          <line>339</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>246</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>248</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>249</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>251</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>252</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>253</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>294</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>293</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>291</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>290</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java</url>
-          <line>116</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>170</line>
+          <line>176</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>171</line>
+          <line>177</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>172</line>
+          <line>178</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>173</line>
+          <line>179</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>174</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>176</line>
+          <line>182</line>
           <properties />
           <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
           <line>126</line>
           <properties />
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
           <line>127</line>
           <properties />
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
           <line>132</line>
           <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>138</line>
+          <properties />
           <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>209</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>210</line>
+          <properties />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>211</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>212</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>213</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>215</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>216</line>
+          <properties />
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>217</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>218</line>
+          <properties />
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
           <line>104</line>
           <properties />
-          <option name="timeStamp" value="53" />
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>105</line>
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java</url>
+          <line>33</line>
           <properties />
-          <option name="timeStamp" value="54" />
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>106</line>
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="55" />
+          <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java</url>
-          <line>115</line>
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java</url>
+          <line>35</line>
           <properties />
-          <option name="timeStamp" value="59" />
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/MainMenu.java</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="166" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java</url>
-          <line>25</line>
+          <line>32</line>
           <properties />
-          <option name="timeStamp" value="60" />
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java</url>
+          <line>201</line>
+          <properties />
+          <option name="timeStamp" value="222" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java</url>
+          <line>200</line>
+          <properties />
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>111</line>
+          <properties />
+          <option name="timeStamp" value="238" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="239" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="241" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="242" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>81</line>
+          <properties />
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="249" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="250" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="252" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="253" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="254" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="280" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>97</line>
+          <properties />
+          <option name="timeStamp" value="281" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>98</line>
+          <properties />
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="283" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="284" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>101</line>
+          <properties />
+          <option name="timeStamp" value="285" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>103</line>
+          <properties />
+          <option name="timeStamp" value="286" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="287" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>105</line>
+          <properties />
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>309</line>
+          <line>383</line>
           <properties />
-          <option name="timeStamp" value="61" />
+          <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>310</line>
+          <line>382</line>
           <properties />
-          <option name="timeStamp" value="62" />
+          <option name="timeStamp" value="297" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>311</line>
+          <line>381</line>
           <properties />
-          <option name="timeStamp" value="63" />
+          <option name="timeStamp" value="298" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>314</line>
+          <line>380</line>
           <properties />
-          <option name="timeStamp" value="64" />
+          <option name="timeStamp" value="299" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>316</line>
+          <line>378</line>
           <properties />
-          <option name="timeStamp" value="65" />
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>317</line>
+          <line>379</line>
           <properties />
-          <option name="timeStamp" value="66" />
+          <option name="timeStamp" value="301" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>321</line>
+          <line>370</line>
           <properties />
-          <option name="timeStamp" value="67" />
+          <option name="timeStamp" value="302" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
-          <line>320</line>
+          <line>369</line>
           <properties />
-          <option name="timeStamp" value="68" />
+          <option name="timeStamp" value="303" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
+          <line>373</line>
+          <properties />
+          <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
+          <line>371</line>
+          <properties />
+          <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
+          <line>375</line>
+          <properties />
+          <option name="timeStamp" value="308" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java</url>
+          <line>374</line>
+          <properties />
+          <option name="timeStamp" value="309" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="69" />
+      <option name="time" value="310" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1384,35 +1680,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/ItemCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Lists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1486,13 +1753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/PopUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/com/sun/glass/ui/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33159268">
@@ -1500,21 +1760,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="85" selection-start-line="0" selection-start-column="85" selection-end-line="0" selection-end-column="85" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="uml://JAVA/ie.wit.assignment.implObjects">
@@ -1541,17 +1794,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/ItemCounter.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/SurnameComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/IdComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/UsernameComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/bin/ie/wit/assignment/gui/AddItem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/UpdateItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/GroupMismatchException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/InputNotValidException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/ItemNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/ListEmptyException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/PasswordInvalidException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItemsMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/PopUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/AmountToPayComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1562,217 +1928,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/ItemCounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItemsMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="166" column="29" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="29" />
-          <folding>
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-            <element signature="e#2561#2562#0" expanded="true" />
-            <element signature="e#2583#2584#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="e#1148#1149#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/InstallmentPayment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="83" selection-start-line="10" selection-start-column="83" selection-end-line="10" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="557" column="45" selection-start-line="557" selection-start-column="45" selection-end-line="557" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/AmountToPayComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/SurnameComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/IdComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collectible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/FirstNameComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/UsernameComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
-          <folding>
-            <element signature="e#432#433#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#693#694#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/ItemNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/exceptions/PasswordInvalidException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1780,22 +1939,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="170" column="26" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/InstallmentPayment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5755208">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <element signature="e#625#626#0" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+            <element signature="e#726#727#0" expanded="false" />
+            <element signature="e#767#768#0" expanded="false" />
+            <element signature="e#798#799#0" expanded="false" />
+            <element signature="e#836#837#0" expanded="false" />
+            <element signature="e#891#892#0" expanded="false" />
+            <element signature="e#927#928#0" expanded="false" />
+            <element signature="e#956#957#0" expanded="false" />
+            <element signature="e#1004#1005#0" expanded="false" />
+            <element signature="e#1033#1034#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/AddItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.966146">
+          <caret line="606" column="53" selection-start-line="606" selection-start-column="53" selection-end-line="606" selection-end-column="53" />
+          <folding>
+            <element signature="method#addManager#0;class#AddItem#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/ie/wit/assignment/comparators/FirstNameComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48697916">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/RemoveItemMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="14" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="36" />
+          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/IOController.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/UpdateItemMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <caret line="80" column="61" selection-start-line="80" selection-start-column="61" selection-end-line="80" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1803,35 +2022,76 @@
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/accounts/AccountCollector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1262#1263#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-          </folding>
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/ValidationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/ListItemsGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/gui/DisplayItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/controllers/FindItemsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="method#findPlayersByAgeDivision#0;class#FindItemsController#0" expanded="false" />
+            <element signature="method#getTypeById#0;class#FindItemsController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/InitialSetup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="321" column="0" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
+          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/fileHandling/FileHandler.java">
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Parent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#1217#1218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment_Ver_1.0.4/src/ie/wit/assignment/implObjects/Collector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3984375">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding />
         </state>
       </provider>

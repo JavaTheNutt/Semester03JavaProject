@@ -1,5 +1,6 @@
 package ie.wit.assignment.implObjects;
 
+import ie.wit.assignment.exceptions.GroupMismatchException;
 import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
@@ -71,7 +72,7 @@ public class Collector implements Serializable
 		return list.indexOf(itemIn);
 	}
 
-	private boolean checkEmpty() throws ListEmptyException
+	public boolean checkEmpty() throws ListEmptyException
 	{
 		if (list.isEmpty()) {
 			throw new ListEmptyException("The list is empty");
@@ -91,10 +92,15 @@ public class Collector implements Serializable
 	public Collectible getItem(String idIn) throws ListEmptyException, ItemNotFoundException
 	{
 		checkEmpty();
-		list.sort(new IdComparator());
+		/*list.sort(new IdComparator());
 		int index = Collections.binarySearch(list, idIn);
 		if (index >= 0) {
 			return list.get(index);
+		}*/
+		for(Collectible item : list){
+			if (item.getId().equalsIgnoreCase(idIn)){
+				return item;
+			}
 		}
 		throw new ItemNotFoundException("The item was not found");
 
@@ -198,5 +204,33 @@ public class Collector implements Serializable
 			return id;
 		}
 		throw new ItemNotFoundException("The item was not found");
+	}
+	public String getParentNames(String id01, String id02) throws ListEmptyException, ItemNotFoundException, InputNotValidException, GroupMismatchException
+	{
+		checkEmpty();
+		if(!(id01.substring(0, 2).equalsIgnoreCase("pr") && id02.substring(0, 2).equalsIgnoreCase("pr"))){
+			throw new InputNotValidException("Please select two existing parents");
+		}
+		Parent parent01 = (Parent) getItem(id01);
+		Parent parent02 = (Parent) getItem(id02);
+		if(!(parent01.getPairId().equalsIgnoreCase(parent02.getPairId()))){
+			throw new GroupMismatchException("The parents selected exist, but are not associated with one another");
+		}
+		return parent01.getFName() + " " + parent01.getLName() + " and " + parent02.getFName() + " " + parent02.getLName();
+	}
+	private List<Collectible> getParents(String pairId){
+		List<Collectible> tempList = new ArrayList<>(2);
+		int i =0;
+		for (Collectible item : list){
+			Parent parent = (Parent) item;
+			if(parent.getPairId().equals(pairId)){
+				tempList.add(parent);
+				i++;
+				if (i == 2){
+					return tempList;
+				}
+			}
+		}
+		return tempList;
 	}
 }

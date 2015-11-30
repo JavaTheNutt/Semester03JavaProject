@@ -1,14 +1,25 @@
 package ie.wit.assignment.gui;
 
 import ie.wit.assignment.implObjects.Collectible;
+import ie.wit.assignment.implObjects.Parent;
+import ie.wit.assignment.implObjects.Player;
 import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*This class will be used to display the tables of objects*/
 public class DisplayItems 
 {
@@ -155,6 +166,77 @@ public class DisplayItems
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
+	}
+	public static void displayFamilies(List<Collectible> list){
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+
+		if (list.isEmpty()){
+			PopUp.alertBox("No data", "No data to display");
+			window.close();
+		}
+		String players = "";
+		Label parentLabel = new Label("Parents");
+		List<Collectible> parentList = getParents(list);
+		List<Collectible> playerList = getPlayers(list);
+		Label parent01Name = new Label("Parent01: " + parentList.get(0).getFName() + " " +  parentList.get(0).getLName());
+		parent01Name.setContentDisplay(ContentDisplay.LEFT);
+		Label parent02Name = new Label(" ");
+		parent02Name.setContentDisplay(ContentDisplay.RIGHT);
+		Label playerLabel = new Label();
+		if (parentList.size() == 2){
+			parent02Name.setText("Parent02: " + parentList.get(1).getFName() + " " + parentList.get(1).getLName());
+		}
+		for (Collectible item : playerList){
+			Player player = (Player) item;
+			players += player.toShortString() + "\n";
+		}
+		playerLabel.setText(players);
+		Parent parent = (Parent) parentList.get(0);
+		Label paymentAmountLabel = new Label("Payment amount: €" + Float.toString(parent.getFee()));
+		Label paymentMethodLabel = new Label("Payment method: " + parent.getPaymentMethod());
+		StackPane playerPane = new StackPane();
+		StackPane paymentAmountPane = new StackPane(paymentAmountLabel);
+		StackPane paymentMethodPane = new StackPane(paymentMethodLabel);
+		playerPane.getChildren().addAll(playerLabel);
+		BorderPane topLayout = new BorderPane();
+		StackPane topPane = new StackPane();
+		topPane.getChildren().add(parentLabel);
+		topLayout.setLeft(parent01Name);
+		topLayout.setRight(parent02Name);
+		topLayout.setTop(topPane);
+		BorderPane outerLayout = new BorderPane();
+		outerLayout.setTop(topLayout);
+		outerLayout.setCenter(playerPane);
+		outerLayout.setLeft(paymentAmountPane);
+		outerLayout.setRight(paymentMethodPane);
+		outerLayout.setPadding(new Insets(15, 15, 15, 15));
+
+		Scene scene = new Scene(outerLayout, 500, 500);
+		window.setScene(scene);
+		window.showAndWait();
+	}
+
+	private static List<Collectible> getParents(List<Collectible> list){
+		ArrayList<Collectible> tempList = new ArrayList<>();
+		for (Collectible item : list){
+			if(item.getId().substring(0, 2).equals("pr")){
+				tempList.add(item);
+				if (tempList.size() == 2){
+					return tempList;
+				}
+			}
+		}
+		return tempList;
+	}
+	private static List<Collectible> getPlayers(List<Collectible> list){
+		ArrayList<Collectible> tempList = new ArrayList<>();
+		for (Collectible item : list){
+			if(item.getId().substring(0, 2).equals("pl")){
+				tempList.add(item);
+			}
+		}
+		return tempList;
 	}
 	
 }

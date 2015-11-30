@@ -1,9 +1,11 @@
 package ie.wit.assignment.controllers;
 
+import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.Collector;
 import ie.wit.assignment.fileHandling.FileHandler;
 
 import java.io.File;
+import java.util.List;
 
 /*This class handles exceptions that may be thrown by the IO process*/
 public class IOController 

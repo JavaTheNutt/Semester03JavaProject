@@ -17,6 +17,7 @@ import javafx.stage.Stage;
  */
 public class Login
 {
+	private static int count = 0;
 	public static void display(){
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -59,20 +60,29 @@ public class Login
 		outerLayout.setCenter(grid);
 
 		submitButton.setOnAction(e ->{
-			if(ValidationController.loginValid(usernameInput.getText(), passwordInput.getText(), adminInput.isSelected())){
-				MainMenu.display();
-				window.close();
-			} else {
-				usernameInput.setText(null);
-				passwordInput.setText(null);
+			if (!(usernameInput.getText().equals("") || passwordInput.getText().equals("")) ) {
+				if(ValidationController.loginValid(usernameInput.getText(), passwordInput.getText(), adminInput.isSelected())){
+					if (adminInput.isSelected()) {
+						MainMenu.display();
+					} else {
+						ListItemsGui.display();
+					}
+					window.close();
+				} else {
+					usernameInput.setText(null);
+					passwordInput.setText(null);
+					count++;
+					if (count == 3){
+						PopUp.alertBox("Error", "Wrong password entered 3 times, system will now shut down");
+						window.close();
+					}
+				}
+			}else {
+				PopUp.alertBox("Error", "Please fill all fields");
 			}
-
 		});
-
 		Scene scene = new Scene(outerLayout);
 		window.setScene(scene);
 		window.showAndWait();
 	}
-
-
 }

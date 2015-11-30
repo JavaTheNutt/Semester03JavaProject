@@ -31,9 +31,15 @@ public class AccountCollector
 	}
 	public static Account getUser(String username) throws ItemNotFoundException, ListEmptyException
 	{
-		isEmpty();
-		list.sort(new UsernameComparator());
-		return list.get(Collections.binarySearch(list, username));
+		/*isEmpty();*/
+		/*list.sort(new UsernameComparator());
+		return list.get(Collections.binarySearch(list, username));*/
+		for(Account item : list){
+			if(item.getUsername().equalsIgnoreCase(username)){
+				return item;
+			}
+		}
+		throw new ItemNotFoundException("The account requested was not found");
 	}
 	private static boolean isEmpty() throws ListEmptyException
 	{

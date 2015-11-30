@@ -1,5 +1,7 @@
 package ie.wit.assignment.controllers;
 
+import ie.wit.assignment.exceptions.GroupMismatchException;
+import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.*;
@@ -7,6 +9,7 @@ import ie.wit.assignment.gui.PopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -73,4 +76,68 @@ public abstract class FindItemsController
 		return list;
 	}
 
+	public static List<String> getParentsInArray()throws ListEmptyException, GroupMismatchException, ItemNotFoundException
+	{
+
+		List<String> names = new ArrayList<>();
+		List<String> pairIds = findDistinctPairIds();
+		List<String> nameList = new ArrayList<>();
+		for(String ids : pairIds){
+			for (Collectible item : Lists.parentList.getList()){
+				Parent parent = (Parent) item;
+				if(parent.getPairId().equals(ids)){
+					names.add(parent.getFName() + " " + parent.getLName());
+				}
+			}
+			if(names.size() > 2){
+				throw new GroupMismatchException("There appear to be too many names assigned to one parent group");
+			} else if(names.size() == 1){
+				nameList.addAll(names);
+			} else if(names.size() == 2){
+				String tempName = names.get(0) + " and " + names.get(1);
+				nameList.add(tempName);
+			} else{
+				throw new ItemNotFoundException("No parents were found with that id");
+			}
+			names.removeAll(names);
+		}
+		return nameList;
+	}
+	public static List<Collectible> findFamilies(String pairId){
+		List<Collectible> familyList = new ArrayList<>();
+		for (Collectible item : Lists.parentList.getList()){
+			Parent parent = (Parent) item;
+			if(parent.getPairId().equals(pairId)){
+				familyList.add(item);
+			}
+		}
+		for (Collectible item : Lists.playerList.getList()){
+			Player player = (Player) item;
+			if (player.getParentId().equals(pairId)){
+				familyList.add(item);
+			}
+		}
+		return familyList;
+	}
+	public static List<String> findDistinctPairIds(){
+		ArrayList<String> list = new ArrayList<>();
+		for(Collectible item : Lists.parentList.getList()){
+			Parent parent = (Parent) item;
+			String tempPairId = parent.getPairId();
+			if(!list.contains(tempPairId)){
+				list.add(tempPairId);
+			}
+		}
+		return list;
+	}
+	public static List<Collectible> findParents(String pairIdIn){
+		List<Collectible> tempList = new ArrayList<>();
+		for(Collectible item : Lists.parentList.getList()){
+			Parent parent = (Parent) item;
+			if(parent.getPairId().equals(pairIdIn)){
+				tempList.add(parent);
+			}
+		}
+		return tempList;
+	}
 }

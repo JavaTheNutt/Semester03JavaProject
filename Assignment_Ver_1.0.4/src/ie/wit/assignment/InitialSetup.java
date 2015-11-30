@@ -2,7 +2,7 @@ package ie.wit.assignment;
 
 import ie.wit.assignment.accounts.Account;
 import ie.wit.assignment.accounts.AccountCollector;
-import ie.wit.assignment.controllers.ValidationController;
+import ie.wit.assignment.controllers.FindItemsController;
 import ie.wit.assignment.fileHandling.FileHandler;
 import ie.wit.assignment.implObjects.*;
 import ie.wit.assignment.controllers.IOController;
@@ -58,6 +58,54 @@ public abstract class InitialSetup
 			4,
 			1
 	);
+	private static Parent testParent03 = new Parent(
+			1,
+			"Jason",
+			"Jameson",
+			"Low Street",
+			"Thomastown",
+			"222222222",
+			"kjdid@jsdsi.sdsd",
+			"Cheque",
+			4,
+			1
+	);
+	private static Parent testParent04 = new Parent(
+			2,
+			"Mary",
+			"Murphy",
+			"Jerpoint Abbey",
+			"Thomastown",
+			"222222222",
+			"kjdid@jsdsi.sdsd",
+			"Cheque",
+			4,
+			1
+	);
+	private static InstallmentPayment testParent05= new InstallmentPayment(
+			3,
+			"Michelle",
+	        "Power",
+	        "Dungarven",
+	        "Dungarven",
+	        "242344234234",
+	        "hfadsf@hkfdads.dff",
+			3,
+	        "Standing Order",
+	        1
+	);
+	private static InstallmentPayment testParent06 = new InstallmentPayment(
+			3,
+			"Matty",
+			"Power",
+			"Dungarven",
+			"Dungarven",
+			"3534543",
+			"jfoiewjfif@.fda",
+			3,
+			"Standing Order",
+			1
+	);
 	private static Player testPlayer01 = new Player(0,
 			"James",
 			"Murphy",
@@ -81,7 +129,7 @@ public abstract class InitialSetup
 			5,
 			2005,
 			"dr1",
-			"pr1");
+			"pr3");
 	private static Player testPlayer03 = new Player(2,
 			"Jason",
 			"Ulrich",
@@ -93,7 +141,7 @@ public abstract class InitialSetup
 			5,
 			2004,
 			"dr1",
-			"pr1");
+			"pr4");
 	private static Player testPlayer04 = new Player(3,
 			"Jack",
 			"Taylor",
@@ -105,7 +153,7 @@ public abstract class InitialSetup
 			5,
 			2003,
 			"dr1",
-			"pr1");
+			"pr4");
 	private static Player testPlayer05 = new Player(4,
 			"Micheal",
 			"Osbourne",
@@ -117,7 +165,7 @@ public abstract class InitialSetup
 			5,
 			2002,
 			"dr1",
-			"pr1");
+			"pr4");
 	private static Player testPlayer06 = new Player(5,
 			"Paddy",
 			"Darrell",
@@ -129,7 +177,7 @@ public abstract class InitialSetup
 			5,
 			2001,
 			"dr1",
-			"pr1");
+			"pr4");
 	private static Player testPlayer07 = new Player(6,
 			"Mary",
 			"Hetfield",
@@ -141,7 +189,7 @@ public abstract class InitialSetup
 			5,
 			1999,
 			"dr1",
-			"pr1");
+			"pr4");
 	private static Player testPlayer08 = new Player(7,
 			"Susan",
 			"Morrission",
@@ -153,7 +201,7 @@ public abstract class InitialSetup
 			5,
 			2006,
 			"dr1",
-			"pr1");
+			"pr2");
 	private static Player testPlayer09 = new Player(8,
 			"Michelle",
 			"Manzerak",
@@ -165,7 +213,7 @@ public abstract class InitialSetup
 			5,
 			2007,
 			"dr1",
-			"pr1");
+			"pr3");
 	private static Player testPlayer10 = new Player(9,
 			"Steve",
 			"Plant",
@@ -177,7 +225,7 @@ public abstract class InitialSetup
 			5,
 			2008,
 			"dr1",
-			"pr1");
+			"pr2");
 	private static Player testPlayer11 = new Player(10,
 			"Liam",
 			"Page",
@@ -189,13 +237,13 @@ public abstract class InitialSetup
 			5,
 			2009,
 			"dr1",
-			"pr1");
+			"pr3");
 	private static Account testAccount01 = new Account("admin", "root", true);
 	private static Account testAccount02 = new Account("testGuy11", "pass", false);
 	private static Collectible[] playerHolder = {testPlayer01, testPlayer02, testPlayer03, testPlayer04, testPlayer05, testPlayer06, testPlayer07, testPlayer08, testPlayer09, testPlayer10, testPlayer11};
 	private static Collectible[] managerHolder = {testMan01, testMan02};
 	private static Collectible[] doctorHolder = {testDoc01, testDoc02};
-	private static Collectible[] parentHolder ={testParent01};
+	private static Collectible[] parentHolder ={testParent01, testParent02, testParent03, testParent04, testParent05, testParent06};
 	private static Account[] accountHolder = {testAccount01, testAccount02};
 
 	/*This will temporarily hold the size of the lists being read in until it is
@@ -242,21 +290,8 @@ public abstract class InitialSetup
 		} else {
 			if (IOController.readList(tempFile) != null) {
 				ItemCounter.setItem(type, tempSize + 1);
-				/*switch (type) {
-					case 1:
-						Lists.managerList = IOController.readList(tempFile);
-						break;
-					case 2:
-						Lists.doctorList = IOController.readList(tempFile);
-						break;
-					case 3:
-						Lists.playerList = IOController.readList(tempFile);
-						break;
-					case 4:
-						Lists.parentList = IOController.readList(tempFile);
-						break;
-				}*/
-				tempList = IOController.readList(tempFile);
+				Collector list = IOController.readList(tempFile);
+				tempList.setList(list.getList());
 				return true;
 			} else {
 				return false;
@@ -308,22 +343,50 @@ public abstract class InitialSetup
 
 	public static boolean createAccounts(){
 		try{
+			List<Account> accountList = new ArrayList<>();
 			if(IOController.checkExistance(accounts)){
 				ArrayList<Account> list;
 				list = (ArrayList<Account>) FileHandler.readAccountIn(accounts);
 				AccountCollector.setList(list);
 				return true;
 			} else {
-				FileHandler.writeOut(accountHolder, accounts);
+				for(Account item : accountHolder){
+					accountList.add(item);
+					AccountCollector.list.add(item);
+				}
+				FileHandler.writeOut(accountList, accounts);
 				return true;
 			}
-		}catch(ClassNotFoundException | IOException e){
+		}catch(ClassNotFoundException | IOException  e){
+			e.printStackTrace();
+			return false;
+		} catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
-
 	}
-
+	public static void addChildren(){
+		List<String> pairIds = FindItemsController.findDistinctPairIds();
+		for (String id : pairIds){
+			List<Collectible> parentList = FindItemsController.findParents(id);
+			List<Collectible> playersWithParent = FindItemsController.getAssociatedItems(id);
+			for(Collectible item : playersWithParent){
+				for (Collectible parentItem : parentList){
+					Parent parent = (Parent) parentItem;
+					parent.initialAddChild();
+				}
+			}
+			/*for (Collectible item : Lists.playerList.getList()){
+				Player player = (Player) item;
+				if (player.getParentId().equalsIgnoreCase(id)){
+					for (Collectible parentItem : parentList){
+						Parent parent = (Parent) parentItem;
+						parent.initialAddChild();
+					}
+				}
+			}*/
+		}
+	}
 }
 
 

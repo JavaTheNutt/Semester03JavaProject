@@ -2,6 +2,7 @@ package ie.wit.assignment.fileHandling;
 
 import ie.wit.assignment.InitialSetup;
 import ie.wit.assignment.accounts.Account;
+import ie.wit.assignment.implObjects.Collectible;
 import ie.wit.assignment.implObjects.Collector;
 
 import java.io.*;
@@ -17,16 +18,17 @@ public class FileHandler
 		oos.writeObject(list);
 		oos.close();
 	}
-	public static void writeOut(Account[] list, File fileIn) throws IOException
+	public static boolean writeOut(List<Account> list, File fileIn) throws IOException
 	{
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileIn));
 		oos.writeObject(list);
 		oos.close();
+		return true;
 	}
 	public static List<Account> readAccountIn(File fileIn) throws IOException, ClassNotFoundException
 	{
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileIn));
-		return (List<Account>) ois.readObject();
+		return  (List<Account>) ois.readObject();
 	}
 
 	public static Collector readIn(File fileIn) throws IOException, ClassNotFoundException
@@ -38,7 +40,7 @@ public class FileHandler
 		/*This variable is temporarily set, then the method that calls this method will use that
 		* value to set the size of the list before attempting to read another list*/
 		InitialSetup.setTempSize(tempSize);
-		temp = (Collector) ois.readObject();
+		temp =  (Collector) ois.readObject();
 		ois.close();
 		return temp;
 	}

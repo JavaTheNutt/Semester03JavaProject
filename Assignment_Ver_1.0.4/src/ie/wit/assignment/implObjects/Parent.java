@@ -9,15 +9,16 @@ public class Parent extends Collectible
 	protected boolean fullyPaid;
 	protected String paymentMethod;
 
-	public Parent(int index, String fName, String lName, String address01, String address02, String contactNo, String email, String paymentMethod, int type, int placeInGroup){
+	public Parent(int index, String fName, String lName, String address01,
+	              String address02, String contactNo, String email, String paymentMethod, int type, int placeInGroup){
 		super(fName, lName, address01, address02, contactNo, type);
 		this.email = email;
-		this.fee = calculateFee();
+		/*this.fee = calculateFee();*/
 		this.fullyPaid = false;
 		this.pairId = "pr" + (index + 1);
 		this.paymentMethod = paymentMethod;
 		numberOfChildren = 1;
-		this.id = pairId + "." + placeInGroup;
+		this.id = pairId + "." + Integer.toString(placeInGroup);
 	}
 
 	public String getPairId()
@@ -45,19 +46,20 @@ public class Parent extends Collectible
 		return numberOfChildren;
 	}
 
+	public void initialAddChild(){
+		numberOfChildren++;
+	}
 	public void addChild(){
 		numberOfChildren++;
+		calculateFee();
 	}
 
 	public float getFee()
 	{
-		return fee;
+		float tempFee = calculateFee();
+		return tempFee;
 	}
 
-	public void setFee()
-	{
-		fee = calculateFee();
-	}
 
 	@Override
 	public String getId()
@@ -89,7 +91,7 @@ public class Parent extends Collectible
 		fullyPaid = true;
 	}
 
-	private float calculateFee()
+	public float calculateFee()
 	{
 		switch(numberOfChildren){
 			case 1:
@@ -105,5 +107,11 @@ public class Parent extends Collectible
 			default:
 				return 400;
 		}
+	}
+
+	@Override
+	public String toString()
+	{
+		return super.toString() + "\nid\t" + id + "\npairId\t" + pairId;
 	}
 }

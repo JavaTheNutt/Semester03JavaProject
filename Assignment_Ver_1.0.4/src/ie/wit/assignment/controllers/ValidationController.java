@@ -76,8 +76,10 @@ public class ValidationController
 	public static boolean loginValid(String username, String password, boolean admin){
 		try{
 			Account tempAccount = AccountCollector.getUser(username);
-			if(password.equals(tempAccount.getPassword()) && admin == tempAccount.isAdmin()){
-				return true;
+			if(tempAccount != null){
+				if(password.equals(tempAccount.getPassword()) && admin == tempAccount.isAdmin()){
+					return true;
+				}
 			}
 			throw new PasswordInvalidException("Password is invalid");
 		} catch (ListEmptyException | ItemNotFoundException | PasswordInvalidException e){
@@ -86,6 +88,7 @@ public class ValidationController
 		} catch(Exception e){
 			PopUp.alertBox("Error", "An unknown error has occurred");
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return false;
 		}
 	}

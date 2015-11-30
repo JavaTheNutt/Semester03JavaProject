@@ -1,5 +1,6 @@
 package ie.wit.assignment.gui;
 
+import ie.wit.assignment.exceptions.GroupMismatchException;
 import ie.wit.assignment.exceptions.InputNotValidException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
@@ -16,6 +17,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.List;
+
 /*This class will be the GUI for choosing which items to display*/
 public class ListItemsGui 
 {
@@ -38,6 +42,7 @@ public class ListItemsGui
 		Label findDoctorByNameLabel = new Label("Find a doctor by name");
 		Label findManagerByNameLabel = new Label("Find a manager by name");
 		Label showAllPlayersWithDoctorLabel = new Label("Find all players with a specific doctor");
+		Label showFamiliesLabel = new Label("Show families");
 		
 		Button listManagersButton = new Button("X");
 		listManagersButton.setOnAction(e -> {
@@ -127,6 +132,20 @@ public class ListItemsGui
 			}
 
 		});
+		Button showFamiliesButton = new Button("X");
+		showFamiliesButton.setOnAction(e -> {
+			String names = getParents();
+			String[] nameArray = names.split(" ");
+			String id = getParentId(nameArray[0], nameArray[1]);
+			String pairId = id.substring(0, 3);
+			if(!pairId.substring(0, 2).equalsIgnoreCase("pr")){
+				PopUp.alertBox("Error", id);
+				return;
+			}
+			List<Collectible> family = FindItemsController.findFamilies(pairId);
+			DisplayItems.displayFamilies(family);
+			/*window.close();*/
+		});
 		GridPane.setConstraints(listManagersLabel, 0, 0);
 		GridPane.setConstraints(listManagersButton, 1, 0);
 		GridPane.setConstraints(listDoctorsLabel, 0, 1);
@@ -143,6 +162,8 @@ public class ListItemsGui
 		GridPane.setConstraints(findDoctorByNameButton, 1, 6);
 		GridPane.setConstraints(showAllPlayersWithDoctorLabel, 0, 7);
 		GridPane.setConstraints(showAllPlayersWithDoctorButton, 1, 7);
+		GridPane.setConstraints(showFamiliesLabel, 0, 8);
+		GridPane.setConstraints(showFamiliesButton, 1, 8);
 		
 		GridPane grid = new GridPane();
 		grid.setPadding(new Insets(10, 10, 10, 10));
@@ -151,7 +172,8 @@ public class ListItemsGui
 		grid.getChildren().addAll(listManagersLabel, listManagersButton, listDoctorsLabel, listDoctorsButton,
 				listPlayersLabel, listPlayersButton, listPlayersByAgeDivisionLabel, listPlayersByAgeDivisionButton,
 				findDoctorByNameButton, findDoctorByNameLabel, findManagerByNameButton, findManagerByNameLabel,
-				findPlayerByNameButton, findPlayerByNameLabel, showAllPlayersWithDoctorLabel, showAllPlayersWithDoctorButton);
+				findPlayerByNameButton, findPlayerByNameLabel, showAllPlayersWithDoctorLabel, showAllPlayersWithDoctorButton,
+				showFamiliesLabel, showFamiliesButton);
 		
 		BorderPane outerPane = new BorderPane();
 		outerPane.setTop(topLayout);
@@ -159,5 +181,32 @@ public class ListItemsGui
 		Scene scene = new Scene(outerPane);
 		window.setScene(scene);
 		window.showAndWait();
+	}
+	private static String getParents(){
+		try{
+			Object[] objectArray = /*(String [])*/FindItemsController.getParentsInArray().toArray();
+			String[] nameArray = new String[objectArray.length];
+			int i = 0;
+			for(Object name : objectArray){
+				String stringName = name.toString();
+				nameArray[i] = stringName;
+				i++;
+			}
+			return PopUp.singleComboBox(nameArray, "Select parent", "Please select the parents names");
+
+		}catch (ListEmptyException | GroupMismatchException | ItemNotFoundException e){
+			return e.getMessage();
+		} catch (Exception e){
+			e.printStackTrace();
+			return "unknown error";
+		}
+	}
+	private static String getParentId(String fName, String lName){
+		try{
+			String id = Lists.parentList.getIdFromName(fName, lName);
+			return id;
+		}catch (ListEmptyException | ItemNotFoundException e){
+			return e.getMessage();
+		}
 	}
 }

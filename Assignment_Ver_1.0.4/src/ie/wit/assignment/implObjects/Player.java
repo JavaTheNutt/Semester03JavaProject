@@ -168,4 +168,8 @@ public class Player extends Collectible
 	{
 		return super.toString() + "\nDate of Birth:\t" + day + "/" + month + "/" + year + "\nAge Division:\t" + ageDivision;
 	}
+	public String toShortString()
+	{
+		return "\nName:\t" + fName + " " + lName + "\nAge Division:\t" + ageDivision;
+	}
 }

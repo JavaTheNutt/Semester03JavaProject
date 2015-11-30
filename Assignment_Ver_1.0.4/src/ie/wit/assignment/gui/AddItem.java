@@ -1,5 +1,8 @@
 package ie.wit.assignment.gui;
 
+import com.sun.org.apache.bcel.internal.generic.POP;
+import ie.wit.assignment.controllers.FindItemsController;
+import ie.wit.assignment.exceptions.GroupMismatchException;
 import ie.wit.assignment.exceptions.ItemNotFoundException;
 import ie.wit.assignment.exceptions.ListEmptyException;
 import ie.wit.assignment.implObjects.*;
@@ -16,11 +19,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.List;
+
 /*This class contains the GUI for adding items.*/
 public class AddItem 
 {
 	private static String notFilledTitle = "Please fill correctly", notFilledMessage = "Please fill out all fields";
 	private static ComboBox<String> doctorSelection;
+	private static ComboBox<String> parentSelection;
+	private static int numParents = 0;
 	
 	
 	public static void addManager()
@@ -298,11 +306,8 @@ public class AddItem
 		Label monthLabel = new Label("Month");
 		Label yearLabel = new Label("Year");
         Label doctorLabel = new Label("Please Select Doctor");
+		Label parentLabel = new Label("Please select parents");
 
-
-
-
-		
 		TextField firstNameInput = new TextField();
 		TextField surnameInput = new TextField();
 		TextField address01Input = new TextField();
@@ -313,13 +318,14 @@ public class AddItem
 		ComboBox<String> monthOfBirth = new ComboBox<>();
 		ComboBox<String> yearOfBirth = new ComboBox<>();
         doctorSelection = new ComboBox<>();
-
+		parentSelection = new ComboBox<>();
 
 		dateOfBirthInput.getItems().addAll(setNumberDays(31));
 		monthOfBirth.getItems().addAll(setNumberDays(12));
 		yearOfBirth.getItems().addAll("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009");
 		try {
 			setDoctorSelection();
+			setParentSelection();
 		} catch (ListEmptyException e) {
 			PopUp.alertBox("Error", e.getMessage());
 			e.printStackTrace();
@@ -364,7 +370,13 @@ public class AddItem
 	                       String tempDoc = Lists.doctorList.getNameFromId(doctorSelection.getValue());
 							/*Ensure doctor not null*/
 	                        if(!tempDoc.equals(null)){
-	                            /*Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
+								String parentNames = parentSelection.getValue();
+		                        String [] names = parentNames.split(" ");
+		                        String parentId = Lists.parentList.getIdFromName(names[0], names[1]);
+		                        int dotIndex = parentId.indexOf('.');
+		                        String pairId= parentId.substring(0, dotIndex);
+		                        System.out.println(pairId);
+		                        Player tempPlayer = new Player(ItemCounter.numberOfPlayers,
 	                                    items[0],
 	                                    items[1],
 	                                    items[2],
@@ -374,10 +386,10 @@ public class AddItem
 	                                    Integer.parseInt(dateOfBirthInput.getValue()),
 	                                    Integer.parseInt(monthOfBirth.getValue()),
 	                                    Integer.parseInt(yearOfBirth.getValue()),
-	                                    tempDoc
-	                            );*/
-
-		                        /*Lists.playerList.addItem(tempPlayer);*/
+	                                    tempDoc,
+			                            pairId
+	                            );
+		                        Lists.playerList.addItem(tempPlayer);
 								PopUp.alertBox("Success", "Player added successfully");
 								/*reset fields*/
 								firstNameInput.setText("");
@@ -417,11 +429,20 @@ public class AddItem
 		        e1.printStackTrace();
 	        }
         });
-		addParentButton.setOnAction(e -> {
-			/*try{
 
-			}*/
-			addParent();
+		addParentButton.setOnAction(e -> {
+			try{
+				if(numParents == 2){
+					PopUp.alertBox("Error", "You have added the maximum number of parents.");
+					return;
+				}
+				addParent(ItemCounter.numberOfPlayers, numParents);
+				numParents++;
+				setParentSelection();
+			}catch (Exception e1){
+				PopUp.alertBox("Failed", "Failed");
+			}
+
 		});
 		GridPane.setConstraints(firstNameLabel, 0, 0);
 		GridPane.setConstraints(firstNameInput, 1, 0);
@@ -441,16 +462,18 @@ public class AddItem
 		GridPane.setConstraints(monthOfBirth,1, 7);
 		GridPane.setConstraints(yearLabel, 0, 8);
 		GridPane.setConstraints(yearOfBirth, 1, 8);
-        GridPane.setConstraints(doctorLabel, 0, 9);
-        GridPane.setConstraints(doctorSelection, 1, 9);
-		GridPane.setConstraints(submitButton, 0, 10);
-        GridPane.setConstraints(addNewDoctorButton, 1, 10);
-		GridPane.setConstraints(closeButton, 2, 10);
-		GridPane.setConstraints(addParentButton, 3, 10);
-		
+        GridPane.setConstraints(doctorLabel, 0, 10);
+        GridPane.setConstraints(doctorSelection, 1, 10);
+		GridPane.setConstraints(addNewDoctorButton, 2, 10);
+		GridPane.setConstraints(parentLabel, 0, 11);
+		GridPane.setConstraints(parentSelection, 1 ,11);
+		GridPane.setConstraints(addParentButton, 2, 11);
+		GridPane.setConstraints(submitButton, 0, 12);
+		GridPane.setConstraints(closeButton, 1, 12);
+
 		mainLayout.getChildren().addAll(firstNameLabel, firstNameInput, surnameLabel, surnameInput, address01Label, address01Input, address02Label, address02Input,
 				contactNoLabel, contactNoInput, emailLabel, emailInput, dayLabel, dateOfBirthInput, monthLabel, monthOfBirth
-				, yearLabel, yearOfBirth, doctorLabel, doctorSelection, submitButton,addNewDoctorButton,  closeButton, addParentButton);
+				, yearLabel, yearOfBirth, doctorLabel, doctorSelection, submitButton,addNewDoctorButton,  closeButton, addParentButton, parentLabel, parentSelection);
 		
 		BorderPane outerLayout = new BorderPane();
 		outerLayout.setTop(topHead);
@@ -466,8 +489,24 @@ public class AddItem
 	private static void setDoctorSelection() throws ListEmptyException
     {
         doctorSelection.getItems().removeAll(doctorSelection.getItems());
-		doctorSelection.getItems().addAll(Lists.doctorList.getNamesInArray());
-		doctorSelection.setValue("Achim Shlunke");
+	    String [] doctorNames = Lists.doctorList.getNamesInArray();
+		doctorSelection.getItems().addAll(doctorNames);
+		doctorSelection.setValue(doctorNames[doctorNames.length -1]);
+	}
+	private static void setParentSelection()
+	{
+		try{
+			parentSelection.getItems().removeAll(parentSelection.getItems());
+			List parentNames = FindItemsController.getParentsInArray();
+			parentSelection.getItems().addAll(parentNames);
+			parentSelection.setValue(parentNames.get(parentNames.size()-1).toString());
+		} catch (ListEmptyException | GroupMismatchException | ItemNotFoundException e ){
+			PopUp.alertBox("Error", e.getMessage());
+		} catch (Exception e){
+			PopUp.alertBox("Error", "An unknown error has occurred");
+			e.printStackTrace();
+		}
+
 	}
 	/*This method will fill an array with a specified number of integers to be used in a comboBox*/
 	private static String[] setNumberDays(int sizeIn)
@@ -478,7 +517,7 @@ public class AddItem
         }
         return ary;
     }
-	public static void addParent()
+	public static void addParent(int playerId, int parentPlace)
 	{
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -509,7 +548,7 @@ public class AddItem
 		Label contactNoLabel = new Label("Enter contact number:");
 		Label emailLabel = new Label("Enter email:");
 		Label paymentTypeLabel = new Label("Select payment type:");
-		Label numberOfChildrenLabel = new Label("Select number of children:");
+		/*Label numberOfChildrenLabel = new Label("Select number of children:");*/
 
 		TextField firstNameInput = new TextField();
 		TextField surnameInput = new TextField();
@@ -525,7 +564,7 @@ public class AddItem
 		numberOfChildrenInput.getItems().addAll("1", "2", "3", "4", "5", "5+");
 
 		paymentTypeInput.setValue("Cash");
-		numberOfChildrenInput.setValue("1");
+		/*numberOfChildrenInput.setValue("1");*/
 
 		Button submitButton = new Button("Submit");
 		Button closeButton = new Button("Close");
@@ -538,8 +577,8 @@ public class AddItem
 					address02Input.getText(),
 					contactNoInput.getText(),
 					emailInput.getText(),
-					paymentTypeInput.getValue(),
-					numberOfChildrenInput.getValue()
+					paymentTypeInput.getValue()
+					/*numberOfChildrenInput.getValue()*/
 			};
 			try{
 				if(!ValidationController.fieldsFilled(attrs)){
@@ -548,33 +587,62 @@ public class AddItem
 					if(!ValidationController.checkEmail(emailInput.getText())){
 						PopUp.alertBox(notFilledTitle, "Please enter a valid email");
 					} else {
-						int numKids = convertChildrenToInt(numberOfChildrenInput.getValue());
+						int numKids = 0;
 						if(numKids == -999){
 							PopUp.alertBox(notFilledTitle, "Please select a valid number of children");
 						} else{
-							Parent tempParent = new Parent(ItemCounter.numberOfParents,
-									attrs[0],
-									attrs[1],
-									attrs[2],
-									attrs[3],
-									attrs[4],
-									attrs[5],
-									attrs[7],
-									4,
-									1
-							);
-							if(Lists.parentList.addItem(tempParent)){
-								PopUp.alertBox("Success", "Parent added successfully");
-								firstNameInput.setText(null);
-								surnameInput.setText(null);
-								address01Input.setText(null);
-								address02Input.setText(null);
-								contactNoInput.setText(null);
-								emailInput.setText(null);
-								paymentTypeInput.setValue("Cash");
-								numberOfChildrenInput.setValue("1");
-							} else{
-								PopUp.alertBox("Failed", "The parent was not added");
+							Parent parent = null;
+							if(paymentTypeInput.getValue().equalsIgnoreCase("standing order")){
+								String[] frequencyValues = {"1", "3", "6"};
+								String frequencyString = PopUp.singleComboBox(frequencyValues, "select frequency", "Please select the frequency of payments");
+								int frequency = convertToInt(frequencyString);
+								if (frequency != 999) {
+									parent = new InstallmentPayment(
+											playerId,
+											attrs[0],
+											attrs[1],
+											attrs[2],
+											attrs[3],
+											attrs[4],
+											attrs[5],
+											frequency,
+											paymentTypeInput.getValue(),
+											parentPlace
+									);
+								} else {
+									PopUp.alertBox("Error", "Frequency input error: please enter a valid number");
+								}
+							} else {
+								parent = new Parent(playerId,
+										attrs[0],
+										attrs[1],
+										attrs[2],
+										attrs[3],
+										attrs[4],
+										attrs[5],
+										attrs[6],
+										4,
+										parentPlace + 1
+
+								);
+							}
+							if(parent != null){
+								if(Lists.parentList.addItem(parent)){
+									PopUp.alertBox("Success", "Parent added successfully");
+									firstNameInput.setText(null);
+									surnameInput.setText(null);
+									address01Input.setText(null);
+									address02Input.setText(null);
+									contactNoInput.setText(null);
+									emailInput.setText(null);
+									paymentTypeInput.setValue("Cash");
+									numberOfChildrenInput.setValue("1");
+									window.close();
+								} else{
+									PopUp.alertBox("Failed", "The parent was not added");
+								}
+							} else {
+								PopUp.alertBox("Error", "Parent was not created and thus cannot be added");
 							}
 						}
 					}
@@ -605,8 +673,6 @@ public class AddItem
 		GridPane.setConstraints(emailInput, 1, 5);
 		GridPane.setConstraints(paymentTypeLabel, 0, 6);
 		GridPane.setConstraints(paymentTypeInput, 1, 6);
-		GridPane.setConstraints(numberOfChildrenLabel, 0, 7);
-		GridPane.setConstraints(numberOfChildrenInput, 1, 7);
 		GridPane.setConstraints(submitButton, 0, 8);
 		GridPane.setConstraints(closeButton, 1, 8);
 
@@ -625,8 +691,6 @@ public class AddItem
 				emailInput,
 				paymentTypeLabel,
 				paymentTypeInput,
-				numberOfChildrenLabel,
-				numberOfChildrenInput,
 				submitButton, closeButton
 		);
 		BorderPane outerLayout = new BorderPane();
@@ -637,10 +701,7 @@ public class AddItem
 		window.setScene(scene);
 		window.showAndWait();
 	}
-	private static int convertChildrenToInt(String num){
-		if(num.length() == 2){
-			return Integer.parseInt(num.substring(0, 1));
-		}
+	private static int convertToInt(String num){
 		try{
 			return Integer.parseInt(num);
 		} catch (NumberFormatException e){
